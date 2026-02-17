@@ -1141,6 +1141,10 @@ h3,
 }
 
 @media (max-width: 640px) {
+  body {
+    padding-bottom: 5rem;
+  }
+
   .top-nav {
     margin-top: .9rem;
     padding: .65rem;
