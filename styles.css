@@ -1144,7 +1144,7 @@ h3,
 
 @media (max-width: 640px) {
   body {
-    padding-bottom: 5rem;
+    padding-bottom: 80px;
   }
 
   .top-nav {
@@ -1195,6 +1195,10 @@ h3,
   .bottom-nav {
     padding: .65rem;
     padding-bottom: calc(.65rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .site-footer {
+    margin-bottom: 80px;
   }
 }
 
