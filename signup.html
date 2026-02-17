@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hodo | Login</title>
+  <title>Hodo | Sign Up</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -18,36 +18,57 @@
         <a class="logo-brand" href="index.html" aria-label="Hodo Home">
           <img class="logo-img" src="assets/hodo-logo.png" alt="Hodo logo">
         </a>
-        <h1>Welcome Back</h1>
-        <p>Sign in to continue to your account</p>
+        <h1>Create Account</h1>
+        <p>Join Hodo for premium menswear</p>
       </div>
 
-      <!-- Login Form -->
-      <form id="loginForm" class="auth-form">
-        <div class="form-group">
-          <label for="loginEmail">Email Address</label>
-          <input type="email" id="loginEmail" name="email" placeholder="Enter your email" required>
+      <!-- Register Form -->
+      <form id="registerForm" class="auth-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="registerFirstName">First Name</label>
+            <input type="text" id="registerFirstName" name="firstName" placeholder="First name" required>
+          </div>
+          <div class="form-group">
+            <label for="registerLastName">Last Name</label>
+            <input type="text" id="registerLastName" name="lastName" placeholder="Last name" required>
+          </div>
         </div>
         <div class="form-group">
-          <label for="loginPassword">Password</label>
-          <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+          <label for="registerEmail">Email Address</label>
+          <input type="email" id="registerEmail" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="registerPhone">Phone Number</label>
+          <input type="tel" id="registerPhone" name="phone" placeholder="Enter your phone number">
+        </div>
+        <div class="form-group">
+          <label for="registerPassword">Password</label>
+          <input type="password" id="registerPassword" name="password" placeholder="Create a password (min 6 characters)" required minlength="6">
+          <div class="password-strength" id="passwordStrength">
+            <div class="strength-bar"><span></span></div>
+            <span class="strength-text">Password strength</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="registerConfirmPassword">Confirm Password</label>
+          <input type="password" id="registerConfirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
         </div>
         <div class="form-options">
           <label class="checkbox-label">
-            <input type="checkbox" id="rememberMe" name="remember">
-            <span>Remember me</span>
+            <input type="checkbox" id="agreeTerms" name="terms" required>
+            <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
           </label>
-          <a href="#" class="forgot-link">Forgot password?</a>
         </div>
-        <p class="status-line" id="loginStatus" aria-live="polite"></p>
-        <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+        <p class="status-line" id="registerStatus" aria-live="polite"></p>
+        <button type="submit" class="btn btn-primary btn-full">Create Account</button>
         <p class="auth-switch">
-          Don't have an account? <a href="signup.html">Create one</a>
+          Already have an account? <a href="login.html">Sign in</a>
         </p>
       </form>
 
       <div class="auth-divider">
-        <span>or continue with</span>
+        <span>or sign up with</span>
       </div>
 
       <div class="social-auth">
@@ -69,12 +90,34 @@
       </div>
 
       <div class="auth-footer">
-        <p>By continuing, you agree to Hodo's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+        <p>By creating an account, you'll receive exclusive offers and updates from Hodo.</p>
       </div>
     </div>
   </main>
 
   <script src="transitions.js"></script>
   <script src="auth.js" defer></script>
+  <script>
+    // Password strength indicator
+    document.getElementById('registerPassword').addEventListener('input', function(e) {
+      const password = e.target.value;
+      const strengthBar = document.querySelector('.strength-bar span');
+      const strengthText = document.querySelector('.strength-text');
+      
+      let strength = 0;
+      if (password.length >= 6) strength++;
+      if (password.length >= 8) strength++;
+      if (/[A-Z]/.test(password)) strength++;
+      if (/[0-9]/.test(password)) strength++;
+      if (/[^A-Za-z0-9]/.test(password)) strength++;
+      
+      const colors = ['#ef4444', '#f97316', '#eab308', '#22c55e', '#10b981'];
+      const texts = ['Very weak', 'Weak', 'Fair', 'Strong', 'Very strong'];
+      
+      strengthBar.style.width = (strength * 20) + '%';
+      strengthBar.style.backgroundColor = colors[strength - 1] || '#e5e7eb';
+      strengthText.textContent = texts[strength - 1] || 'Password strength';
+    });
+  </script>
 </body>
 </html>

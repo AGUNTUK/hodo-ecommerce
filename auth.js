@@ -65,8 +65,8 @@ async function checkAuthState() {
       currentUser = session.user;
       userRole = isAdmin(session.user.email) ? 'admin' : 'customer';
       
-      // If on login page and already logged in, redirect
-      if (window.location.pathname.includes('login.html')) {
+      // If on login or signup page and already logged in, redirect
+      if (window.location.pathname.includes('login.html') || window.location.pathname.includes('signup.html')) {
         redirectBasedOnRole();
       }
     }
@@ -152,9 +152,12 @@ async function handleRegister(event) {
   event.preventDefault();
   clearStatus(registerStatus);
 
-  const name = document.getElementById('registerName').value.trim();
+  // Get form fields - support both old and new field names
+  const firstName = document.getElementById('registerFirstName')?.value.trim() || '';
+  const lastName = document.getElementById('registerLastName')?.value.trim() || '';
+  const name = document.getElementById('registerName')?.value.trim() || `${firstName} ${lastName}`.trim();
   const email = document.getElementById('registerEmail').value.trim();
-  const phone = document.getElementById('registerPhone').value.trim();
+  const phone = document.getElementById('registerPhone')?.value.trim() || '';
   const password = document.getElementById('registerPassword').value;
   const confirmPassword = document.getElementById('registerConfirmPassword').value;
 
