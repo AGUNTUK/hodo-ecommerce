@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hodo - Premium Menswear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <style>
+    .loading-screen {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .loading-logo {
+      width: 100px;
+      height: auto;
+      margin-bottom: 2rem;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(0.98); }
+    }
+    .loading-text {
+      font-size: 1.2rem;
+      color: var(--muted);
+    }
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--surface);
+      border-top-color: var(--red);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-top: 1rem;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body data-page="router">
+  <div class="loading-screen">
+    <img class="loading-logo" src="assets/hodo-logo.png" alt="Hodo">
+    <p class="loading-text">Loading Hodo...</p>
+    <div class="loading-spinner"></div>
+  </div>
+
+  <script>
+    // Admin emails configuration
+    const ADMIN_EMAILS = [
+      'admin@hodo.com',
+      'sohel@hodo.com'
+    ];
+
+    function isAdmin(email) {
+      return ADMIN_EMAILS.includes(email.toLowerCase());
+    }
+
+    async function routeUser() {
+      try {
+        // Check if supabaseClient exists
+        if (!window.supabaseClient) {
+          console.log('Supabase client not found, redirecting to shop...');
+          window.location.href = 'shop.html';
+          return;
+        }
+
+        const { data: { session }, error } = await supabaseClient.auth.getSession();
+        
+        if (error) {
+          console.error('Session error:', error);
+          window.location.href = 'shop.html';
+          return;
+        }
+        
+        if (session && session.user) {
+          const email = session.user.email;
+          if (isAdmin(email)) {
+            // Admin user - go to admin dashboard
+            window.location.href = 'admin/index.html';
+          } else {
+            // Customer user - go to shop
+            window.location.href = 'shop.html';
+          }
+        } else {
+          // Not logged in - go to shop (public access)
+          window.location.href = 'shop.html';
+        }
+      } catch (error) {
+        console.error('Routing error:', error);
+        // On error, default to shop
+        window.location.href = 'shop.html';
+      }
+    }
+
+    // Wait for DOM and Supabase to be ready
+    document.addEventListener('DOMContentLoaded', () => {
+      // Small delay to ensure Supabase is initialized
+      setTimeout(routeUser, 100);
+    });
+  </script>
+  <script src="transitions.js"></script>
+</body>
+</html>

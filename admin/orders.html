@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hodo Admin - Orders</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body data-page="orders">
+
+  <div class="dashboard-container">
+    <!-- ======================= Sidebar ======================= -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="logo">HODO<span>ADMIN</span></a>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-link" data-page-link="dashboard"><i data-feather="grid"></i><span>Dashboard</span></a>
+        <a href="orders.html" class="nav-link active" data-page-link="orders"><i data-feather="package"></i><span>Orders</span></a>
+        <a href="products.html" class="nav-link" data-page-link="products"><i data-feather="tag"></i><span>Products</span></a>
+        <a href="hero.html" class="nav-link" data-page-link="hero"><i data-feather="image"></i><span>Hero Slides</span></a>
+        <a href="#" class="nav-link"><i data-feather="archive"></i><span>Inventory</span></a>
+        <a href="#" class="nav-link"><i data-feather="users"></i><span>Customers</span></a>
+        <a href="#" class="nav-link"><i data-feather="gift"></i><span>Discounts</span></a>
+        <a href="#" class="nav-link"><i data-feather="layout"></i><span>Banners / Homepage</span></a>
+        <a href="#" class="nav-link"><i data-feather="star"></i><span>Reviews</span></a>
+        <a href="#" class="nav-link"><i data-feather="credit-card"></i><span>Payments</span></a>
+        <a href="#" class="nav-link"><i data-feather="bar-chart-2"></i><span>Analytics</span></a>
+        <a href="#" class="nav-link"><i data-feather="truck"></i><span>Shipping</span></a>
+        <a href="#" class="nav-link"><i data-feather="user-check"></i><span>Staff / Roles</span></a>
+        <a href="#" class="nav-link"><i data-feather="settings"></i><span>Settings</span></a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="#" class="nav-link" data-action="logout"><i data-feather="log-out"></i><span>Logout</span></a>
+      </div>
+    </aside>
+
+    <!-- ======================= Main Content ======================= -->
+    <div class="main-wrapper">
+      <!-- Header -->
+      <header class="header">
+        <h1 class="page-title">Orders Management</h1>
+        <div class="header-actions">
+          <div class="search-bar">
+            <i data-feather="search"></i>
+            <input type="text" placeholder="Search orders...">
+          </div>
+          <button class="icon-btn">
+            <i data-feather="bell"></i>
+          </button>
+          <div class="profile-section">
+            <img src="https://i.pravatar.cc/40?u=admin" alt="Admin">
+          </div>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <main class="main-content">
+        <div class="panel-card full-width">
+            <h4 class="panel-title">All Orders</h4>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer</th>
+                  <th>Amount</th>
+                  <th>Payment Status</th>
+                  <th>Order Status</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="ordersTableBody">
+                <!-- Orders will be loaded here by JS -->
+                <tr>
+                  <td colspan="7" class="text-center">Loading orders...</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../supabase-config.js"></script>
+  <script src="../transitions.js"></script>
+  <script src="../auth.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

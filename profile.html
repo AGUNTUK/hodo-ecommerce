@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hodo | Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Supabase JS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+</head>
+<body data-page="profile">
+  <header class="top-nav surface">
+    <a class="logo-brand" href="index.html" aria-label="Hodo Home">
+      <img class="logo-img" src="assets/hodo-logo.png" alt="Hodo logo">
+    </a>
+
+    <form class="search-wrap surface-inset global-search-form" role="search">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"></circle>
+        <path d="m20 20-3.5-3.5"></path>
+      </svg>
+      <input type="search" name="q" placeholder="Search premium menswear">
+    </form>
+
+        <div class="nav-actions">
+      <a class="icon-btn soft-button desktop-only-icon" data-page-link="home" href="index.html" aria-label="Home">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 10.5 12 3l9 7.5V21h-6v-6h-6v6H3z"></path>
+        </svg>
+      </a>
+      <a class="icon-btn soft-button desktop-only-icon" data-page-link="shop" href="shop.html" aria-label="Shop">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 8h12l-1 12H7z"></path>
+          <path d="M9 8V6a3 3 0 0 1 6 0v2"></path>
+          <path d="M9 12h0"></path>
+          <path d="M15 12h0"></path>
+        </svg>
+      </a>
+      <a class="icon-btn soft-button" data-page-link="cart" href="cart.html" aria-label="Cart">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="9" cy="19" r="1.5"></circle>
+          <circle cx="17" cy="19" r="1.5"></circle>
+          <path d="M3 4h2l2.2 10h10.6l2-7H6.4"></path>
+        </svg>
+      </a>
+      <a class="icon-btn soft-button" data-page-link="profile" href="profile.html" aria-label="Profile">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="8" r="3.2"></circle>
+          <path d="M4.5 19a8.8 8.8 0 0 1 15 0"></path>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-hero surface">
+      <p class="eyebrow">Account</p>
+      <h1>Manage Your Profile</h1>
+      <p>Update personal details and keep your Hodo account information current.</p>
+    </section>
+
+    <section class="profile-layout">
+      <article class="profile-card surface">
+        <h2>Personal Details</h2>
+        <form class="profile-form" id="profileForm">
+          <label for="profileName">Full Name</label>
+          <input class="profile-input surface-inset" id="profileName" name="name" required>
+
+          <label for="profileEmail">Email</label>
+          <input class="profile-input surface-inset" id="profileEmail" name="email" type="email" required>
+
+          <label for="profilePhone">Phone</label>
+          <input class="profile-input surface-inset" id="profilePhone" name="phone">
+
+          <label for="profileAddress">Address</label>
+          <input class="profile-input surface-inset" id="profileAddress" name="address">
+
+          <button class="btn btn-primary" type="submit">Save Profile</button>
+        </form>
+        <p class="status-line" id="profileStatus" aria-live="polite"></p>
+      </article>
+
+      <aside class="profile-side">
+        <div class="profile-stat surface">
+          <h3>Member Tier</h3>
+          <p>Hodo Black</p>
+        </div>
+        <div class="profile-stat surface">
+          <h3>Quick Actions</h3>
+          <div class="profile-quick-links">
+            <a class="btn btn-soft" href="shop.html">Continue Shopping</a>
+            <a class="btn btn-soft" href="cart.html">Open Cart</a>
+            <button class="btn btn-soft" id="logoutBtn" style="width: 100%; margin-top: 0.5rem;">Sign Out</button>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="contact-panel surface">
+      <h2>Contact Hodo</h2>
+      <p><strong>Shop Address:</strong> 2/13, Noorjahan Road, Mohammadpur, Dhaka</p>
+      <div class="contact-actions">
+        <a class="contact-icon" href="tel:+8801956927088" aria-label="Call Hodo" title="Call Hodo">
+          <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.2-1.2a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.6.7A2 2 0 0 1 22 16.9z"></path></svg>
+        </a>
+        <a class="contact-icon" href="https://www.facebook.com/p/Hodo-100063910240902/" target="_blank" rel="noopener noreferrer" aria-label="Open Hodo Facebook" title="Hodo Facebook">
+          <svg class="icon-fill" viewBox="0 0 24 24"><path d="M13.3 22v-8h2.7l.5-3h-3.2V9c0-.9.3-1.5 1.6-1.5h1.7V5c-.3 0-1.4-.1-2.6-.1-2.6 0-4.3 1.6-4.3 4.5v1.6H7.5v3h2.2v8h3.6Z"></path></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav surface" aria-label="Primary navigation">
+    <a class="bottom-link" data-page-link="home" href="index.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 10.5 12 3l9 7.5V21h-6v-6h-6v6H3z"></path>
+      </svg>
+      <span>Home</span>
+    </a>
+    <a class="bottom-link" data-page-link="shop" href="shop.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 6h18"></path>
+        <path d="M7 6v14h10V6"></path>
+        <path d="M9.5 10.5h5"></path>
+      </svg>
+      <span>Shop</span>
+    </a>
+    <a class="bottom-link" data-page-link="cart" href="cart.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="9" cy="19" r="1.5"></circle>
+        <circle cx="17" cy="19" r="1.5"></circle>
+        <path d="M3 4h2l2.2 10h10.6l2-7H6.4"></path>
+      </svg>
+      <span>Cart</span>
+    </a>
+    <a class="bottom-link" data-page-link="profile" href="profile.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="8" r="3.2"></circle>
+        <path d="M4.5 19a8.8 8.8 0 0 1 15 0"></path>
+      </svg>
+      <span>Profile</span>
+    </a>
+  </nav>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-contact">
+        <a class="footer-icon" href="tel:+8801940681989" aria-label="Call Hodo" title="Call Hodo">
+          <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.2-1.2a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.6.7A2 2 0 0 1 22 16.9z"></path></svg>
+        </a>
+        <a class="footer-icon whatsapp" href="https://wa.me/8801940681989" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Hodo" title="WhatsApp Hodo">
+          <svg viewBox="0 0 24 24"><path d="M17.5 14.5c-.3.1-1.7.8-2 .9s-.5.1-.7-.1c-.2-.3-1-1.3-1.2-1.5s-.3-.2-.6-.1c-.3.1-1.2.5-1.5.6s-.5.1-.7-.1c-.2-.3-.8-1.1-1.4-1.8-.5-.6-.9-1.1-1-1.3-.1-.2 0-.4.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.4-1.1-.6-1.5c-.2-.4-.3-.4-.5-.4h-.5c-.2 0-.4 0-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.7 2.6 4.1 3.6.6.2 1 .4 1.4.5.6.2 1.1.1 1.5.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.1-.5-.2z"></path><path d="M12 2a10 10 0 0 0-8.2 15.7L2 22l4.5-1.7A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.3-1.3l-.3-.2-2.8.9.9-2.7-.2-.3A8 8 0 1 1 12 20z"></path></svg>
+        </a>
+      </div>
+      <p class="footer-copyright">© 2026 Hodo. All rights reserved.</p>
+      <p class="footer-credit">Made with ❤️ by Sohel Rana</p>
+    </div>
+  </footer>
+
+  <script src="auth.js"></script>
+  <script src="transitions.js"></script>
+  <script src="app-supabase.js" defer></script>
+</body>
+</html>
