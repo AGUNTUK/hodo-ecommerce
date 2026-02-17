@@ -509,18 +509,20 @@ h3,
 
 .bottom-nav {
   position: fixed;
-  left: 50%;
-  bottom: 1rem;
-  transform: translateX(-50%);
-  width: min(470px, 92vw);
-  z-index: 20;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 9999;
   padding: .55rem;
-  border-radius: 22px;
+  padding-bottom: calc(.55rem + env(safe-area-inset-bottom, 0px));
+  border-radius: 0;
   backdrop-filter: blur(10px);
-  background: rgba(238, 241, 245, .92);
+  background: rgba(238, 241, 245, .95);
   display: none;
   grid-template-columns: repeat(4, 1fr);
   gap: .45rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .bottom-link {
@@ -1191,8 +1193,8 @@ h3,
   }
 
   .bottom-nav {
-    width: 94vw;
-    bottom: .75rem;
+    padding: .65rem;
+    padding-bottom: calc(.65rem + env(safe-area-inset-bottom, 0px));
   }
 }
 
