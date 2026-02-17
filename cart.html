@@ -148,5 +148,21 @@
   <script src="auth.js"></script>
   <script src="transitions.js"></script>
   <script src="app-supabase.js" defer></script>
+  <script>
+    // Protect cart page - redirect to login if not authenticated
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Wait a moment for auth to initialize
+      await new Promise(resolve => setTimeout(resolve, 100));
+      
+      if (!window.HodoAuth) {
+        console.error('Auth module not found');
+        window.location.href = 'login.html';
+        return;
+      }
+      
+      const isAuthorized = await window.HodoAuth.protectCustomerRoute();
+      if (!isAuthorized) return;
+    });
+  </script>
 </body>
 </html>
