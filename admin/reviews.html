@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews & Ratings - HODO Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Left Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/hodo-logo.png" alt="HODO Logo" class="sidebar-logo">
+                <span class="sidebar-title">HODO Admin</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard Overview</span>
+                </a>
+                <a href="orders.html" class="nav-item">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="products.html" class="nav-item">
+                    <i class="fas fa-tshirt"></i>
+                    <span>Products</span>
+                </a>
+                <a href="inventory.html" class="nav-item">
+                    <i class="fas fa-warehouse"></i>
+                    <span>Inventory</span>
+                </a>
+                <a href="customers.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="discounts.html" class="nav-item">
+                    <i class="fas fa-percent"></i>
+                    <span>Discounts / Coupons</span>
+                </a>
+                <a href="banners.html" class="nav-item">
+                    <i class="fas fa-images"></i>
+                    <span>Banners / Homepage</span>
+                </a>
+                <a href="reviews.html" class="nav-item active">
+                    <i class="fas fa-star"></i>
+                    <span>Reviews / Ratings</span>
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payments / Transactions</span>
+                </a>
+                <a href="analytics.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics / Reports</span>
+                </a>
+                <a href="shipping.html" class="nav-item">
+                    <i class="fas fa-truck"></i>
+                    <span>Shipping / Delivery</span>
+                </a>
+                <a href="staff.html" class="nav-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Staff / Admin Roles</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" class="nav-item">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>View Store</span>
+                </a>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header Bar -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h1 class="page-title">Reviews & Ratings</h1>
+                </div>
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search reviews...">
+                    </div>
+                    <div class="header-actions">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">5</span>
+                        </button>
+                        <div class="admin-profile">
+                            <img src="https://ui-avatars.com/api/?name=Admin&background=e74c3c&color=fff" alt="Admin">
+                            <div class="profile-dropdown">
+                                <span class="profile-name">Admin User</span>
+                                <span class="profile-role">Super Admin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Reviews Content -->
+            <div class="dashboard-content">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="header-info">
+                        <p class="text-muted">Manage customer reviews and ratings</p>
+                    </div>
+                </div>
+
+                <!-- Review Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(243, 156, 18, 0.15); color: #f39c12;">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Average Rating</span>
+                            <span class="stat-value">4.6 <small style="font-size: 0.6em; color: #718096;">/ 5.0</small></span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(52, 152, 219, 0.15); color: #3498db;">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Total Reviews</span>
+                            <span class="stat-value">1,284</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(39, 174, 96, 0.15); color: #27ae60;">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Approved</span>
+                            <span class="stat-value">1,156</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(231, 76, 60, 0.15); color: #e74c3c;">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Pending Approval</span>
+                            <span class="stat-value">128</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rating Distribution -->
+                <div class="rating-distribution">
+                    <div class="distribution-card">
+                        <h3>Rating Distribution</h3>
+                        <div class="rating-bars">
+                            <div class="rating-bar-row">
+                                <span class="rating-label">5 <i class="fas fa-star"></i></span>
+                                <div class="rating-bar">
+                                    <div class="rating-fill" style="width: 68%;"></div>
+                                </div>
+                                <span class="rating-count">872</span>
+                            </div>
+                            <div class="rating-bar-row">
+                                <span class="rating-label">4 <i class="fas fa-star"></i></span>
+                                <div class="rating-bar">
+                                    <div class="rating-fill" style="width: 18%;"></div>
+                                </div>
+                                <span class="rating-count">231</span>
+                            </div>
+                            <div class="rating-bar-row">
+                                <span class="rating-label">3 <i class="fas fa-star"></i></span>
+                                <div class="rating-bar">
+                                    <div class="rating-fill" style="width: 8%;"></div>
+                                </div>
+                                <span class="rating-count">102</span>
+                            </div>
+                            <div class="rating-bar-row">
+                                <span class="rating-label">2 <i class="fas fa-star"></i></span>
+                                <div class="rating-bar">
+                                    <div class="rating-fill" style="width: 4%;"></div>
+                                </div>
+                                <span class="rating-count">51</span>
+                            </div>
+                            <div class="rating-bar-row">
+                                <span class="rating-label">1 <i class="fas fa-star"></i></span>
+                                <div class="rating-bar">
+                                    <div class="rating-fill" style="width: 2%;"></div>
+                                </div>
+                                <span class="rating-count">28</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tab-btn active">All Reviews</button>
+                    <button class="tab-btn">Pending <span class="badge">128</span></button>
+                    <button class="tab-btn">Approved</button>
+                    <button class="tab-btn">Rejected</button>
+                </div>
+
+                <!-- Filters -->
+                <div class="filters-bar">
+                    <div class="filter-group">
+                        <label>Rating</label>
+                        <select class="filter-select">
+                            <option value="">All Ratings</option>
+                            <option value="5">5 Stars</option>
+                            <option value="4">4 Stars</option>
+                            <option value="3">3 Stars</option>
+                            <option value="2">2 Stars</option>
+                            <option value="1">1 Star</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Product</label>
+                        <select class="filter-select">
+                            <option value="">All Products</option>
+                            <option value="tshirt">Classic White T-Shirt</option>
+                            <option value="jeans">Casual Blue Jeans</option>
+                            <option value="dress">Summer Floral Dress</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Date Range</label>
+                        <select class="filter-select">
+                            <option value="">All Time</option>
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Reviews List -->
+                <div class="reviews-list">
+                    <!-- Review Card 1 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <img src="https://ui-avatars.com/api/?name=John+Doe&background=3498db&color=fff" alt="">
+                                <div>
+                                    <span class="reviewer-name">John Doe</span>
+                                    <span class="review-date">Feb 18, 2026</span>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="status-badge delivered">Approved</span>
+                            </div>
+                        </div>
+                        <div class="review-product">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=100" alt="">
+                            <div>
+                                <span class="product-name">Classic White T-Shirt</span>
+                                <span class="product-variant">Size: M | Color: White</span>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <h4>Excellent quality and fit!</h4>
+                            <p>This t-shirt exceeded my expectations. The fabric is soft and breathable, and the fit is perfect. I've already ordered two more in different colors. Highly recommend!</p>
+                        </div>
+                        <div class="review-images">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200" alt="">
+                            <img src="https://images.unsplash.com/photo-1622445275576-721325763afe?w=200" alt="">
+                        </div>
+                        <div class="review-footer">
+                            <div class="review-helpful">
+                                <span><i class="fas fa-thumbs-up"></i> 24 found helpful</span>
+                            </div>
+                            <div class="review-actions">
+                                <button class="btn btn-secondary btn-sm">
+                                    <i class="fas fa-reply"></i> Reply
+                                </button>
+                                <button class="action-btn delete" title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review Card 2 - Pending -->
+                    <div class="review-card pending">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=9b59b6&color=fff" alt="">
+                                <div>
+                                    <span class="reviewer-name">Jane Smith</span>
+                                    <span class="review-date">Feb 17, 2026</span>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="status-badge pending">Pending</span>
+                            </div>
+                        </div>
+                        <div class="review-product">
+                            <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=100" alt="">
+                            <div>
+                                <span class="product-name">Casual Blue Jeans</span>
+                                <span class="product-variant">Size: 32 | Color: Blue</span>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <h4>Great jeans, slightly long</h4>
+                            <p>Really comfortable jeans with good stretch. The quality is excellent for the price. Only reason for 4 stars is they run a bit long, so consider ordering a shorter inseam.</p>
+                        </div>
+                        <div class="review-footer">
+                            <div class="review-helpful">
+                                <span><i class="fas fa-thumbs-up"></i> 8 found helpful</span>
+                            </div>
+                            <div class="review-actions">
+                                <button class="btn btn-primary btn-sm" onclick="approveReview('2')">
+                                    <i class="fas fa-check"></i> Approve
+                                </button>
+                                <button class="btn btn-secondary btn-sm" onclick="rejectReview('2')">
+                                    <i class="fas fa-times"></i> Reject
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review Card 3 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <img src="https://ui-avatars.com/api/?name=Mike+Johnson&background=e67e22&color=fff" alt="">
+                                <div>
+                                    <span class="reviewer-name">Mike Johnson</span>
+                                    <span class="review-date">Feb 16, 2026</span>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="status-badge delivered">Approved</span>
+                            </div>
+                        </div>
+                        <div class="review-product">
+                            <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=100" alt="">
+                            <div>
+                                <span class="product-name">Summer Floral Dress</span>
+                                <span class="product-variant">Size: S | Color: Floral</span>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <h4>Nice dress but color differs</h4>
+                            <p>The dress itself is well-made and fits nicely. However, the actual color is slightly different from the photos - more pink than shown. Still keeping it as it's a quality product.</p>
+                        </div>
+                        <div class="review-footer">
+                            <div class="review-helpful">
+                                <span><i class="fas fa-thumbs-up"></i> 15 found helpful</span>
+                            </div>
+                            <div class="review-actions">
+                                <button class="btn btn-secondary btn-sm">
+                                    <i class="fas fa-reply"></i> Reply
+                                </button>
+                                <button class="action-btn delete" title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review Card 4 - Rejected -->
+                    <div class="review-card rejected">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <img src="https://ui-avatars.com/api/?name=Spam+User&background=e74c3c&color=fff" alt="">
+                                <div>
+                                    <span class="reviewer-name">Spam User</span>
+                                    <span class="review-date">Feb 15, 2026</span>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="status-badge cancelled">Rejected</span>
+                            </div>
+                        </div>
+                        <div class="review-product">
+                            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=100" alt="">
+                            <div>
+                                <span class="product-name">Leather Jacket</span>
+                                <span class="product-variant">Size: L | Color: Black</span>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <h4>Spam review title</h4>
+                            <p>This review was rejected due to inappropriate content or spam.</p>
+                        </div>
+                        <div class="review-footer">
+                            <div class="rejection-reason">
+                                <i class="fas fa-info-circle"></i> Reason: Spam content detected
+                            </div>
+                            <div class="review-actions">
+                                <button class="btn btn-secondary btn-sm" onclick="approveReview('4')">
+                                    <i class="fas fa-undo"></i> Restore
+                                </button>
+                                <button class="action-btn delete" title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="pagination-btn" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <button class="pagination-btn">4</button>
+                    <button class="pagination-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script>
+        // Additional styles for reviews page
+        const style = document.createElement('style');
+        style.textContent = `
+            .rating-distribution {
+                margin-bottom: 24px;
+            }
+            .distribution-card {
+                background: #f0f4f8;
+                border-radius: 16px;
+                padding: 24px;
+                box-shadow: 8px 8px 16px rgba(163, 177, 198, 0.5), -8px -8px 16px rgba(255, 255, 255, 0.8);
+            }
+            .distribution-card h3 {
+                font-size: 1rem;
+                margin-bottom: 16px;
+            }
+            .rating-bars {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+            .rating-bar-row {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .rating-label {
+                width: 50px;
+                font-size: 0.9rem;
+                color: #718096;
+            }
+            .rating-label i {
+                color: #f39c12;
+                font-size: 0.75rem;
+            }
+            .rating-bar {
+                flex: 1;
+                height: 8px;
+                background: #e4e9f0;
+                border-radius: 4px;
+                overflow: hidden;
+            }
+            .rating-fill {
+                height: 100%;
+                background: #f39c12;
+                border-radius: 4px;
+            }
+            .rating-count {
+                width: 40px;
+                text-align: right;
+                font-size: 0.85rem;
+                color: #718096;
+            }
+            .reviews-list {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+            .review-card {
+                background: #f0f4f8;
+                border-radius: 16px;
+                padding: 24px;
+                box-shadow: 8px 8px 16px rgba(163, 177, 198, 0.5), -8px -8px 16px rgba(255, 255, 255, 0.8);
+            }
+            .review-card.pending {
+                border-left: 4px solid #f39c12;
+            }
+            .review-card.rejected {
+                border-left: 4px solid #e74c3c;
+                opacity: 0.7;
+            }
+            .review-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-bottom: 16px;
+            }
+            .reviewer-info {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .reviewer-info img {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+            }
+            .reviewer-name {
+                display: block;
+                font-weight: 600;
+            }
+            .review-date {
+                font-size: 0.85rem;
+                color: #718096;
+            }
+            .review-rating {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 8px;
+            }
+            .stars {
+                color: #f39c12;
+            }
+            .stars i {
+                font-size: 0.9rem;
+            }
+            .review-product {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px;
+                background: #e4e9f0;
+                border-radius: 10px;
+                margin-bottom: 16px;
+            }
+            .review-product img {
+                width: 50px;
+                height: 50px;
+                border-radius: 8px;
+                object-fit: cover;
+            }
+            .product-variant {
+                font-size: 0.8rem;
+                color: #718096;
+            }
+            .review-content h4 {
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+            .review-content p {
+                color: #718096;
+                line-height: 1.6;
+            }
+            .review-images {
+                display: flex;
+                gap: 8px;
+                margin-top: 16px;
+            }
+            .review-images img {
+                width: 80px;
+                height: 80px;
+                border-radius: 8px;
+                object-fit: cover;
+                cursor: pointer;
+            }
+            .review-footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 16px;
+                padding-top: 16px;
+                border-top: 1px solid #e4e9f0;
+            }
+            .review-helpful span {
+                font-size: 0.85rem;
+                color: #718096;
+            }
+            .review-helpful i {
+                color: #27ae60;
+            }
+            .review-actions {
+                display: flex;
+                gap: 8px;
+            }
+            .rejection-reason {
+                font-size: 0.85rem;
+                color: #e74c3c;
+            }
+            .rejection-reason i {
+                margin-right: 6px;
+            }
+            .badge {
+                background: #e74c3c;
+                color: white;
+                padding: 2px 8px;
+                border-radius: 10px;
+                font-size: 0.7rem;
+                margin-left: 6px;
+            }
+        `;
+        document.head.appendChild(style);
+
+        function approveReview(reviewId) {
+            showNotification('Review approved successfully!', 'success');
+        }
+
+        function rejectReview(reviewId) {
+            showNotification('Review rejected', 'info');
+        }
+    </script>
+</body>
+</html>

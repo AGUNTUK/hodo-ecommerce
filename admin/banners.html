@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banners & Homepage - HODO Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Left Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/hodo-logo.png" alt="HODO Logo" class="sidebar-logo">
+                <span class="sidebar-title">HODO Admin</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard Overview</span>
+                </a>
+                <a href="orders.html" class="nav-item">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="products.html" class="nav-item">
+                    <i class="fas fa-tshirt"></i>
+                    <span>Products</span>
+                </a>
+                <a href="inventory.html" class="nav-item">
+                    <i class="fas fa-warehouse"></i>
+                    <span>Inventory</span>
+                </a>
+                <a href="customers.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="discounts.html" class="nav-item">
+                    <i class="fas fa-percent"></i>
+                    <span>Discounts / Coupons</span>
+                </a>
+                <a href="banners.html" class="nav-item active">
+                    <i class="fas fa-images"></i>
+                    <span>Banners / Homepage</span>
+                </a>
+                <a href="reviews.html" class="nav-item">
+                    <i class="fas fa-star"></i>
+                    <span>Reviews / Ratings</span>
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payments / Transactions</span>
+                </a>
+                <a href="analytics.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics / Reports</span>
+                </a>
+                <a href="shipping.html" class="nav-item">
+                    <i class="fas fa-truck"></i>
+                    <span>Shipping / Delivery</span>
+                </a>
+                <a href="staff.html" class="nav-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Staff / Admin Roles</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" class="nav-item">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>View Store</span>
+                </a>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header Bar -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h1 class="page-title">Banners & Homepage</h1>
+                </div>
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <div class="header-actions">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">5</span>
+                        </button>
+                        <div class="admin-profile">
+                            <img src="https://ui-avatars.com/api/?name=Admin&background=e74c3c&color=fff" alt="Admin">
+                            <div class="profile-dropdown">
+                                <span class="profile-name">Admin User</span>
+                                <span class="profile-role">Super Admin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Banners Content -->
+            <div class="dashboard-content">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="header-info">
+                        <p class="text-muted">Manage hero banners, featured products, and promotional sections</p>
+                    </div>
+                    <div class="header-actions-group">
+                        <button class="btn btn-primary" onclick="openModal('addBannerModal')">
+                            <i class="fas fa-plus"></i> Add Banner
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tab-btn active">Hero Banners</button>
+                    <button class="tab-btn">Featured Products</button>
+                    <button class="tab-btn">Promotional Sections</button>
+                </div>
+
+                <!-- Hero Banners Section -->
+                <div class="banners-section">
+                    <div class="section-header">
+                        <h3>Hero Banners</h3>
+                        <span class="text-muted">Drag to reorder banner priority</span>
+                    </div>
+
+                    <div class="banners-list">
+                        <!-- Banner 1 -->
+                        <div class="banner-card">
+                            <div class="banner-preview">
+                                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800" alt="Summer Collection">
+                                <div class="banner-overlay">
+                                    <span class="banner-position">1</span>
+                                </div>
+                            </div>
+                            <div class="banner-info">
+                                <div class="banner-header">
+                                    <h4>Summer Collection 2026</h4>
+                                    <span class="status-badge delivered">Active</span>
+                                </div>
+                                <p class="banner-desc">Discover the latest summer trends with our new collection</p>
+                                <div class="banner-meta">
+                                    <span><i class="fas fa-link"></i> /shop/summer-2026</span>
+                                    <span><i class="fas fa-calendar"></i> Feb 1 - Apr 30, 2026</span>
+                                </div>
+                                <div class="banner-controls">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                    <div class="action-btns">
+                                        <button class="action-btn edit" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="action-btn delete" title="Delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="banner-drag">
+                                <i class="fas fa-grip-vertical"></i>
+                            </div>
+                        </div>
+
+                        <!-- Banner 2 -->
+                        <div class="banner-card">
+                            <div class="banner-preview">
+                                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800" alt="New Arrivals">
+                                <div class="banner-overlay">
+                                    <span class="banner-position">2</span>
+                                </div>
+                            </div>
+                            <div class="banner-info">
+                                <div class="banner-header">
+                                    <h4>New Arrivals</h4>
+                                    <span class="status-badge delivered">Active</span>
+                                </div>
+                                <p class="banner-desc">Check out our latest additions to the store</p>
+                                <div class="banner-meta">
+                                    <span><i class="fas fa-link"></i> /shop/new-arrivals</span>
+                                    <span><i class="fas fa-calendar"></i> Always visible</span>
+                                </div>
+                                <div class="banner-controls">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                    <div class="action-btns">
+                                        <button class="action-btn edit" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="action-btn delete" title="Delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="banner-drag">
+                                <i class="fas fa-grip-vertical"></i>
+                            </div>
+                        </div>
+
+                        <!-- Banner 3 -->
+                        <div class="banner-card">
+                            <div class="banner-preview">
+                                <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800" alt="Sale">
+                                <div class="banner-overlay">
+                                    <span class="banner-position">3</span>
+                                </div>
+                            </div>
+                            <div class="banner-info">
+                                <div class="banner-header">
+                                    <h4>Flash Sale - Up to 50% Off</h4>
+                                    <span class="status-badge pending">Scheduled</span>
+                                </div>
+                                <p class="banner-desc">Limited time offer on selected items</p>
+                                <div class="banner-meta">
+                                    <span><i class="fas fa-link"></i> /shop/sale</span>
+                                    <span><i class="fas fa-calendar"></i> Feb 25 - Feb 28, 2026</span>
+                                </div>
+                                <div class="banner-controls">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                    <div class="action-btns">
+                                        <button class="action-btn edit" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="action-btn delete" title="Delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="banner-drag">
+                                <i class="fas fa-grip-vertical"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Products Section -->
+                <div class="featured-section">
+                    <div class="section-header">
+                        <h3>Featured Products</h3>
+                        <button class="btn btn-secondary btn-sm">
+                            <i class="fas fa-plus"></i> Add Products
+                        </button>
+                    </div>
+
+                    <div class="featured-products-grid">
+                        <div class="featured-product-card">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200" alt="">
+                            <div class="featured-info">
+                                <span class="product-name">Classic White T-Shirt</span>
+                                <span class="product-price">$30.00</span>
+                            </div>
+                            <button class="remove-featured">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="featured-product-card">
+                            <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=200" alt="">
+                            <div class="featured-info">
+                                <span class="product-name">Casual Blue Jeans</span>
+                                <span class="product-price">$89.00</span>
+                            </div>
+                            <button class="remove-featured">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="featured-product-card">
+                            <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=200" alt="">
+                            <div class="featured-info">
+                                <span class="product-name">Summer Floral Dress</span>
+                                <span class="product-price">$75.00</span>
+                            </div>
+                            <button class="remove-featured">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="featured-product-card">
+                            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=200" alt="">
+                            <div class="featured-info">
+                                <span class="product-name">Leather Jacket</span>
+                                <span class="product-price">$150.00</span>
+                            </div>
+                            <button class="remove-featured">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="featured-product-card add-more">
+                            <i class="fas fa-plus"></i>
+                            <span>Add More</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Promotional Sections -->
+                <div class="promo-sections">
+                    <div class="section-header">
+                        <h3>Promotional Sections</h3>
+                    </div>
+
+                    <div class="promo-grid">
+                        <!-- Promo Card 1 -->
+                        <div class="promo-card">
+                            <div class="promo-preview" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">
+                                <i class="fas fa-percentage"></i>
+                                <h3>Special Offer</h3>
+                                <p>Get 20% off on your first order!</p>
+                            </div>
+                            <div class="promo-info">
+                                <div class="promo-header">
+                                    <h4>First Order Discount</h4>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <p>Shown on homepage for new visitors</p>
+                                <div class="promo-actions">
+                                    <button class="btn btn-secondary btn-sm">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Promo Card 2 -->
+                        <div class="promo-card">
+                            <div class="promo-preview" style="background: linear-gradient(135deg, #3498db, #2980b9);">
+                                <i class="fas fa-truck"></i>
+                                <h3>Free Shipping</h3>
+                                <p>On orders over $75</p>
+                            </div>
+                            <div class="promo-info">
+                                <div class="promo-header">
+                                    <h4>Free Shipping Banner</h4>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <p>Top bar announcement</p>
+                                <div class="promo-actions">
+                                    <button class="btn btn-secondary btn-sm">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Promo Card 3 -->
+                        <div class="promo-card">
+                            <div class="promo-preview" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">
+                                <i class="fas fa-newspaper"></i>
+                                <h3>Newsletter</h3>
+                                <p>Subscribe for exclusive deals</p>
+                            </div>
+                            <div class="promo-info">
+                                <div class="promo-header">
+                                    <h4>Newsletter Signup</h4>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <p>Footer subscription form</p>
+                                <div class="promo-actions">
+                                    <button class="btn btn-secondary btn-sm">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Banner Modal -->
+    <div class="modal-overlay" id="addBannerModal">
+        <div class="modal" style="max-width: 700px;">
+            <div class="modal-header">
+                <h2>Add New Banner</h2>
+                <button class="modal-close" onclick="closeModal('addBannerModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="bannerForm">
+                    <div class="form-group">
+                        <label>Banner Title</label>
+                        <input type="text" class="form-control" placeholder="e.g., Summer Collection 2026" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Subtitle / Description</label>
+                        <input type="text" class="form-control" placeholder="e.g., Discover the latest trends">
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Link URL</label>
+                            <input type="text" class="form-control" placeholder="/shop/summer-2026">
+                        </div>
+                        <div class="form-group">
+                            <label>Button Text</label>
+                            <input type="text" class="form-control" placeholder="Shop Now">
+                        </div>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Start Date</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>End Date</label>
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Banner Image</label>
+                        <div class="image-upload-area" onclick="document.getElementById('bannerImageInput').click()">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Click to upload banner image<br><small>Recommended: 1920x600px, JPG/PNG</small></p>
+                        </div>
+                        <input type="file" id="bannerImageInput" accept="image/*" style="display: none;">
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile Image (Optional)</label>
+                        <div class="image-upload-area" onclick="document.getElementById('mobileBannerInput').click()">
+                            <i class="fas fa-mobile-alt"></i>
+                            <p>Click to upload mobile banner<br><small>Recommended: 800x1000px</small></p>
+                        </div>
+                        <input type="file" id="mobileBannerInput" accept="image/*" style="display: none;">
+                    </div>
+                    <div class="form-group">
+                        <label>Display Position</label>
+                        <select class="form-control">
+                            <option value="1">Position 1 (First)</option>
+                            <option value="2">Position 2</option>
+                            <option value="3">Position 3</option>
+                            <option value="4">Position 4</option>
+                            <option value="5">Position 5 (Last)</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('addBannerModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveBanner()">
+                    <i class="fas fa-check"></i> Save Banner
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script>
+        // Additional styles for banners page
+        const style = document.createElement('style');
+        style.textContent = `
+            .banners-section, .featured-section, .promo-sections {
+                background: #f0f4f8;
+                border-radius: 16px;
+                padding: 24px;
+                box-shadow: 8px 8px 16px rgba(163, 177, 198, 0.5), -8px -8px 16px rgba(255, 255, 255, 0.8);
+                margin-bottom: 24px;
+            }
+            .section-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+            .section-header h3 {
+                font-size: 1.1rem;
+                font-weight: 600;
+            }
+            .banners-list {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+            .banner-card {
+                display: flex;
+                gap: 20px;
+                padding: 16px;
+                background: #e4e9f0;
+                border-radius: 12px;
+                box-shadow: inset 4px 4px 8px rgba(163, 177, 198, 0.5), inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+                cursor: grab;
+            }
+            .banner-preview {
+                width: 200px;
+                height: 100px;
+                border-radius: 8px;
+                overflow: hidden;
+                position: relative;
+                flex-shrink: 0;
+            }
+            .banner-preview img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .banner-overlay {
+                position: absolute;
+                top: 8px;
+                left: 8px;
+            }
+            .banner-position {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 24px;
+                height: 24px;
+                background: rgba(0, 0, 0, 0.6);
+                color: white;
+                border-radius: 50%;
+                font-size: 0.8rem;
+                font-weight: 600;
+            }
+            .banner-info {
+                flex: 1;
+            }
+            .banner-header {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 8px;
+            }
+            .banner-header h4 {
+                font-size: 1rem;
+                font-weight: 600;
+            }
+            .banner-desc {
+                font-size: 0.9rem;
+                color: #718096;
+                margin-bottom: 8px;
+            }
+            .banner-meta {
+                display: flex;
+                gap: 16px;
+                font-size: 0.8rem;
+                color: #a0aec0;
+                margin-bottom: 12px;
+            }
+            .banner-meta span {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+            .banner-controls {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+            }
+            .banner-drag {
+                display: flex;
+                align-items: center;
+                color: #a0aec0;
+                cursor: grab;
+            }
+            .featured-products-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 16px;
+            }
+            .featured-product-card {
+                position: relative;
+                background: #e4e9f0;
+                border-radius: 12px;
+                padding: 12px;
+                text-align: center;
+                box-shadow: 4px 4px 8px rgba(163, 177, 198, 0.5), -4px -4px 8px rgba(255, 255, 255, 0.8);
+            }
+            .featured-product-card img {
+                width: 80px;
+                height: 80px;
+                border-radius: 8px;
+                object-fit: cover;
+                margin-bottom: 8px;
+            }
+            .featured-info {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+            }
+            .featured-info .product-name {
+                font-size: 0.85rem;
+                font-weight: 500;
+            }
+            .featured-info .product-price {
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: #e74c3c;
+            }
+            .remove-featured {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+                width: 24px;
+                height: 24px;
+                border: none;
+                background: #fdeaea;
+                color: #e74c3c;
+                border-radius: 50%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.75rem;
+            }
+            .featured-product-card.add-more {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                min-height: 150px;
+                border: 2px dashed #a0aec0;
+                background: transparent;
+                cursor: pointer;
+                color: #a0aec0;
+            }
+            .featured-product-card.add-more:hover {
+                border-color: #e74c3c;
+                color: #e74c3c;
+            }
+            .promo-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 20px;
+            }
+            .promo-card {
+                background: #e4e9f0;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 4px 4px 8px rgba(163, 177, 198, 0.5), -4px -4px 8px rgba(255, 255, 255, 0.8);
+            }
+            .promo-preview {
+                padding: 30px 20px;
+                text-align: center;
+                color: white;
+            }
+            .promo-preview i {
+                font-size: 2rem;
+                margin-bottom: 12px;
+            }
+            .promo-preview h3 {
+                font-size: 1.25rem;
+                margin-bottom: 8px;
+            }
+            .promo-preview p {
+                font-size: 0.9rem;
+                opacity: 0.9;
+            }
+            .promo-info {
+                padding: 16px;
+            }
+            .promo-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 8px;
+            }
+            .promo-header h4 {
+                font-size: 0.95rem;
+                font-weight: 600;
+            }
+            .promo-info p {
+                font-size: 0.85rem;
+                color: #718096;
+                margin-bottom: 12px;
+            }
+        `;
+        document.head.appendChild(style);
+
+        function saveBanner() {
+            showNotification('Banner saved successfully!', 'success');
+            closeModal('addBannerModal');
+        }
+    </script>
+</body>
+</html>

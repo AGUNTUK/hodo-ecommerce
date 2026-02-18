@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff & Admin Roles - HODO Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Left Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/hodo-logo.png" alt="HODO Logo" class="sidebar-logo">
+                <span class="sidebar-title">HODO Admin</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard Overview</span>
+                </a>
+                <a href="orders.html" class="nav-item">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="products.html" class="nav-item">
+                    <i class="fas fa-tshirt"></i>
+                    <span>Products</span>
+                </a>
+                <a href="inventory.html" class="nav-item">
+                    <i class="fas fa-warehouse"></i>
+                    <span>Inventory</span>
+                </a>
+                <a href="customers.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="discounts.html" class="nav-item">
+                    <i class="fas fa-percent"></i>
+                    <span>Discounts / Coupons</span>
+                </a>
+                <a href="banners.html" class="nav-item">
+                    <i class="fas fa-images"></i>
+                    <span>Banners / Homepage</span>
+                </a>
+                <a href="reviews.html" class="nav-item">
+                    <i class="fas fa-star"></i>
+                    <span>Reviews / Ratings</span>
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payments / Transactions</span>
+                </a>
+                <a href="analytics.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics / Reports</span>
+                </a>
+                <a href="shipping.html" class="nav-item">
+                    <i class="fas fa-truck"></i>
+                    <span>Shipping / Delivery</span>
+                </a>
+                <a href="staff.html" class="nav-item active">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Staff / Admin Roles</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" class="nav-item">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>View Store</span>
+                </a>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header Bar -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h1 class="page-title">Staff & Admin Roles</h1>
+                </div>
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search staff...">
+                    </div>
+                    <div class="header-actions">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">5</span>
+                        </button>
+                        <div class="admin-profile">
+                            <img src="https://ui-avatars.com/api/?name=Admin&background=e74c3c&color=fff" alt="Admin">
+                            <div class="profile-dropdown">
+                                <span class="profile-name">Admin User</span>
+                                <span class="profile-role">Super Admin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Staff Content -->
+            <div class="dashboard-content">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="header-info">
+                        <p class="text-muted">Manage team members and role-based access control</p>
+                    </div>
+                    <div class="header-actions-group">
+                        <button class="btn btn-primary" onclick="openModal('addStaffModal')">
+                            <i class="fas fa-plus"></i> Add Staff Member
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Staff Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(52, 152, 219, 0.15); color: #3498db;">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Total Staff</span>
+                            <span class="stat-value">12</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(39, 174, 96, 0.15); color: #27ae60;">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Active Now</span>
+                            <span class="stat-value">8</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(155, 89, 182, 0.15); color: #9b59b6;">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Admins</span>
+                            <span class="stat-value">3</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(243, 156, 18, 0.15); color: #f39c12;">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Managers</span>
+                            <span class="stat-value">4</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tab-btn active">All Staff</button>
+                    <button class="tab-btn">Admins</button>
+                    <button class="tab-btn">Managers</button>
+                    <button class="tab-btn">Staff</button>
+                    <button class="tab-btn">Roles</button>
+                </div>
+
+                <!-- Staff Table -->
+                <div class="table-card full-width-table">
+                    <div class="table-header">
+                        <h3>Team Members</h3>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Staff Member</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Department</th>
+                                    <th>Status</th>
+                                    <th>Last Active</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Admin&background=e74c3c&color=fff" alt="">
+                                            <div>
+                                                <span>Admin User</span>
+                                                <small class="text-muted">Super Admin</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>admin@hodo.com</td>
+                                    <td><span class="role-badge super-admin">Super Admin</span></td>
+                                    <td>Management</td>
+                                    <td><span class="status-badge delivered">Active</span></td>
+                                    <td>Online now</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn view" title="View">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn edit" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Sarah+Manager&background=9b59b6&color=fff" alt="">
+                                            <div>
+                                                <span>Sarah Manager</span>
+                                                <small class="text-muted">Admin</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>sarah@hodo.com</td>
+                                    <td><span class="role-badge admin">Admin</span></td>
+                                    <td>Operations</td>
+                                    <td><span class="status-badge delivered">Active</span></td>
+                                    <td>5 mins ago</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn view" title="View">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn edit" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="action-btn delete" title="Remove">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Mike+Ops&background=3498db&color=fff" alt="">
+                                            <div>
+                                                <span>Mike Operations</span>
+                                                <small class="text-muted">Manager</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>mike@hodo.com</td>
+                                    <td><span class="role-badge manager">Manager</span></td>
+                                    <td>Warehouse</td>
+                                    <td><span class="status-badge delivered">Active</span></td>
+                                    <td>15 mins ago</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn view" title="View">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn edit" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="action-btn delete" title="Remove">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Emma+Sales&background=27ae60&color=fff" alt="">
+                                            <div>
+                                                <span>Emma Sales</span>
+                                                <small class="text-muted">Staff</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>emma@hodo.com</td>
+                                    <td><span class="role-badge staff">Staff</span></td>
+                                    <td>Sales</td>
+                                    <td><span class="status-badge delivered">Active</span></td>
+                                    <td>1 hour ago</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn view" title="View">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn edit" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="action-btn delete" title="Remove">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://ui-avatars.com/api/?name=John+Support&background=e67e22&color=fff" alt="">
+                                            <div>
+                                                <span>John Support</span>
+                                                <small class="text-muted">Staff</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>john@hodo.com</td>
+                                    <td><span class="role-badge staff">Staff</span></td>
+                                    <td>Customer Support</td>
+                                    <td><span class="status-badge pending">Away</span></td>
+                                    <td>3 hours ago</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn view" title="View">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn edit" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="action-btn delete" title="Remove">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Lisa+Content&background=1abc9c&color=fff" alt="">
+                                            <div>
+                                                <span>Lisa Content</span>
+                                                <small class="text-muted">Staff</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>lisa@hodo.com</td>
+                                    <td><span class="role-badge staff">Staff</span></td>
+                                    <td>Content</td>
+                                    <td><span class="status-badge cancelled">Offline</span></td>
+                                    <td>Yesterday</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn view" title="View">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn edit" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="action-btn delete" title="Remove">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Roles & Permissions Section -->
+                <div class="roles-section">
+                    <div class="section-header">
+                        <h3>Roles & Permissions</h3>
+                        <button class="btn btn-secondary btn-sm">
+                            <i class="fas fa-plus"></i> Create Role
+                        </button>
+                    </div>
+                    <div class="roles-grid">
+                        <!-- Super Admin Role -->
+                        <div class="role-card">
+                            <div class="role-header">
+                                <div class="role-icon super-admin">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                                <div class="role-info">
+                                    <h4>Super Admin</h4>
+                                    <span>Full system access</span>
+                                </div>
+                            </div>
+                            <div class="role-permissions">
+                                <div class="permission-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>All permissions</span>
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Manage all users</span>
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>System settings</span>
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Billing access</span>
+                                </div>
+                            </div>
+                            <div class="role-count">1 member</div>
+                        </div>
+
+                        <!-- Admin Role -->
+                        <div class="role-card">
+                            <div class="role-header">
+                                <div class="role-icon admin">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <div class="role-info">
+                                    <h4>Admin</h4>
+                                    <span>Store management</span>
+                                </div>
+                            </div>
+                            <div class="role-permissions">
+                                <div class="permission-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Manage products</span>
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Manage orders</span>
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>View analytics</span>
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span>System settings</span>
+                                </div>
+                            </div>
+                            <div class="role-count">2 members</div>
+                        </div>
+
+                        <!-- Manager Role -->
+                        <div class="role-card">
+                            <div class="role-header">
+                                <div class="role-icon manager">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="role-info">
+                                    <h4>Manager</h4>
+                                    <span>Department access</span>
+                                </div>
+                            </div>
+                            <div class="role-permissions">
+                                <div class="permission-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>View orders</span>
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Update inventory</span>
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span>Manage products</span>
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span>View analytics</span>
+                                </div>
+                            </div>
+                            <div class="role-count">4 members</div>
+                        </div>
+
+                        <!-- Staff Role -->
+                        <div class="role-card">
+                            <div class="role-header">
+                                <div class="role-icon staff">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="role-info">
+                                    <h4>Staff</h4>
+                                    <span>Basic access</span>
+                                </div>
+                            </div>
+                            <div class="role-permissions">
+                                <div class="permission-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>View orders</span>
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Update status</span>
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span>Manage products</span>
+                                </div>
+                                <div class="permission-item">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span>View analytics</span>
+                                </div>
+                            </div>
+                            <div class="role-count">5 members</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Staff Modal -->
+    <div class="modal-overlay" id="addStaffModal">
+        <div class="modal" style="max-width: 600px;">
+            <div class="modal-header">
+                <h2>Add Staff Member</h2>
+                <button class="modal-close" onclick="closeModal('addStaffModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="staffForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" placeholder="First name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" placeholder="Last name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" placeholder="email@example.com" required>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Role</label>
+                            <select class="form-control" required>
+                                <option value="">Select role</option>
+                                <option value="admin">Admin</option>
+                                <option value="manager">Manager</option>
+                                <option value="staff">Staff</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Department</label>
+                            <select class="form-control" required>
+                                <option value="">Select department</option>
+                                <option value="management">Management</option>
+                                <option value="operations">Operations</option>
+                                <option value="sales">Sales</option>
+                                <option value="support">Customer Support</option>
+                                <option value="content">Content</option>
+                                <option value="warehouse">Warehouse</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Temporary Password</label>
+                        <input type="password" class="form-control" placeholder="Set temporary password">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox"> Send welcome email with login details
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('addStaffModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveStaff()">
+                    <i class="fas fa-check"></i> Add Staff Member
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script>
+        // Additional styles for staff page
+        const style = document.createElement('style');
+        style.textContent = `
+            .roles-section {
+                background: #f0f4f8;
+                border-radius: 16px;
+                padding: 24px;
+                box-shadow: 8px 8px 16px rgba(163, 177, 198, 0.5), -8px -8px 16px rgba(255, 255, 255, 0.8);
+                margin-top: 24px;
+            }
+            .section-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+            .section-header h3 {
+                font-size: 1.1rem;
+                font-weight: 600;
+            }
+            .role-badge {
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 0.75rem;
+                font-weight: 600;
+            }
+            .role-badge.super-admin {
+                background: rgba(243, 156, 18, 0.15);
+                color: #f39c12;
+            }
+            .role-badge.admin {
+                background: rgba(155, 89, 182, 0.15);
+                color: #9b59b6;
+            }
+            .role-badge.manager {
+                background: rgba(52, 152, 219, 0.15);
+                color: #3498db;
+            }
+            .role-badge.staff {
+                background: rgba(116, 125, 140, 0.15);
+                color: #718096;
+            }
+            .roles-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            .role-card {
+                background: #e4e9f0;
+                border-radius: 12px;
+                padding: 20px;
+                box-shadow: 4px 4px 8px rgba(163, 177, 198, 0.5), -4px -4px 8px rgba(255, 255, 255, 0.8);
+            }
+            .role-header {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 16px;
+            }
+            .role-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+            }
+            .role-icon.super-admin { background: #f39c12; }
+            .role-icon.admin { background: #9b59b6; }
+            .role-icon.manager { background: #3498db; }
+            .role-icon.staff { background: #718096; }
+            .role-info h4 {
+                font-size: 0.95rem;
+                margin-bottom: 2px;
+            }
+            .role-info span {
+                font-size: 0.8rem;
+                color: #718096;
+            }
+            .role-permissions {
+                margin-bottom: 16px;
+            }
+            .permission-item {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 6px 0;
+                font-size: 0.85rem;
+            }
+            .permission-item i.fa-check-circle {
+                color: #27ae60;
+            }
+            .permission-item i.fa-times-circle {
+                color: #e74c3c;
+            }
+            .role-count {
+                font-size: 0.8rem;
+                color: #718096;
+                padding-top: 12px;
+                border-top: 1px solid rgba(163, 177, 198, 0.3);
+            }
+        `;
+        document.head.appendChild(style);
+
+        function saveStaff() {
+            showNotification('Staff member added successfully!', 'success');
+            closeModal('addStaffModal');
+        }
+    </script>
+</body>
+</html>

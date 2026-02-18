@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping & Delivery - HODO Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Left Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/hodo-logo.png" alt="HODO Logo" class="sidebar-logo">
+                <span class="sidebar-title">HODO Admin</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard Overview</span>
+                </a>
+                <a href="orders.html" class="nav-item">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="products.html" class="nav-item">
+                    <i class="fas fa-tshirt"></i>
+                    <span>Products</span>
+                </a>
+                <a href="inventory.html" class="nav-item">
+                    <i class="fas fa-warehouse"></i>
+                    <span>Inventory</span>
+                </a>
+                <a href="customers.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="discounts.html" class="nav-item">
+                    <i class="fas fa-percent"></i>
+                    <span>Discounts / Coupons</span>
+                </a>
+                <a href="banners.html" class="nav-item">
+                    <i class="fas fa-images"></i>
+                    <span>Banners / Homepage</span>
+                </a>
+                <a href="reviews.html" class="nav-item">
+                    <i class="fas fa-star"></i>
+                    <span>Reviews / Ratings</span>
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payments / Transactions</span>
+                </a>
+                <a href="analytics.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics / Reports</span>
+                </a>
+                <a href="shipping.html" class="nav-item active">
+                    <i class="fas fa-truck"></i>
+                    <span>Shipping / Delivery</span>
+                </a>
+                <a href="staff.html" class="nav-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Staff / Admin Roles</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" class="nav-item">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>View Store</span>
+                </a>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header Bar -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h1 class="page-title">Shipping & Delivery</h1>
+                </div>
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <div class="header-actions">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">5</span>
+                        </button>
+                        <div class="admin-profile">
+                            <img src="https://ui-avatars.com/api/?name=Admin&background=e74c3c&color=fff" alt="Admin">
+                            <div class="profile-dropdown">
+                                <span class="profile-name">Admin User</span>
+                                <span class="profile-role">Super Admin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Shipping Content -->
+            <div class="dashboard-content">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="header-info">
+                        <p class="text-muted">Configure delivery charges, zones, and shipping partners</p>
+                    </div>
+                    <div class="header-actions-group">
+                        <button class="btn btn-primary" onclick="openModal('addZoneModal')">
+                            <i class="fas fa-plus"></i> Add Zone
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Shipping Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(52, 152, 219, 0.15); color: #3498db;">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Active Shipments</span>
+                            <span class="stat-value">156</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(39, 174, 96, 0.15); color: #27ae60;">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Delivered Today</span>
+                            <span class="stat-value">48</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(243, 156, 18, 0.15); color: #f39c12;">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Pending Pickup</span>
+                            <span class="stat-value">23</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(155, 89, 182, 0.15); color: #9b59b6;">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Delivery Zones</span>
+                            <span class="stat-value">8</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tab-btn active">Delivery Zones</button>
+                    <button class="tab-btn">Shipping Rates</button>
+                    <button class="tab-btn">Courier Partners</button>
+                </div>
+
+                <!-- Delivery Zones Section -->
+                <div class="zones-section">
+                    <div class="zones-grid">
+                        <!-- Zone Card 1 -->
+                        <div class="zone-card">
+                            <div class="zone-header">
+                                <div class="zone-info">
+                                    <h3>Zone A - Local</h3>
+                                    <span class="zone-badge active">Active</span>
+                                </div>
+                                <div class="zone-actions">
+                                    <button class="action-btn edit" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="zone-body">
+                                <div class="zone-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Dhaka City (All Areas)</span>
+                                </div>
+                                <div class="zone-detail">
+                                    <i class="fas fa-truck"></i>
+                                    <span>Standard: 1-2 days</span>
+                                </div>
+                                <div class="zone-detail">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>Express: Same day</span>
+                                </div>
+                                <div class="zone-rates">
+                                    <div class="rate-item">
+                                        <span class="rate-label">Standard Delivery</span>
+                                        <span class="rate-value">$5.00</span>
+                                    </div>
+                                    <div class="rate-item">
+                                        <span class="rate-label">Express Delivery</span>
+                                        <span class="rate-value">$10.00</span>
+                                    </div>
+                                    <div class="rate-item">
+                                        <span class="rate-label">Free Delivery Above</span>
+                                        <span class="rate-value">$75.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Zone Card 2 -->
+                        <div class="zone-card">
+                            <div class="zone-header">
+                                <div class="zone-info">
+                                    <h3>Zone B - Suburban</h3>
+                                    <span class="zone-badge active">Active</span>
+                                </div>
+                                <div class="zone-actions">
+                                    <button class="action-btn edit" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="zone-body">
+                                <div class="zone-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Surrounding Districts</span>
+                                </div>
+                                <div class="zone-detail">
+                                    <i class="fas fa-truck"></i>
+                                    <span>Standard: 2-3 days</span>
+                                </div>
+                                <div class="zone-detail">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>Express: 1 day</span>
+                                </div>
+                                <div class="zone-rates">
+                                    <div class="rate-item">
+                                        <span class="rate-label">Standard Delivery</span>
+                                        <span class="rate-value">$8.00</span>
+                                    </div>
+                                    <div class="rate-item">
+                                        <span class="rate-label">Express Delivery</span>
+                                        <span class="rate-value">$15.00</span>
+                                    </div>
+                                    <div class="rate-item">
+                                        <span class="rate-label">Free Delivery Above</span>
+                                        <span class="rate-value">$100.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Zone Card 3 -->
+                        <div class="zone-card">
+                            <div class="zone-header">
+                                <div class="zone-info">
+                                    <h3>Zone C - National</h3>
+                                    <span class="zone-badge active">Active</span>
+                                </div>
+                                <div class="zone-actions">
+                                    <button class="action-btn edit" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="zone-body">
+                                <div class="zone-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>All Other Regions</span>
+                                </div>
+                                <div class="zone-detail">
+                                    <i class="fas fa-truck"></i>
+                                    <span>Standard: 3-5 days</span>
+                                </div>
+                                <div class="zone-detail">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>Express: 2-3 days</span>
+                                </div>
+                                <div class="zone-rates">
+                                    <div class="rate-item">
+                                        <span class="rate-label">Standard Delivery</span>
+                                        <span class="rate-value">$12.00</span>
+                                    </div>
+                                    <div class="rate-item">
+                                        <span class="rate-label">Express Delivery</span>
+                                        <span class="rate-value">$25.00</span>
+                                    </div>
+                                    <div class="rate-item">
+                                        <span class="rate-label">Free Delivery Above</span>
+                                        <span class="rate-value">$150.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Zone Card 4 -->
+                        <div class="zone-card">
+                            <div class="zone-header">
+                                <div class="zone-info">
+                                    <h3>Zone D - International</h3>
+                                    <span class="zone-badge active">Active</span>
+                                </div>
+                                <div class="zone-actions">
+                                    <button class="action-btn edit" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="zone-body">
+                                <div class="zone-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Worldwide Shipping</span>
+                                </div>
+                                <div class="zone-detail">
+                                    <i class="fas fa-truck"></i>
+                                    <span>Standard: 7-14 days</span>
+                                </div>
+                                <div class="zone-detail">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>Express: 3-5 days</span>
+                                </div>
+                                <div class="zone-rates">
+                                    <div class="rate-item">
+                                        <span class="rate-label">Standard Delivery</span>
+                                        <span class="rate-value">$35.00</span>
+                                    </div>
+                                    <div class="rate-item">
+                                        <span class="rate-label">Express Delivery</span>
+                                        <span class="rate-value">$65.00</span>
+                                    </div>
+                                    <div class="rate-item">
+                                        <span class="rate-label">Free Delivery Above</span>
+                                        <span class="rate-value">$300.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Courier Partners Section -->
+                <div class="couriers-section">
+                    <div class="section-header">
+                        <h3>Courier Partners</h3>
+                        <button class="btn btn-secondary btn-sm">
+                            <i class="fas fa-plus"></i> Add Partner
+                        </button>
+                    </div>
+                    <div class="couriers-grid">
+                        <div class="courier-card">
+                            <div class="courier-logo">
+                                <img src="https://ui-avatars.com/api/?name=FDX&background=4A148C&color=fff&size=60" alt="FedEx">
+                            </div>
+                            <div class="courier-info">
+                                <h4>FedEx Express</h4>
+                                <span class="courier-type">International Partner</span>
+                                <div class="courier-stats">
+                                    <div class="courier-stat">
+                                        <span class="value">456</span>
+                                        <span class="label">Deliveries</span>
+                                    </div>
+                                    <div class="courier-stat">
+                                        <span class="value">98.5%</span>
+                                        <span class="label">On-time</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="courier-card">
+                            <div class="courier-logo">
+                                <img src="https://ui-avatars.com/api/?name=DHL&background=FFCC00&color=000&size=60" alt="DHL">
+                            </div>
+                            <div class="courier-info">
+                                <h4>DHL Express</h4>
+                                <span class="courier-type">International Partner</span>
+                                <div class="courier-stats">
+                                    <div class="courier-stat">
+                                        <span class="value">324</span>
+                                        <span class="label">Deliveries</span>
+                                    </div>
+                                    <div class="courier-stat">
+                                        <span class="value">97.2%</span>
+                                        <span class="label">On-time</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="courier-card">
+                            <div class="courier-logo">
+                                <img src="https://ui-avatars.com/api/?name=LOC&background=27ae60&color=fff&size=60" alt="Local">
+                            </div>
+                            <div class="courier-info">
+                                <h4>Local Express</h4>
+                                <span class="courier-type">Domestic Partner</span>
+                                <div class="courier-stats">
+                                    <div class="courier-stat">
+                                        <span class="value">892</span>
+                                        <span class="label">Deliveries</span>
+                                    </div>
+                                    <div class="courier-stat">
+                                        <span class="value">99.1%</span>
+                                        <span class="label">On-time</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Zone Modal -->
+    <div class="modal-overlay" id="addZoneModal">
+        <div class="modal" style="max-width: 600px;">
+            <div class="modal-header">
+                <h2>Add Delivery Zone</h2>
+                <button class="modal-close" onclick="closeModal('addZoneModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="zoneForm">
+                    <div class="form-group">
+                        <label>Zone Name</label>
+                        <input type="text" class="form-control" placeholder="e.g., Zone E - Remote Areas" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Coverage Areas</label>
+                        <textarea class="form-control" placeholder="List areas covered by this zone..." rows="3"></textarea>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Standard Delivery (Days)</label>
+                            <input type="text" class="form-control" placeholder="e.g., 3-5">
+                        </div>
+                        <div class="form-group">
+                            <label>Express Delivery (Days)</label>
+                            <input type="text" class="form-control" placeholder="e.g., 1-2">
+                        </div>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Standard Rate ($)</label>
+                            <input type="number" class="form-control" step="0.01" placeholder="0.00">
+                        </div>
+                        <div class="form-group">
+                            <label>Express Rate ($)</label>
+                            <input type="number" class="form-control" step="0.01" placeholder="0.00">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Free Delivery Threshold ($)</label>
+                        <input type="number" class="form-control" step="0.01" placeholder="Order amount for free shipping">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('addZoneModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveZone()">
+                    <i class="fas fa-check"></i> Save Zone
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script>
+        // Additional styles for shipping page
+        const style = document.createElement('style');
+        style.textContent = `
+            .zones-section, .couriers-section {
+                background: #f0f4f8;
+                border-radius: 16px;
+                padding: 24px;
+                box-shadow: 8px 8px 16px rgba(163, 177, 198, 0.5), -8px -8px 16px rgba(255, 255, 255, 0.8);
+                margin-bottom: 24px;
+            }
+            .section-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+            .section-header h3 {
+                font-size: 1.1rem;
+                font-weight: 600;
+            }
+            .zones-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 20px;
+            }
+            .zone-card {
+                background: #e4e9f0;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 4px 4px 8px rgba(163, 177, 198, 0.5), -4px -4px 8px rgba(255, 255, 255, 0.8);
+            }
+            .zone-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 16px;
+                background: linear-gradient(135deg, #e74c3c, #c0392b);
+                color: white;
+            }
+            .zone-info h3 {
+                font-size: 1rem;
+                margin-bottom: 4px;
+            }
+            .zone-badge {
+                padding: 2px 8px;
+                border-radius: 10px;
+                font-size: 0.7rem;
+                font-weight: 600;
+                background: rgba(255, 255, 255, 0.2);
+            }
+            .zone-actions {
+                display: flex;
+                gap: 8px;
+            }
+            .zone-actions .action-btn {
+                background: rgba(255, 255, 255, 0.2);
+                color: white;
+            }
+            .zone-body {
+                padding: 16px;
+            }
+            .zone-detail {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 8px 0;
+                font-size: 0.9rem;
+                color: #718096;
+            }
+            .zone-detail i {
+                width: 20px;
+                color: #e74c3c;
+            }
+            .zone-rates {
+                margin-top: 12px;
+                padding-top: 12px;
+                border-top: 1px solid rgba(163, 177, 198, 0.3);
+            }
+            .rate-item {
+                display: flex;
+                justify-content: space-between;
+                padding: 6px 0;
+                font-size: 0.85rem;
+            }
+            .rate-label {
+                color: #718096;
+            }
+            .rate-value {
+                font-weight: 600;
+                color: #2d3748;
+            }
+            .couriers-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 16px;
+            }
+            .courier-card {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                padding: 16px;
+                background: #e4e9f0;
+                border-radius: 12px;
+                box-shadow: 4px 4px 8px rgba(163, 177, 198, 0.5), -4px -4px 8px rgba(255, 255, 255, 0.8);
+            }
+            .courier-logo img {
+                width: 50px;
+                height: 50px;
+                border-radius: 10px;
+            }
+            .courier-info {
+                flex: 1;
+            }
+            .courier-info h4 {
+                font-size: 0.95rem;
+                margin-bottom: 2px;
+            }
+            .courier-type {
+                font-size: 0.8rem;
+                color: #718096;
+            }
+            .courier-stats {
+                display: flex;
+                gap: 16px;
+                margin-top: 8px;
+            }
+            .courier-stat {
+                text-align: center;
+            }
+            .courier-stat .value {
+                display: block;
+                font-size: 0.9rem;
+                font-weight: 700;
+            }
+            .courier-stat .label {
+                font-size: 0.7rem;
+                color: #718096;
+            }
+        `;
+        document.head.appendChild(style);
+
+        function saveZone() {
+            showNotification('Zone saved successfully!', 'success');
+            closeModal('addZoneModal');
+        }
+    </script>
+</body>
+</html>

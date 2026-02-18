@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discounts & Coupons - HODO Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Left Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/hodo-logo.png" alt="HODO Logo" class="sidebar-logo">
+                <span class="sidebar-title">HODO Admin</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard Overview</span>
+                </a>
+                <a href="orders.html" class="nav-item">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="products.html" class="nav-item">
+                    <i class="fas fa-tshirt"></i>
+                    <span>Products</span>
+                </a>
+                <a href="inventory.html" class="nav-item">
+                    <i class="fas fa-warehouse"></i>
+                    <span>Inventory</span>
+                </a>
+                <a href="customers.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="discounts.html" class="nav-item active">
+                    <i class="fas fa-percent"></i>
+                    <span>Discounts / Coupons</span>
+                </a>
+                <a href="banners.html" class="nav-item">
+                    <i class="fas fa-images"></i>
+                    <span>Banners / Homepage</span>
+                </a>
+                <a href="reviews.html" class="nav-item">
+                    <i class="fas fa-star"></i>
+                    <span>Reviews / Ratings</span>
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payments / Transactions</span>
+                </a>
+                <a href="analytics.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics / Reports</span>
+                </a>
+                <a href="shipping.html" class="nav-item">
+                    <i class="fas fa-truck"></i>
+                    <span>Shipping / Delivery</span>
+                </a>
+                <a href="staff.html" class="nav-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Staff / Admin Roles</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" class="nav-item">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>View Store</span>
+                </a>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header Bar -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h1 class="page-title">Discounts & Coupons</h1>
+                </div>
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search coupons...">
+                    </div>
+                    <div class="header-actions">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">5</span>
+                        </button>
+                        <div class="admin-profile">
+                            <img src="https://ui-avatars.com/api/?name=Admin&background=e74c3c&color=fff" alt="Admin">
+                            <div class="profile-dropdown">
+                                <span class="profile-name">Admin User</span>
+                                <span class="profile-role">Super Admin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Discounts Content -->
+            <div class="dashboard-content">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="header-info">
+                        <p class="text-muted">Manage promo codes and discount campaigns</p>
+                    </div>
+                    <div class="header-actions-group">
+                        <button class="btn btn-primary" onclick="openModal('addCouponModal')">
+                            <i class="fas fa-plus"></i> Create Coupon
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Coupon Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(39, 174, 96, 0.15); color: #27ae60;">
+                            <i class="fas fa-ticket-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Active Coupons</span>
+                            <span class="stat-value">24</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(243, 156, 18, 0.15); color: #f39c12;">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Scheduled</span>
+                            <span class="stat-value">8</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(155, 89, 182, 0.15); color: #9b59b6;">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Total Uses</span>
+                            <span class="stat-value">1,847</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(231, 76, 60, 0.15); color: #e74c3c;">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Total Savings</span>
+                            <span class="stat-value">$28,459</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tab-btn active">All Coupons</button>
+                    <button class="tab-btn">Active</button>
+                    <button class="tab-btn">Scheduled</button>
+                    <button class="tab-btn">Expired</button>
+                </div>
+
+                <!-- Coupons Grid -->
+                <div class="coupons-grid">
+                    <!-- Coupon Card 1 -->
+                    <div class="coupon-card">
+                        <div class="coupon-header">
+                            <div class="coupon-code">
+                                <span class="code">SAVE20</span>
+                                <button class="copy-btn" onclick="copyCode('SAVE20')" title="Copy code">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <span class="coupon-status active">Active</span>
+                        </div>
+                        <div class="coupon-body">
+                            <h3>20% Off All Items</h3>
+                            <p class="coupon-desc">Get 20% discount on all items in store. Minimum order $50.</p>
+                            <div class="coupon-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-percent"></i>
+                                    <span>20% discount</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>Min. order: $50</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Expires: Mar 31, 2026</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Used: 456 times</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="coupon-footer">
+                            <div class="usage-bar">
+                                <div class="usage-fill" style="width: 45%;"></div>
+                            </div>
+                            <span class="usage-text">456 / 1000 uses</span>
+                            <div class="coupon-actions">
+                                <button class="action-btn edit" onclick="openModal('editCouponModal')" title="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="action-btn delete" onclick="confirmDelete('coupon', 'SAVE20')" title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coupon Card 2 -->
+                    <div class="coupon-card">
+                        <div class="coupon-header">
+                            <div class="coupon-code">
+                                <span class="code">WELCOME10</span>
+                                <button class="copy-btn" onclick="copyCode('WELCOME10')" title="Copy code">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <span class="coupon-status active">Active</span>
+                        </div>
+                        <div class="coupon-body">
+                            <h3>Welcome Gift</h3>
+                            <p class="coupon-desc">Special 10% discount for new customers on their first order.</p>
+                            <div class="coupon-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-percent"></i>
+                                    <span>10% discount</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-user-plus"></i>
+                                    <span>New customers only</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>No expiry</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Used: 892 times</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="coupon-footer">
+                            <div class="usage-bar">
+                                <div class="usage-fill" style="width: 89%;"></div>
+                            </div>
+                            <span class="usage-text">892 / 1000 uses</span>
+                            <div class="coupon-actions">
+                                <button class="action-btn edit" onclick="openModal('editCouponModal')" title="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="action-btn delete" onclick="confirmDelete('coupon', 'WELCOME10')" title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coupon Card 3 -->
+                    <div class="coupon-card">
+                        <div class="coupon-header">
+                            <div class="coupon-code">
+                                <span class="code">FREESHIP</span>
+                                <button class="copy-btn" onclick="copyCode('FREESHIP')" title="Copy code">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <span class="coupon-status active">Active</span>
+                        </div>
+                        <div class="coupon-body">
+                            <h3>Free Shipping</h3>
+                            <p class="coupon-desc">Free shipping on orders over $75. Valid for standard shipping only.</p>
+                            <div class="coupon-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-truck"></i>
+                                    <span>Free shipping</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>Min. order: $75</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Expires: Apr 15, 2026</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Used: 234 times</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="coupon-footer">
+                            <div class="usage-bar">
+                                <div class="usage-fill" style="width: 23%;"></div>
+                            </div>
+                            <span class="usage-text">234 / 1000 uses</span>
+                            <div class="coupon-actions">
+                                <button class="action-btn edit" onclick="openModal('editCouponModal')" title="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="action-btn delete" onclick="confirmDelete('coupon', 'FREESHIP')" title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coupon Card 4 -->
+                    <div class="coupon-card">
+                        <div class="coupon-header">
+                            <div class="coupon-code">
+                                <span class="code">FLASH50</span>
+                                <button class="copy-btn" onclick="copyCode('FLASH50')" title="Copy code">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <span class="coupon-status scheduled">Scheduled</span>
+                        </div>
+                        <div class="coupon-body">
+                            <h3>Flash Sale</h3>
+                            <p class="coupon-desc">50% off on selected items. Limited time offer!</p>
+                            <div class="coupon-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-percent"></i>
+                                    <span>50% discount</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-tags"></i>
+                                    <span>Selected items only</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Starts: Feb 25, 2026</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Used: 0 times</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="coupon-footer">
+                            <div class="usage-bar">
+                                <div class="usage-fill" style="width: 0%;"></div>
+                            </div>
+                            <span class="usage-text">0 / 500 uses</span>
+                            <div class="coupon-actions">
+                                <button class="action-btn edit" onclick="openModal('editCouponModal')" title="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="action-btn delete" onclick="confirmDelete('coupon', 'FLASH50')" title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coupon Card 5 -->
+                    <div class="coupon-card">
+                        <div class="coupon-header">
+                            <div class="coupon-code">
+                                <span class="code">WINTER25</span>
+                                <button class="copy-btn" onclick="copyCode('WINTER25')" title="Copy code">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <span class="coupon-status expired">Expired</span>
+                        </div>
+                        <div class="coupon-body">
+                            <h3>Winter Sale</h3>
+                            <p class="coupon-desc">25% off on all winter collection items.</p>
+                            <div class="coupon-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-percent"></i>
+                                    <span>25% discount</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-snowflake"></i>
+                                    <span>Winter collection</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Expired: Jan 31, 2026</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Used: 265 times</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="coupon-footer">
+                            <div class="usage-bar">
+                                <div class="usage-fill" style="width: 53%;"></div>
+                            </div>
+                            <span class="usage-text">265 / 500 uses</span>
+                            <div class="coupon-actions">
+                                <button class="action-btn edit" onclick="openModal('editCouponModal')" title="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="action-btn delete" onclick="confirmDelete('coupon', 'WINTER25')" title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coupon Card 6 -->
+                    <div class="coupon-card">
+                        <div class="coupon-header">
+                            <div class="coupon-code">
+                                <span class="code">VIP30</span>
+                                <button class="copy-btn" onclick="copyCode('VIP30')" title="Copy code">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <span class="coupon-status active">Active</span>
+                        </div>
+                        <div class="coupon-body">
+                            <h3>VIP Exclusive</h3>
+                            <p class="coupon-desc">Exclusive 30% discount for VIP customers only.</p>
+                            <div class="coupon-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-percent"></i>
+                                    <span>30% discount</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-crown"></i>
+                                    <span>VIP customers only</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>No expiry</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Used: 128 times</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="coupon-footer">
+                            <div class="usage-bar">
+                                <div class="usage-fill" style="width: 32%;"></div>
+                            </div>
+                            <span class="usage-text">128 / 400 uses</span>
+                            <div class="coupon-actions">
+                                <button class="action-btn edit" onclick="openModal('editCouponModal')" title="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="action-btn delete" onclick="confirmDelete('coupon', 'VIP30')" title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Coupon Modal -->
+    <div class="modal-overlay" id="addCouponModal">
+        <div class="modal" style="max-width: 600px;">
+            <div class="modal-header">
+                <h2>Create New Coupon</h2>
+                <button class="modal-close" onclick="closeModal('addCouponModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="couponForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Coupon Code</label>
+                            <input type="text" class="form-control" placeholder="e.g., SAVE20" style="text-transform: uppercase;" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Discount Type</label>
+                            <select class="form-control" required>
+                                <option value="percentage">Percentage</option>
+                                <option value="fixed">Fixed Amount</option>
+                                <option value="shipping">Free Shipping</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Discount Value</label>
+                            <input type="number" class="form-control" placeholder="e.g., 20" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Usage Limit</label>
+                            <input type="number" class="form-control" placeholder="e.g., 1000">
+                        </div>
+                        <div class="form-group">
+                            <label>Minimum Order ($)</label>
+                            <input type="number" class="form-control" placeholder="e.g., 50">
+                        </div>
+                        <div class="form-group">
+                            <label>Maximum Discount ($)</label>
+                            <input type="number" class="form-control" placeholder="e.g., 100">
+                        </div>
+                        <div class="form-group">
+                            <label>Start Date</label>
+                            <input type="date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>End Date</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Description</label>
+                            <textarea class="form-control" placeholder="Coupon description..." rows="3"></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Applies To</label>
+                            <select class="form-control">
+                                <option value="all">All Products</option>
+                                <option value="category">Specific Categories</option>
+                                <option value="products">Specific Products</option>
+                                <option value="collection">Specific Collection</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Customer Eligibility</label>
+                            <select class="form-control">
+                                <option value="all">All Customers</option>
+                                <option value="new">New Customers Only</option>
+                                <option value="vip">VIP Customers Only</option>
+                                <option value="specific">Specific Customers</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('addCouponModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveCoupon()">
+                    <i class="fas fa-check"></i> Create Coupon
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script>
+        // Additional styles for coupons
+        const style = document.createElement('style');
+        style.textContent = `
+            .coupons-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+                gap: 24px;
+            }
+            .coupon-card {
+                background: #f0f4f8;
+                border-radius: 16px;
+                box-shadow: 8px 8px 16px rgba(163, 177, 198, 0.5), -8px -8px 16px rgba(255, 255, 255, 0.8);
+                overflow: hidden;
+                transition: transform 0.3s ease;
+            }
+            .coupon-card:hover {
+                transform: translateY(-4px);
+            }
+            .coupon-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 16px 20px;
+                background: linear-gradient(135deg, #e74c3c, #c0392b);
+            }
+            .coupon-code {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .coupon-code .code {
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: white;
+                letter-spacing: 2px;
+            }
+            .copy-btn {
+                background: rgba(255, 255, 255, 0.2);
+                border: none;
+                color: white;
+                width: 32px;
+                height: 32px;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background 0.2s;
+            }
+            .copy-btn:hover {
+                background: rgba(255, 255, 255, 0.3);
+            }
+            .coupon-status {
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 0.75rem;
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+            .coupon-status.active {
+                background: rgba(39, 174, 96, 0.2);
+                color: #27ae60;
+            }
+            .coupon-status.scheduled {
+                background: rgba(243, 156, 18, 0.2);
+                color: #f39c12;
+            }
+            .coupon-status.expired {
+                background: rgba(231, 76, 60, 0.2);
+                color: #e74c3c;
+            }
+            .coupon-body {
+                padding: 20px;
+            }
+            .coupon-body h3 {
+                font-size: 1.1rem;
+                margin-bottom: 8px;
+            }
+            .coupon-desc {
+                font-size: 0.9rem;
+                color: #718096;
+                margin-bottom: 16px;
+            }
+            .coupon-details {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            .detail-item {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 0.85rem;
+                color: #718096;
+            }
+            .detail-item i {
+                width: 16px;
+                color: #e74c3c;
+            }
+            .coupon-footer {
+                padding: 16px 20px;
+                border-top: 1px solid #e4e9f0;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .usage-bar {
+                flex: 1;
+                height: 6px;
+                background: #e4e9f0;
+                border-radius: 3px;
+                overflow: hidden;
+            }
+            .usage-fill {
+                height: 100%;
+                background: #e74c3c;
+                border-radius: 3px;
+            }
+            .usage-text {
+                font-size: 0.8rem;
+                color: #718096;
+                white-space: nowrap;
+            }
+            .coupon-actions {
+                display: flex;
+                gap: 8px;
+            }
+        `;
+        document.head.appendChild(style);
+
+        function copyCode(code) {
+            navigator.clipboard.writeText(code);
+            showNotification('Coupon code copied!', 'success');
+        }
+
+        function saveCoupon() {
+            showNotification('Coupon created successfully!', 'success');
+            closeModal('addCouponModal');
+        }
+    </script>
+</body>
+</html>

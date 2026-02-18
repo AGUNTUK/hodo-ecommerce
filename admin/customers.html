@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers Management - HODO Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Left Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/hodo-logo.png" alt="HODO Logo" class="sidebar-logo">
+                <span class="sidebar-title">HODO Admin</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard Overview</span>
+                </a>
+                <a href="orders.html" class="nav-item">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="products.html" class="nav-item">
+                    <i class="fas fa-tshirt"></i>
+                    <span>Products</span>
+                </a>
+                <a href="inventory.html" class="nav-item">
+                    <i class="fas fa-warehouse"></i>
+                    <span>Inventory</span>
+                </a>
+                <a href="customers.html" class="nav-item active">
+                    <i class="fas fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="discounts.html" class="nav-item">
+                    <i class="fas fa-percent"></i>
+                    <span>Discounts / Coupons</span>
+                </a>
+                <a href="banners.html" class="nav-item">
+                    <i class="fas fa-images"></i>
+                    <span>Banners / Homepage</span>
+                </a>
+                <a href="reviews.html" class="nav-item">
+                    <i class="fas fa-star"></i>
+                    <span>Reviews / Ratings</span>
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payments / Transactions</span>
+                </a>
+                <a href="analytics.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics / Reports</span>
+                </a>
+                <a href="shipping.html" class="nav-item">
+                    <i class="fas fa-truck"></i>
+                    <span>Shipping / Delivery</span>
+                </a>
+                <a href="staff.html" class="nav-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Staff / Admin Roles</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" class="nav-item">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>View Store</span>
+                </a>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header Bar -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h1 class="page-title">Customers Management</h1>
+                </div>
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search customers...">
+                    </div>
+                    <div class="header-actions">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">5</span>
+                        </button>
+                        <div class="admin-profile">
+                            <img src="https://ui-avatars.com/api/?name=Admin&background=e74c3c&color=fff" alt="Admin">
+                            <div class="profile-dropdown">
+                                <span class="profile-name">Admin User</span>
+                                <span class="profile-role">Super Admin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Customers Content -->
+            <div class="dashboard-content">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="header-info">
+                        <p class="text-muted">Manage customer accounts and insights</p>
+                    </div>
+                    <div class="header-actions-group">
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Add Customer
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Customer Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon customers">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Total Customers</span>
+                            <span class="stat-value">3,842</span>
+                            <span class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 24.5% this month
+                            </span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(39, 174, 96, 0.15); color: #27ae60;">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Active Customers</span>
+                            <span class="stat-value">2,156</span>
+                            <span class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 12.3% this month
+                            </span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(243, 156, 18, 0.15); color: #f39c12;">
+                            <i class="fas fa-user-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">New This Month</span>
+                            <span class="stat-value">486</span>
+                            <span class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 8.7% from last month
+                            </span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(155, 89, 182, 0.15); color: #9b59b6;">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">VIP Customers</span>
+                            <span class="stat-value">128</span>
+                            <span class="stat-change neutral">
+                                <i class="fas fa-minus"></i> Same as last month
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters Bar -->
+                <div class="filters-bar">
+                    <div class="filter-group">
+                        <label>Customer Type</label>
+                        <select class="filter-select">
+                            <option value="">All Types</option>
+                            <option value="vip">VIP</option>
+                            <option value="regular">Regular</option>
+                            <option value="new">New</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Status</label>
+                        <select class="filter-select">
+                            <option value="">All Status</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Join Date</label>
+                        <select class="filter-select">
+                            <option value="">All Time</option>
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                            <option value="year">This Year</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Sort By</label>
+                        <select class="filter-select">
+                            <option value="recent">Most Recent</option>
+                            <option value="orders">Most Orders</option>
+                            <option value="spent">Highest Spent</option>
+                            <option value="name">Name A-Z</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Customers Table -->
+                <div class="table-card full-width-table">
+                    <div class="table-header">
+                        <h3>All Customers <span class="text-muted">(3,842 total)</span></h3>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Customer</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Orders</th>
+                                    <th>Total Spent</th>
+                                    <th>Type</th>
+                                    <th>Joined</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=3498db&color=fff" alt="">
+                                            <div>
+                                                <span>John Doe</span>
+                                                <small class="text-muted">ID: #CUS-3842</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>john@example.com</td>
+                                    <td>+1 234 567 8900</td>
+                                    <td><strong>24</strong></td>
+                                    <td><strong>$2,456.00</strong></td>
+                                    <td><span class="status-badge delivered">VIP</span></td>
+                                    <td>Jan 15, 2024</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn view" onclick="viewCustomer('3842')" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn edit" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="action-btn delete" title="Delete">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=9b59b6&color=fff" alt="">
+                                            <div>
+                                                <span>Jane Smith</span>
+                                                <small class="text-muted">ID: #CUS-3841</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>jane@example.com</td>
+                                    <td>+1 234 567 8901</td>
+                                    <td><strong>18</strong></td>
+                                    <td><strong>$1,890.00</strong></td>
+                                    <td><span class="status-badge delivered">VIP</span></td>
+                                    <td>Jan 12, 2024</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn view" onclick="viewCustomer('3841')" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn edit" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="action-btn delete" title="Delete">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Mike+Johnson&background=e67e22&color=fff" alt="">
+                                            <div>
+                                                <span>Mike Johnson</span>
+                                                <small class="text-muted">ID: #CUS-3840</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>mike@example.com</td>
+                                    <td>+1 234 567 8902</td>
+                                    <td><strong>12</strong></td>
+                                    <td><strong>$987.00</strong></td>
+                                    <td><span class="status-badge processing">Regular</span></td>
+                                    <td>Jan 10, 2024</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn view" onclick="viewCustomer('3840')" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn edit" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="action-btn delete" title="Delete">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Sarah+Wilson&background=1abc9c&color=fff" alt="">
+                                            <div>
+                                                <span>Sarah Wilson</span>
+                                                <small class="text-muted">ID: #CUS-3839</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>sarah@example.com</td>
+                                    <td>+1 234 567 8903</td>
+                                    <td><strong>5</strong></td>
+                                    <td><strong>$456.00</strong></td>
+                                    <td><span class="status-badge pending">New</span></td>
+                                    <td>Feb 15, 2026</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn view" onclick="viewCustomer('3839')" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn edit" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="action-btn delete" title="Delete">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Tom+Brown&background=e74c3c&color=fff" alt="">
+                                            <div>
+                                                <span>Tom Brown</span>
+                                                <small class="text-muted">ID: #CUS-3838</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>tom@example.com</td>
+                                    <td>+1 234 567 8904</td>
+                                    <td><strong>32</strong></td>
+                                    <td><strong>$3,245.00</strong></td>
+                                    <td><span class="status-badge delivered">VIP</span></td>
+                                    <td>Dec 20, 2023</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn view" onclick="viewCustomer('3838')" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn edit" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="action-btn delete" title="Delete">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Emily+Davis&background=2ecc71&color=fff" alt="">
+                                            <div>
+                                                <span>Emily Davis</span>
+                                                <small class="text-muted">ID: #CUS-3837</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>emily@example.com</td>
+                                    <td>+1 234 567 8905</td>
+                                    <td><strong>8</strong></td>
+                                    <td><strong>$678.00</strong></td>
+                                    <td><span class="status-badge processing">Regular</span></td>
+                                    <td>Jan 28, 2026</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn view" onclick="viewCustomer('3837')" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn edit" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="action-btn delete" title="Delete">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="pagination-btn" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="pagination-btn active">1</button>
+                        <button class="pagination-btn">2</button>
+                        <button class="pagination-btn">3</button>
+                        <button class="pagination-btn">4</button>
+                        <button class="pagination-btn">5</button>
+                        <button class="pagination-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Customer Details Panel -->
+    <div class="order-details-panel" id="customerDetailsPanel">
+        <div class="panel-header">
+            <h3>Customer Details</h3>
+            <button class="panel-close" onclick="closeCustomerPanel()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="panel-body">
+            <!-- Customer Info -->
+            <div class="customer-profile-section">
+                <img src="https://ui-avatars.com/api/?name=John+Doe&background=3498db&color=fff&size=100" alt="" class="customer-avatar-large">
+                <h2>John Doe</h2>
+                <span class="customer-badge vip">VIP Customer</span>
+                <p class="customer-since">Customer since Jan 15, 2024</p>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="order-info-section">
+                <h4>Contact Information</h4>
+                <div class="info-card">
+                    <div class="info-row">
+                        <i class="fas fa-envelope"></i>
+                        <span>john@example.com</span>
+                    </div>
+                    <div class="info-row">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 234 567 8900</span>
+                    </div>
+                    <div class="info-row">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Main Street, New York, NY 10001</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Purchase Stats -->
+            <div class="order-info-section">
+                <h4>Purchase Insights</h4>
+                <div class="purchase-stats">
+                    <div class="purchase-stat">
+                        <span class="value">24</span>
+                        <span class="label">Total Orders</span>
+                    </div>
+                    <div class="purchase-stat">
+                        <span class="value">$2,456</span>
+                        <span class="label">Total Spent</span>
+                    </div>
+                    <div class="purchase-stat">
+                        <span class="value">$102</span>
+                        <span class="label">Avg. Order</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Orders -->
+            <div class="order-info-section">
+                <h4>Recent Orders</h4>
+                <div class="recent-orders-list">
+                    <div class="recent-order-item">
+                        <div class="order-info">
+                            <span class="order-id">#ORD-2847</span>
+                            <span class="order-date">Feb 18, 2026</span>
+                        </div>
+                        <div class="order-amount">
+                            <span class="amount">$234.50</span>
+                            <span class="status-badge delivered">Delivered</span>
+                        </div>
+                    </div>
+                    <div class="recent-order-item">
+                        <div class="order-info">
+                            <span class="order-id">#ORD-2756</span>
+                            <span class="order-date">Feb 10, 2026</span>
+                        </div>
+                        <div class="order-amount">
+                            <span class="amount">$189.00</span>
+                            <span class="status-badge delivered">Delivered</span>
+                        </div>
+                    </div>
+                    <div class="recent-order-item">
+                        <div class="order-info">
+                            <span class="order-id">#ORD-2698</span>
+                            <span class="order-date">Feb 02, 2026</span>
+                        </div>
+                        <div class="order-amount">
+                            <span class="amount">$345.00</span>
+                            <span class="status-badge delivered">Delivered</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Favorite Categories -->
+            <div class="order-info-section">
+                <h4>Favorite Categories</h4>
+                <div class="category-preferences">
+                    <div class="category-pref">
+                        <span class="category-name">Men's Clothing</span>
+                        <div class="category-bar">
+                            <div class="category-fill" style="width: 65%;"></div>
+                        </div>
+                        <span class="category-percent">65%</span>
+                    </div>
+                    <div class="category-pref">
+                        <span class="category-name">Footwear</span>
+                        <div class="category-bar">
+                            <div class="category-fill" style="width: 25%;"></div>
+                        </div>
+                        <span class="category-percent">25%</span>
+                    </div>
+                    <div class="category-pref">
+                        <span class="category-name">Accessories</span>
+                        <div class="category-bar">
+                            <div class="category-fill" style="width: 10%;"></div>
+                        </div>
+                        <span class="category-percent">10%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="customer-actions">
+                <button class="btn btn-secondary" style="width: 100%;">
+                    <i class="fas fa-envelope"></i> Send Email
+                </button>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 12px;">
+                    <i class="fas fa-gift"></i> Send Coupon
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script>
+        // Additional styles for customer page
+        const style = document.createElement('style');
+        style.textContent = `
+            .customer-avatar-large {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                margin-bottom: 12px;
+            }
+            .customer-profile-section {
+                text-align: center;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #e4e9f0;
+                margin-bottom: 20px;
+            }
+            .customer-profile-section h2 {
+                font-size: 1.25rem;
+                margin-bottom: 8px;
+            }
+            .customer-badge {
+                display: inline-block;
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 0.75rem;
+                font-weight: 600;
+                margin-bottom: 8px;
+            }
+            .customer-badge.vip {
+                background: rgba(243, 156, 18, 0.15);
+                color: #f39c12;
+            }
+            .customer-since {
+                font-size: 0.85rem;
+                color: #718096;
+            }
+            .info-row {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 8px 0;
+            }
+            .info-row i {
+                width: 20px;
+                color: #718096;
+            }
+            .purchase-stats {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+            }
+            .purchase-stat {
+                text-align: center;
+                padding: 16px;
+                background: #e4e9f0;
+                border-radius: 12px;
+                box-shadow: inset 4px 4px 8px rgba(163, 177, 198, 0.5), inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+            }
+            .purchase-stat .value {
+                display: block;
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: #2d3748;
+            }
+            .purchase-stat .label {
+                font-size: 0.75rem;
+                color: #718096;
+            }
+            .recent-orders-list {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+            .recent-order-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 12px;
+                background: #e4e9f0;
+                border-radius: 10px;
+            }
+            .order-id {
+                font-weight: 600;
+                color: #2d3748;
+            }
+            .order-date {
+                font-size: 0.8rem;
+                color: #718096;
+            }
+            .order-amount .amount {
+                font-weight: 600;
+                margin-right: 8px;
+            }
+            .category-preferences {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+            .category-pref {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .category-name {
+                width: 120px;
+                font-size: 0.85rem;
+                color: #718096;
+            }
+            .category-bar {
+                flex: 1;
+                height: 8px;
+                background: #e4e9f0;
+                border-radius: 4px;
+                overflow: hidden;
+            }
+            .category-fill {
+                height: 100%;
+                background: #e74c3c;
+                border-radius: 4px;
+            }
+            .category-percent {
+                width: 40px;
+                font-size: 0.85rem;
+                font-weight: 600;
+                text-align: right;
+            }
+            .customer-actions {
+                margin-top: 24px;
+                padding-top: 24px;
+                border-top: 1px solid #e4e9f0;
+            }
+        `;
+        document.head.appendChild(style);
+
+        function viewCustomer(customerId) {
+            document.getElementById('customerDetailsPanel').classList.add('open');
+        }
+
+        function closeCustomerPanel() {
+            document.getElementById('customerDetailsPanel').classList.remove('open');
+        }
+    </script>
+</body>
+</html>

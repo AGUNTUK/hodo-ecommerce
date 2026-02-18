@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments & Transactions - HODO Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Left Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/hodo-logo.png" alt="HODO Logo" class="sidebar-logo">
+                <span class="sidebar-title">HODO Admin</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard Overview</span>
+                </a>
+                <a href="orders.html" class="nav-item">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="products.html" class="nav-item">
+                    <i class="fas fa-tshirt"></i>
+                    <span>Products</span>
+                </a>
+                <a href="inventory.html" class="nav-item">
+                    <i class="fas fa-warehouse"></i>
+                    <span>Inventory</span>
+                </a>
+                <a href="customers.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="discounts.html" class="nav-item">
+                    <i class="fas fa-percent"></i>
+                    <span>Discounts / Coupons</span>
+                </a>
+                <a href="banners.html" class="nav-item">
+                    <i class="fas fa-images"></i>
+                    <span>Banners / Homepage</span>
+                </a>
+                <a href="reviews.html" class="nav-item">
+                    <i class="fas fa-star"></i>
+                    <span>Reviews / Ratings</span>
+                </a>
+                <a href="payments.html" class="nav-item active">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payments / Transactions</span>
+                </a>
+                <a href="analytics.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics / Reports</span>
+                </a>
+                <a href="shipping.html" class="nav-item">
+                    <i class="fas fa-truck"></i>
+                    <span>Shipping / Delivery</span>
+                </a>
+                <a href="staff.html" class="nav-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Staff / Admin Roles</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" class="nav-item">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>View Store</span>
+                </a>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header Bar -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h1 class="page-title">Payments & Transactions</h1>
+                </div>
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search transactions...">
+                    </div>
+                    <div class="header-actions">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">5</span>
+                        </button>
+                        <div class="admin-profile">
+                            <img src="https://ui-avatars.com/api/?name=Admin&background=e74c3c&color=fff" alt="Admin">
+                            <div class="profile-dropdown">
+                                <span class="profile-name">Admin User</span>
+                                <span class="profile-role">Super Admin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Payments Content -->
+            <div class="dashboard-content">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="header-info">
+                        <p class="text-muted">Track all payment transactions and refunds</p>
+                    </div>
+                    <div class="header-actions-group">
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Payment Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(39, 174, 96, 0.15); color: #27ae60;">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Total Revenue</span>
+                            <span class="stat-value">$124,563</span>
+                            <span class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 12.5% this month
+                            </span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(52, 152, 219, 0.15); color: #3498db;">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Paid Orders</span>
+                            <span class="stat-value">1,156</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(243, 156, 18, 0.15); color: #f39c12;">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Pending Payments</span>
+                            <span class="stat-value">$8,432</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(231, 76, 60, 0.15); color: #e74c3c;">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Refunds</span>
+                            <span class="stat-value">$2,156</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Methods Overview -->
+                <div class="payment-methods-section">
+                    <h3>Payment Methods</h3>
+                    <div class="payment-methods-grid">
+                        <div class="payment-method-card">
+                            <div class="method-icon" style="background: #1DA1F2;">
+                                <i class="fab fa-cc-visa"></i>
+                            </div>
+                            <div class="method-info">
+                                <span class="method-name">Credit Card</span>
+                                <span class="method-amount">$78,234</span>
+                                <span class="method-percent">62.8%</span>
+                            </div>
+                        </div>
+                        <div class="payment-method-card">
+                            <div class="method-icon" style="background: #FF5F00;">
+                                <i class="fab fa-cc-mastercard"></i>
+                            </div>
+                            <div class="method-info">
+                                <span class="method-name">Mastercard</span>
+                                <span class="method-amount">$28,456</span>
+                                <span class="method-percent">22.8%</span>
+                            </div>
+                        </div>
+                        <div class="payment-method-card">
+                            <div class="method-icon" style="background: #003087;">
+                                <i class="fab fa-paypal"></i>
+                            </div>
+                            <div class="method-info">
+                                <span class="method-name">PayPal</span>
+                                <span class="method-amount">$12,873</span>
+                                <span class="method-percent">10.3%</span>
+                            </div>
+                        </div>
+                        <div class="payment-method-card">
+                            <div class="method-icon" style="background: #7C3AED;">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="method-info">
+                                <span class="method-name">Cash on Delivery</span>
+                                <span class="method-amount">$5,000</span>
+                                <span class="method-percent">4.1%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="filters-bar">
+                    <div class="filter-group">
+                        <label>Payment Status</label>
+                        <select class="filter-select">
+                            <option value="">All Status</option>
+                            <option value="paid">Paid</option>
+                            <option value="pending">Pending</option>
+                            <option value="refunded">Refunded</option>
+                            <option value="failed">Failed</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Payment Method</label>
+                        <select class="filter-select">
+                            <option value="">All Methods</option>
+                            <option value="card">Credit Card</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="cod">Cash on Delivery</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Date From</label>
+                        <input type="date" class="filter-input">
+                    </div>
+                    <div class="filter-group">
+                        <label>Date To</label>
+                        <input type="date" class="filter-input">
+                    </div>
+                </div>
+
+                <!-- Transactions Table -->
+                <div class="table-card full-width-table">
+                    <div class="table-header">
+                        <h3>Transaction History</h3>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Transaction ID</th>
+                                    <th>Order</th>
+                                    <th>Customer</th>
+                                    <th>Method</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>TXN-9847</code></td>
+                                    <td><a href="#">#ORD-2847</a></td>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=3498db&color=fff" alt="">
+                                            <span>John Doe</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="payment-method">
+                                            <i class="fab fa-cc-visa"></i>
+                                            <span>•••• 4242</span>
+                                        </div>
+                                    </td>
+                                    <td><strong>$234.50</strong></td>
+                                    <td><span class="status-badge paid">Paid</span></td>
+                                    <td>Feb 18, 2026<br><small class="text-muted">10:30 AM</small></td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn view" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn edit" title="Refund" onclick="openRefundModal('TXN-9847', 234.50)">
+                                                <i class="fas fa-undo"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>TXN-9846</code></td>
+                                    <td><a href="#">#ORD-2846</a></td>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=9b59b6&color=fff" alt="">
+                                            <span>Jane Smith</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="payment-method">
+                                            <i class="fab fa-paypal"></i>
+                                            <span>PayPal</span>
+                                        </div>
+                                    </td>
+                                    <td><strong>$189.00</strong></td>
+                                    <td><span class="status-badge paid">Paid</span></td>
+                                    <td>Feb 18, 2026<br><small class="text-muted">09:15 AM</small></td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn view" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn edit" title="Refund" onclick="openRefundModal('TXN-9846', 189.00)">
+                                                <i class="fas fa-undo"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>TXN-9845</code></td>
+                                    <td><a href="#">#ORD-2845</a></td>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Mike+Johnson&background=e67e22&color=fff" alt="">
+                                            <span>Mike Johnson</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="payment-method">
+                                            <i class="fab fa-cc-mastercard"></i>
+                                            <span>•••• 5555</span>
+                                        </div>
+                                    </td>
+                                    <td><strong>$567.80</strong></td>
+                                    <td><span class="status-badge paid">Paid</span></td>
+                                    <td>Feb 17, 2026<br><small class="text-muted">04:45 PM</small></td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn view" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn edit" title="Refund" onclick="openRefundModal('TXN-9845', 567.80)">
+                                                <i class="fas fa-undo"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>TXN-9844</code></td>
+                                    <td><a href="#">#ORD-2844</a></td>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Sarah+Wilson&background=1abc9c&color=fff" alt="">
+                                            <span>Sarah Wilson</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="payment-method">
+                                            <i class="fas fa-money-bill-wave"></i>
+                                            <span>COD</span>
+                                        </div>
+                                    </td>
+                                    <td><strong>$98.00</strong></td>
+                                    <td><span class="status-badge pending">Pending</span></td>
+                                    <td>Feb 17, 2026<br><small class="text-muted">02:20 PM</small></td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn view" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn edit" title="Mark as Paid">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>TXN-9843</code></td>
+                                    <td><a href="#">#ORD-2843</a></td>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Tom+Brown&background=e74c3c&color=fff" alt="">
+                                            <span>Tom Brown</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="payment-method">
+                                            <i class="fab fa-cc-visa"></i>
+                                            <span>•••• 1234</span>
+                                        </div>
+                                    </td>
+                                    <td><strong>$345.00</strong></td>
+                                    <td><span class="status-badge cancelled">Refunded</span></td>
+                                    <td>Feb 16, 2026<br><small class="text-muted">11:00 AM</small></td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn view" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>TXN-9842</code></td>
+                                    <td><a href="#">#ORD-2842</a></td>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Emily+Davis&background=2ecc71&color=fff" alt="">
+                                            <span>Emily Davis</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="payment-method">
+                                            <i class="fab fa-cc-visa"></i>
+                                            <span>•••• 8888</span>
+                                        </div>
+                                    </td>
+                                    <td><strong>$156.00</strong></td>
+                                    <td><span class="status-badge" style="background: #fdeaea; color: #e74c3c;">Failed</span></td>
+                                    <td>Feb 16, 2026<br><small class="text-muted">09:30 AM</small></td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn view" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn edit" title="Retry">
+                                                <i class="fas fa-redo"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="pagination-btn" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="pagination-btn active">1</button>
+                        <button class="pagination-btn">2</button>
+                        <button class="pagination-btn">3</button>
+                        <button class="pagination-btn">4</button>
+                        <button class="pagination-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Refund Modal -->
+    <div class="modal-overlay" id="refundModal">
+        <div class="modal" style="max-width: 500px;">
+            <div class="modal-header">
+                <h2>Process Refund</h2>
+                <button class="modal-close" onclick="closeModal('refundModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="refundForm">
+                    <div class="form-group">
+                        <label>Transaction ID</label>
+                        <input type="text" class="form-control" id="refundTxnId" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Original Amount</label>
+                        <input type="text" class="form-control" id="refundOriginalAmount" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Refund Amount</label>
+                        <input type="number" class="form-control" id="refundAmount" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Refund Reason</label>
+                        <select class="form-control" required>
+                            <option value="">Select reason</option>
+                            <option value="customer-request">Customer Request</option>
+                            <option value="product-defect">Product Defect</option>
+                            <option value="wrong-item">Wrong Item Shipped</option>
+                            <option value="shipping-delay">Shipping Delay</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Notes</label>
+                        <textarea class="form-control" placeholder="Additional notes..." rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('refundModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="processRefund()">
+                    <i class="fas fa-undo"></i> Process Refund
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script>
+        // Additional styles for payments page
+        const style = document.createElement('style');
+        style.textContent = `
+            .payment-methods-section {
+                background: #f0f4f8;
+                border-radius: 16px;
+                padding: 24px;
+                box-shadow: 8px 8px 16px rgba(163, 177, 198, 0.5), -8px -8px 16px rgba(255, 255, 255, 0.8);
+                margin-bottom: 24px;
+            }
+            .payment-methods-section h3 {
+                font-size: 1rem;
+                margin-bottom: 16px;
+            }
+            .payment-methods-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 16px;
+            }
+            .payment-method-card {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                padding: 16px;
+                background: #e4e9f0;
+                border-radius: 12px;
+                box-shadow: 4px 4px 8px rgba(163, 177, 198, 0.5), -4px -4px 8px rgba(255, 255, 255, 0.8);
+            }
+            .method-icon {
+                width: 48px;
+                height: 48px;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 1.5rem;
+            }
+            .method-info {
+                display: flex;
+                flex-direction: column;
+            }
+            .method-name {
+                font-size: 0.85rem;
+                color: #718096;
+            }
+            .method-amount {
+                font-size: 1.1rem;
+                font-weight: 700;
+            }
+            .method-percent {
+                font-size: 0.8rem;
+                color: #27ae60;
+            }
+            .payment-method {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .payment-method i {
+                font-size: 1.25rem;
+                color: #718096;
+            }
+            code {
+                background: #e4e9f0;
+                padding: 2px 8px;
+                border-radius: 4px;
+                font-family: 'Monaco', monospace;
+                font-size: 0.85rem;
+            }
+        `;
+        document.head.appendChild(style);
+
+        function openRefundModal(txnId, amount) {
+            document.getElementById('refundTxnId').value = txnId;
+            document.getElementById('refundOriginalAmount').value = '$' + amount.toFixed(2);
+            document.getElementById('refundAmount').value = amount;
+            openModal('refundModal');
+        }
+
+        function processRefund() {
+            showNotification('Refund processed successfully!', 'success');
+            closeModal('refundModal');
+        }
+    </script>
+</body>
+</html>

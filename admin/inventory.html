@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management - HODO Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Left Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/hodo-logo.png" alt="HODO Logo" class="sidebar-logo">
+                <span class="sidebar-title">HODO Admin</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard Overview</span>
+                </a>
+                <a href="orders.html" class="nav-item">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="products.html" class="nav-item">
+                    <i class="fas fa-tshirt"></i>
+                    <span>Products</span>
+                </a>
+                <a href="inventory.html" class="nav-item active">
+                    <i class="fas fa-warehouse"></i>
+                    <span>Inventory</span>
+                </a>
+                <a href="customers.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="discounts.html" class="nav-item">
+                    <i class="fas fa-percent"></i>
+                    <span>Discounts / Coupons</span>
+                </a>
+                <a href="banners.html" class="nav-item">
+                    <i class="fas fa-images"></i>
+                    <span>Banners / Homepage</span>
+                </a>
+                <a href="reviews.html" class="nav-item">
+                    <i class="fas fa-star"></i>
+                    <span>Reviews / Ratings</span>
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payments / Transactions</span>
+                </a>
+                <a href="analytics.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics / Reports</span>
+                </a>
+                <a href="shipping.html" class="nav-item">
+                    <i class="fas fa-truck"></i>
+                    <span>Shipping / Delivery</span>
+                </a>
+                <a href="staff.html" class="nav-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Staff / Admin Roles</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" class="nav-item">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>View Store</span>
+                </a>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header Bar -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h1 class="page-title">Inventory Management</h1>
+                </div>
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search inventory...">
+                    </div>
+                    <div class="header-actions">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">5</span>
+                        </button>
+                        <div class="admin-profile">
+                            <img src="https://ui-avatars.com/api/?name=Admin&background=e74c3c&color=fff" alt="Admin">
+                            <div class="profile-dropdown">
+                                <span class="profile-name">Admin User</span>
+                                <span class="profile-role">Super Admin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Inventory Content -->
+            <div class="dashboard-content">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="header-info">
+                        <p class="text-muted">Real-time stock tracking and management</p>
+                    </div>
+                    <div class="header-actions-group">
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Export Report
+                        </button>
+                        <button class="btn btn-primary" onclick="openModal('restockModal')">
+                            <i class="fas fa-plus"></i> Quick Restock
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Inventory Summary -->
+                <div class="inventory-summary">
+                    <div class="summary-card">
+                        <div class="stat-icon in-stock">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">12,483</span>
+                            <span class="stat-label">Total Items</span>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="stat-icon low-stock">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value text-warning">12</span>
+                            <span class="stat-label">Low Stock Items</span>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="stat-icon out-stock">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value text-danger">3</span>
+                            <span class="stat-label">Out of Stock</span>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="stat-icon value">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">$284,520</span>
+                            <span class="stat-label">Inventory Value</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Low Stock Alert -->
+                <div class="stock-alert">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div class="stock-alert-text">
+                        <strong>12 products</strong> are running low on stock. 
+                        <a href="#" onclick="filterByLowStock()">View all low stock items</a>
+                    </div>
+                    <button class="btn btn-outline btn-sm" onclick="openModal('restockModal')">
+                        Quick Restock
+                    </button>
+                </div>
+
+                <!-- Filters Bar -->
+                <div class="filters-bar">
+                    <div class="filter-group">
+                        <label>Category</label>
+                        <select class="filter-select">
+                            <option value="">All Categories</option>
+                            <option value="mens">Men's Clothing</option>
+                            <option value="womens">Women's Clothing</option>
+                            <option value="accessories">Accessories</option>
+                            <option value="footwear">Footwear</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Stock Status</label>
+                        <select class="filter-select" id="stockFilter">
+                            <option value="">All Status</option>
+                            <option value="in-stock">In Stock</option>
+                            <option value="low-stock">Low Stock</option>
+                            <option value="out-of-stock">Out of Stock</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Sort By</label>
+                        <select class="filter-select">
+                            <option value="stock-asc">Stock: Low to High</option>
+                            <option value="stock-desc">Stock: High to Low</option>
+                            <option value="name">Product Name</option>
+                            <option value="value">Inventory Value</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Inventory Table -->
+                <div class="table-card full-width-table">
+                    <div class="table-header">
+                        <h3>Stock Overview</h3>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>SKU</th>
+                                    <th>Category</th>
+                                    <th>Total Stock</th>
+                                    <th>Size Breakdown</th>
+                                    <th>Status</th>
+                                    <th>Value</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=100" alt="">
+                                            <span>Classic White T-Shirt</span>
+                                        </div>
+                                    </td>
+                                    <td><code>TSH-WHT</code></td>
+                                    <td>Men's Clothing</td>
+                                    <td><strong>248</strong></td>
+                                    <td>
+                                        <div class="size-breakdown">
+                                            <span class="size-tag">XS: 32</span>
+                                            <span class="size-tag">S: 48</span>
+                                            <span class="size-tag">M: 65</span>
+                                            <span class="size-tag">L: 58</span>
+                                            <span class="size-tag">XL: 45</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="status-badge delivered">In Stock</span></td>
+                                    <td>$7,440</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn edit" onclick="openRestockModal('TSH-WHT', 'Classic White T-Shirt')" title="Restock">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                            <button class="action-btn view" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=100" alt="">
+                                            <span>Casual Blue Jeans</span>
+                                        </div>
+                                    </td>
+                                    <td><code>JNS-BLU</code></td>
+                                    <td>Men's Clothing</td>
+                                    <td><strong>156</strong></td>
+                                    <td>
+                                        <div class="size-breakdown">
+                                            <span class="size-tag">28: 22</span>
+                                            <span class="size-tag">30: 35</span>
+                                            <span class="size-tag">32: 42</span>
+                                            <span class="size-tag">34: 31</span>
+                                            <span class="size-tag">36: 26</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="status-badge delivered">In Stock</span></td>
+                                    <td>$13,884</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn edit" onclick="openRestockModal('JNS-BLU', 'Casual Blue Jeans')" title="Restock">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                            <button class="action-btn view" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="low-stock-row">
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=100" alt="">
+                                            <span>Summer Floral Dress</span>
+                                        </div>
+                                    </td>
+                                    <td><code>DRS-FLR</code></td>
+                                    <td>Women's Clothing</td>
+                                    <td><strong class="text-warning">12</strong></td>
+                                    <td>
+                                        <div class="size-breakdown">
+                                            <span class="size-tag low">XS: 2</span>
+                                            <span class="size-tag low">S: 3</span>
+                                            <span class="size-tag low">M: 4</span>
+                                            <span class="size-tag low">L: 2</span>
+                                            <span class="size-tag low">XL: 1</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="status-badge pending">Low Stock</span></td>
+                                    <td>$900</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn edit" onclick="openRestockModal('DRS-FLR', 'Summer Floral Dress')" title="Restock">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                            <button class="action-btn view" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=100" alt="">
+                                            <span>Leather Jacket</span>
+                                        </div>
+                                    </td>
+                                    <td><code>JKT-LTH</code></td>
+                                    <td>Men's Clothing</td>
+                                    <td><strong>89</strong></td>
+                                    <td>
+                                        <div class="size-breakdown">
+                                            <span class="size-tag">S: 18</span>
+                                            <span class="size-tag">M: 25</span>
+                                            <span class="size-tag">L: 28</span>
+                                            <span class="size-tag">XL: 18</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="status-badge delivered">In Stock</span></td>
+                                    <td>$13,350</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn edit" onclick="openRestockModal('JKT-LTH', 'Leather Jacket')" title="Restock">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                            <button class="action-btn view" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="out-of-stock-row">
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=100" alt="">
+                                            <span>Silk Blouse</span>
+                                        </div>
+                                    </td>
+                                    <td><code>BLS-SLK</code></td>
+                                    <td>Women's Clothing</td>
+                                    <td><strong class="text-danger">0</strong></td>
+                                    <td>
+                                        <div class="size-breakdown">
+                                            <span class="size-tag out">XS: 0</span>
+                                            <span class="size-tag out">S: 0</span>
+                                            <span class="size-tag out">M: 0</span>
+                                            <span class="size-tag out">L: 0</span>
+                                            <span class="size-tag out">XL: 0</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="status-badge cancelled">Out of Stock</span></td>
+                                    <td>$0</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn edit" onclick="openRestockModal('BLS-SLK', 'Silk Blouse')" title="Restock">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                            <button class="action-btn view" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100" alt="">
+                                            <span>Running Shoes</span>
+                                        </div>
+                                    </td>
+                                    <td><code>SHO-RUN</code></td>
+                                    <td>Footwear</td>
+                                    <td><strong>234</strong></td>
+                                    <td>
+                                        <div class="size-breakdown">
+                                            <span class="size-tag">7: 28</span>
+                                            <span class="size-tag">8: 42</span>
+                                            <span class="size-tag">9: 56</span>
+                                            <span class="size-tag">10: 58</span>
+                                            <span class="size-tag">11: 50</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="status-badge delivered">In Stock</span></td>
+                                    <td>$28,080</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn edit" onclick="openRestockModal('SHO-RUN', 'Running Shoes')" title="Restock">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                            <button class="action-btn view" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="low-stock-row">
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=100" alt="">
+                                            <span>Graphic Print T-Shirt</span>
+                                        </div>
+                                    </td>
+                                    <td><code>TSH-GRP</code></td>
+                                    <td>Men's Clothing</td>
+                                    <td><strong class="text-warning">8</strong></td>
+                                    <td>
+                                        <div class="size-breakdown">
+                                            <span class="size-tag low">S: 2</span>
+                                            <span class="size-tag low">M: 3</span>
+                                            <span class="size-tag low">L: 2</span>
+                                            <span class="size-tag low">XL: 1</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="status-badge pending">Low Stock</span></td>
+                                    <td>$280</td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="action-btn edit" onclick="openRestockModal('TSH-GRP', 'Graphic Print T-Shirt')" title="Restock">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                            <button class="action-btn view" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="pagination-btn" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="pagination-btn active">1</button>
+                        <button class="pagination-btn">2</button>
+                        <button class="pagination-btn">3</button>
+                        <button class="pagination-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Quick Restock Modal -->
+    <div class="modal-overlay" id="restockModal">
+        <div class="modal" style="max-width: 600px;">
+            <div class="modal-header">
+                <h2>Quick Restock</h2>
+                <button class="modal-close" onclick="closeModal('restockModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="restockForm">
+                    <div class="form-group">
+                        <label>Product</label>
+                        <select class="form-control" id="restockProduct" required>
+                            <option value="">Select product</option>
+                            <option value="TSH-WHT">Classic White T-Shirt (TSH-WHT)</option>
+                            <option value="JNS-BLU">Casual Blue Jeans (JNS-BLU)</option>
+                            <option value="DRS-FLR">Summer Floral Dress (DRS-FLR)</option>
+                            <option value="JKT-LTH">Leather Jacket (JKT-LTH)</option>
+                            <option value="BLS-SLK">Silk Blouse (BLS-SLK)</option>
+                            <option value="SHO-RUN">Running Shoes (SHO-RUN)</option>
+                            <option value="TSH-GRP">Graphic Print T-Shirt (TSH-GRP)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Restock by Size</label>
+                        <div class="restock-sizes">
+                            <div class="restock-size-row">
+                                <span class="size-label">XS</span>
+                                <input type="number" class="form-control" value="0" min="0">
+                            </div>
+                            <div class="restock-size-row">
+                                <span class="size-label">S</span>
+                                <input type="number" class="form-control" value="0" min="0">
+                            </div>
+                            <div class="restock-size-row">
+                                <span class="size-label">M</span>
+                                <input type="number" class="form-control" value="0" min="0">
+                            </div>
+                            <div class="restock-size-row">
+                                <span class="size-label">L</span>
+                                <input type="number" class="form-control" value="0" min="0">
+                            </div>
+                            <div class="restock-size-row">
+                                <span class="size-label">XL</span>
+                                <input type="number" class="form-control" value="0" min="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Notes</label>
+                        <textarea class="form-control" placeholder="Optional notes about this restock..." rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('restockModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="processRestock()">
+                    <i class="fas fa-check"></i> Confirm Restock
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script>
+        // Additional styles for inventory
+        const style = document.createElement('style');
+        style.textContent = `
+            .inventory-summary .summary-card {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                padding: 20px;
+            }
+            .inventory-summary .stat-icon {
+                width: 50px;
+                height: 50px;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .inventory-summary .stat-icon.in-stock {
+                background: rgba(39, 174, 96, 0.15);
+                color: #27ae60;
+            }
+            .inventory-summary .stat-icon.low-stock {
+                background: rgba(243, 156, 18, 0.15);
+                color: #f39c12;
+            }
+            .inventory-summary .stat-icon.out-stock {
+                background: rgba(231, 76, 60, 0.15);
+                color: #e74c3c;
+            }
+            .inventory-summary .stat-icon.value {
+                background: rgba(52, 152, 219, 0.15);
+                color: #3498db;
+            }
+            .inventory-summary .stat-value {
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+            .inventory-summary .stat-label {
+                font-size: 0.85rem;
+                color: #718096;
+            }
+            .size-breakdown {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+            .size-tag {
+                padding: 4px 8px;
+                background: #e8f5e9;
+                color: #27ae60;
+                border-radius: 4px;
+                font-size: 0.75rem;
+                font-weight: 500;
+            }
+            .size-tag.low {
+                background: #fef9e7;
+                color: #f39c12;
+            }
+            .size-tag.out {
+                background: #fdeaea;
+                color: #e74c3c;
+            }
+            .low-stock-row {
+                background: rgba(243, 156, 18, 0.05);
+            }
+            .out-of-stock-row {
+                background: rgba(231, 76, 60, 0.05);
+            }
+            .restock-sizes {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 12px;
+            }
+            .restock-size-row {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+            .size-label {
+                font-weight: 600;
+                color: #718096;
+            }
+            .restock-size-row .form-control {
+                width: 100%;
+                text-align: center;
+            }
+            code {
+                background: #e4e9f0;
+                padding: 2px 8px;
+                border-radius: 4px;
+                font-family: 'Monaco', monospace;
+                font-size: 0.85rem;
+            }
+        `;
+        document.head.appendChild(style);
+
+        function openRestockModal(sku, name) {
+            document.getElementById('restockProduct').value = sku;
+            openModal('restockModal');
+        }
+
+        function processRestock() {
+            showNotification('Stock updated successfully!', 'success');
+            closeModal('restockModal');
+        }
+
+        function filterByLowStock() {
+            document.getElementById('stockFilter').value = 'low-stock';
+            showNotification('Showing low stock items', 'info');
+        }
+    </script>
+</body>
+</html>
