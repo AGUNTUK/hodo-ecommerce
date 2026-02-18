@@ -70,6 +70,9 @@
 
     <section class="profile-layout">
       <article class="profile-card surface">
+        <div id="adminDashWrapper" style="display: none; margin-bottom: .6rem;">
+          <a class="btn btn-primary" href="admin/index.html">Go To Admin Dashboard</a>
+        </div>
         <h2>Personal Details</h2>
         <form class="profile-form" id="profileForm">
           <label for="profileName">Full Name</label>
@@ -151,6 +154,16 @@
       
       const isAuthorized = await window.HodoAuth.protectCustomerRoute();
       if (!isAuthorized) return;
+      
+      try {
+        const { role } = await window.HodoAuth.getCurrentUser();
+        if (role === 'admin') {
+          const wrap = document.getElementById('adminDashWrapper');
+          if (wrap) wrap.style.display = 'block';
+        }
+      } catch (e) {
+        console.error('Failed to determine role for admin button', e);
+      }
     });
   </script>
 </body>

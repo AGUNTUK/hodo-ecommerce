@@ -294,7 +294,8 @@ function showNotificationDropdown() {
         
         // Close dropdown when clicking outside
         document.addEventListener('click', function closeDropdown(e) {
-            if (!dropdown.contains(e.target) && !notificationBtn.contains(e.target)) {
+            const trigger = document.querySelector('.notification-btn');
+            if (!dropdown.contains(e.target) && !(trigger && trigger.contains(e.target))) {
                 dropdown.remove();
                 document.removeEventListener('click', closeDropdown);
             }
