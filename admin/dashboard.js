@@ -11,6 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
     initSearch();
 });
 
+const formatBDT = function(value) {
+    const n = typeof value === 'number' ? value : Number(value || 0);
+    return '৳' + n.toLocaleString();
+};
+
 // Sales Overview Chart
 function initSalesChart() {
     const canvas = document.getElementById('salesChart');
@@ -80,7 +85,7 @@ function initSalesChart() {
                     displayColors: true,
                     callbacks: {
                         label: function(context) {
-                            return context.dataset.label + ': $' + context.parsed.y.toLocaleString();
+                            return context.dataset.label + ': ' + formatBDT(context.parsed.y);
                         }
                     }
                 }
@@ -111,7 +116,7 @@ function initSalesChart() {
                         },
                         color: '#718096',
                         callback: function(value) {
-                            return '$' + value.toLocaleString();
+                            return formatBDT(value);
                         }
                     }
                 }
@@ -266,7 +271,7 @@ function showNotificationDropdown() {
                         <i class="fas fa-credit-card"></i>
                     </div>
                     <div class="notification-content">
-                        <p>Payment received $567.80</p>
+                        <p>Payment received ৳567.80</p>
                         <span class="notification-time">3 hours ago</span>
                     </div>
                 </div>
