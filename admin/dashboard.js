@@ -13,41 +13,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Sales Overview Chart
 function initSalesChart() {
-    const ctx = document.getElementById('salesChart');
-    if (!ctx) return;
+    const canvas = document.getElementById('salesChart');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
 
-    const gradient = ctx.getContext('2d').createLinearGradient(0, 0, 0, 300);
-    gradient.addColorStop(0, 'rgba(231, 76, 60, 0.3)');
-    gradient.addColorStop(1, 'rgba(231, 76, 60, 0)');
+    const redGradient = ctx.createLinearGradient(0, 0, 0, 300);
+    redGradient.addColorStop(0, 'rgba(231, 76, 60, 0.8)');
+    redGradient.addColorStop(1, 'rgba(231, 76, 60, 0.3)');
 
-    new Chart(ctx, {
-        type: 'line',
+    new Chart(canvas, {
+        type: 'bar',
         data: {
             labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-            datasets: [{
-                label: 'Sales',
-                data: [12500, 19200, 15300, 22100, 18400, 24600, 21300],
-                borderColor: '#e74c3c',
-                backgroundColor: gradient,
-                borderWidth: 3,
-                fill: true,
-                tension: 0.4,
-                pointBackgroundColor: '#e74c3c',
-                pointBorderColor: '#fff',
-                pointBorderWidth: 2,
-                pointRadius: 5,
-                pointHoverRadius: 7
-            }, {
-                label: 'Last Week',
-                data: [10200, 15400, 12800, 18600, 14200, 20100, 17500],
-                borderColor: '#a0aec0',
-                backgroundColor: 'transparent',
-                borderWidth: 2,
-                borderDash: [5, 5],
-                fill: false,
-                tension: 0.4,
-                pointRadius: 0
-            }]
+            datasets: [
+                {
+                    label: 'Sales',
+                    data: [12500, 19200, 15300, 22100, 18400, 24600, 21300],
+                    backgroundColor: redGradient,
+                    borderColor: '#e74c3c',
+                    borderWidth: 1.5,
+                    borderRadius: 6,
+                    barPercentage: 0.8,
+                    categoryPercentage: 0.6
+                },
+                {
+                    label: 'Last Week',
+                    data: [10200, 15400, 12800, 18600, 14200, 20100, 17500],
+                    backgroundColor: 'rgba(160, 174, 192, 0.5)',
+                    borderColor: '#a0aec0',
+                    borderWidth: 1.2,
+                    borderRadius: 6,
+                    barPercentage: 0.8,
+                    categoryPercentage: 0.6
+                }
+            ]
         },
         options: {
             responsive: true,
@@ -100,6 +99,7 @@ function initSalesChart() {
                     }
                 },
                 y: {
+                    beginAtZero: true,
                     grid: {
                         color: 'rgba(163, 177, 198, 0.2)',
                         drawBorder: false

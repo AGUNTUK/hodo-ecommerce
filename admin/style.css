@@ -482,6 +482,19 @@ body {
     grid-column: span 1;
 }
 
+.chart-card.fixed-chart {
+    justify-self: start;
+    align-self: start;
+    width: 760px;
+    max-width: 100%;
+}
+
+.chart-card.fixed-chart canvas {
+    width: 100% !important;
+    height: 360px !important;
+    display: block;
+}
+
 .chart-header {
     display: flex;
     align-items: center;
