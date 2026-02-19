@@ -162,6 +162,182 @@ const DEMO_PRODUCTS = [
     colors: ["Black", "Silver", "Red"],
     image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=80",
     description: "Clean-faced analog watch with metal casing, matte strap, and subtle red accents."
+  },
+  {
+    id: 9,
+    name: "Urban Polo Shirt",
+    category: "Shirts",
+    price: 99,
+    rating: 4.6,
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["Navy", "White", "Black"],
+    image: "https://images.unsplash.com/photo-1625910513413-5fc45e60e5e2?auto=format&fit=crop&w=900&q=80",
+    description: "Classic polo with modern fit, breathable cotton pique fabric for everyday comfort."
+  },
+  {
+    id: 10,
+    name: "Denim Trucker Jacket",
+    category: "Jackets",
+    price: 189,
+    rating: 4.8,
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["Navy", "Black", "Gray"],
+    image: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=900&q=80",
+    description: "Authentic denim jacket with vintage wash, perfect for layering in any season."
+  },
+  {
+    id: 11,
+    name: "Slim Fit Chinos",
+    category: "Pants",
+    price: 119,
+    rating: 4.5,
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["Olive", "Navy", "Brown"],
+    image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=900&q=80",
+    description: "Versatile slim-fit chinos with stretch comfort, ideal for casual and smart-casual looks."
+  },
+  {
+    id: 12,
+    name: "Canvas Sneakers",
+    category: "Footwear",
+    price: 149,
+    rating: 4.7,
+    sizes: ["M", "L", "XL"],
+    colors: ["White", "Black", "Navy"],
+    image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=900&q=80",
+    description: "Lightweight canvas sneakers with cushioned insole for all-day comfort."
+  },
+  {
+    id: 13,
+    name: "Casual Linen Shirt",
+    category: "Shirts",
+    price: 109,
+    rating: 4.4,
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["White", "Olive", "Navy"],
+    image: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=900&q=80",
+    description: "Breathable linen shirt perfect for warm weather, relaxed fit for casual elegance."
+  },
+  {
+    id: 14,
+    name: "Leather Chelsea Boots",
+    category: "Footwear",
+    price: 279,
+    rating: 4.9,
+    sizes: ["M", "L", "XL"],
+    colors: ["Brown", "Black"],
+    image: "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?auto=format&fit=crop&w=900&q=80",
+    description: "Classic Chelsea boots in premium leather, timeless style for the modern gentleman."
+  },
+  {
+    id: 15,
+    name: "Wool Blend Sweater",
+    category: "Sweaters",
+    price: 169,
+    rating: 4.6,
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["Gray", "Navy", "Olive"],
+    image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=900&q=80",
+    description: "Soft wool blend sweater with ribbed cuffs, perfect for layering in cooler weather."
+  },
+  {
+    id: 16,
+    name: "Cargo Joggers",
+    category: "Pants",
+    price: 129,
+    rating: 4.5,
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["Black", "Olive", "Gray"],
+    image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=900&q=80",
+    description: "Modern cargo joggers with utility pockets and elastic cuffs for casual comfort."
+  },
+  {
+    id: 17,
+    name: "Leather Messenger Bag",
+    category: "Accessories",
+    price: 249,
+    rating: 4.8,
+    sizes: ["M", "L"],
+    colors: ["Brown", "Black"],
+    image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=80",
+    description: "Handcrafted leather messenger bag with multiple compartments for everyday carry."
+  },
+  {
+    id: 18,
+    name: "Graphic Print Hoodie",
+    category: "Sweaters",
+    price: 139,
+    rating: 4.4,
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["Black", "Gray", "Navy"],
+    image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=80",
+    description: "Premium cotton hoodie with unique graphic print, cozy fit for casual days."
+  },
+  {
+    id: 19,
+    name: "Suede Loafers",
+    category: "Footwear",
+    price: 199,
+    rating: 4.7,
+    sizes: ["M", "L", "XL"],
+    colors: ["Brown", "Navy", "Gray"],
+    image: "https://images.unsplash.com/photo-1614252369475-531eba835eb1?auto=format&fit=crop&w=900&q=80",
+    description: "Elegant suede loafers with cushioned footbed, perfect for smart-casual occasions."
+  },
+  {
+    id: 20,
+    name: "Quilted Vest",
+    category: "Jackets",
+    price: 159,
+    rating: 4.5,
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["Navy", "Black", "Olive"],
+    image: "https://images.unsplash.com/photo-1544923246-77307dd628b0?auto=format&fit=crop&w=900&q=80",
+    description: "Lightweight quilted vest for layering, provides warmth without bulk."
+  },
+  {
+    id: 21,
+    name: "Oxford Button-Down",
+    category: "Shirts",
+    price: 119,
+    rating: 4.7,
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["White", "Navy", "Gray"],
+    image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=900&q=80",
+    description: "Classic Oxford button-down in premium cotton, versatile for any occasion."
+  },
+  {
+    id: 22,
+    name: "Aviator Sunglasses",
+    category: "Accessories",
+    price: 129,
+    rating: 4.6,
+    sizes: ["M", "L"],
+    colors: ["Black", "Silver", "Brown"],
+    image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=900&q=80",
+    description: "Timeless aviator sunglasses with UV protection, a must-have accessory."
+  },
+  {
+    id: 23,
+    name: "Relaxed Fit Jeans",
+    category: "Pants",
+    price: 139,
+    rating: 4.5,
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["Navy", "Black", "Gray"],
+    image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=900&q=80",
+    description: "Comfortable relaxed-fit jeans with classic five-pocket styling."
+  },
+  {
+    id: 24,
+    name: "Cashmere Beanie",
+    category: "Accessories",
+    price: 69,
+    rating: 4.8,
+    sizes: ["M", "L"],
+    colors: ["Gray", "Navy", "Black"],
+    image: "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?auto=format&fit=crop&w=900&q=80",
+    description: "Luxuriously soft cashmere beanie for cold weather comfort and style."
   }
 ];
 
