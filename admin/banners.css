@@ -5,9 +5,9 @@
 /* Stats Cards */
 .banners-stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .stat-card {
@@ -64,7 +64,7 @@
 
 /* Banner Section */
 .banner-section {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .banner-section .section-header {
@@ -95,8 +95,15 @@
 /* Banner Grid */
 .banner-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    max-width: 1200px;
+}
+
+/* Card Grid Container - Outer wrapper */
+.card-grid {
+    display: block;
+    width: 100%;
 }
 
 /* Banner Card */
@@ -105,26 +112,37 @@
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #e5e7eb;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .banner-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: #d1d5db;
 }
 
 .banner-preview {
     position: relative;
-    aspect-ratio: 16/9;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
     background: #f3f4f6;
     overflow: hidden;
 }
 
 .banner-preview img,
 .banner-preview video {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center center;
 }
 
 .banner-preview .status-badge {
@@ -161,12 +179,12 @@
 
 /* Banner Details */
 .banner-details {
-    padding: 1rem 1.25rem;
+    padding: 0.75rem 1rem;
 }
 
 .banner-details h4 {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 600;
     color: #1f2937;
     margin: 0 0 0.25rem;
@@ -205,7 +223,7 @@
 .banner-actions {
     display: flex;
     gap: 0.5rem;
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 1rem;
     background: #f9fafb;
     border-top: 1px solid #e5e7eb;
 }
@@ -214,18 +232,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s ease;
     background: transparent;
 }
 
 .btn-icon svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
 }
 
 .btn-icon.toggle-status {
@@ -654,7 +672,7 @@
     }
 
     .banner-preview {
-        aspect-ratio: 4/3;
+        padding-bottom: 56.25%;
     }
 
     .banner-details {
