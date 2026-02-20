@@ -30,8 +30,8 @@ This guide explains how to set up Supabase as the backend for the Hodo e-commerc
 2. Replace the placeholder values with your actual credentials:
 
 ```javascript
-const SUPABASE_URL = 'https://your-project-id.supabase.co';
-const SUPABASE_ANON_KEY = 'your-anon-key-here';
+const SUPABASE_URL = "https://your-project-id.supabase.co";
+const SUPABASE_ANON_KEY = "your-anon-key-here";
 ```
 
 ## Step 4: Set Up the Database Schema
@@ -43,6 +43,7 @@ const SUPABASE_ANON_KEY = 'your-anon-key-here';
 5. Click "Run" to execute the SQL
 
 This will create:
+
 - `products` table - Stores product information
 - `profiles` table - Stores user profile data
 - `cart` table - Stores shopping cart items
@@ -73,18 +74,19 @@ If you want to upload custom product images:
 
 ### Tables
 
-| Table | Description |
-|-------|-------------|
-| `products` | Product catalog with name, price, category, sizes, colors, images |
-| `profiles` | User profile information linked to auth.users |
-| `cart` | Shopping cart items for authenticated and guest users |
-| `orders` | Customer orders with status tracking |
-| `order_items` | Individual items within orders |
-| `wishlist` | User wishlist items |
+| Table         | Description                                                       |
+| ------------- | ----------------------------------------------------------------- |
+| `products`    | Product catalog with name, price, category, sizes, colors, images |
+| `profiles`    | User profile information linked to auth.users                     |
+| `cart`        | Shopping cart items for authenticated and guest users             |
+| `orders`      | Customer orders with status tracking                              |
+| `order_items` | Individual items within orders                                    |
+| `wishlist`    | User wishlist items                                               |
 
 ### Row Level Security (RLS)
 
 The schema includes RLS policies for:
+
 - **Products**: Readable by everyone, writable by admins only
 - **Profiles**: Users can only view/edit their own profile
 - **Cart**: Users can only access their own cart items
@@ -96,10 +98,12 @@ The schema includes RLS policies for:
 The `app-supabase.js` file provides these functions:
 
 ### Products
+
 - `fetchProducts()` - Get all products
 - `fetchProductById(id)` - Get a single product
 
 ### Cart
+
 - `getCart()` - Get current user's cart
 - `addToCart(productId, size, color, quantity)` - Add item to cart
 - `updateCartItemQuantity(cartId, quantity)` - Update quantity
@@ -107,17 +111,21 @@ The `app-supabase.js` file provides these functions:
 - `clearCart()` - Clear all cart items
 
 ### Profile
+
 - `getProfile()` - Get user profile
 - `saveProfile(profile)` - Save user profile
 
 ### Wishlist
+
 - `getWishlist()` - Get user's wishlist
 - `toggleWishlist(productId)` - Add/remove from wishlist
 
 ### Orders
+
 - `createOrder(orderData)` - Create a new order
 
 ### Authentication
+
 - `signIn(email, password)` - Sign in user
 - `signUp(email, password)` - Register new user
 - `signOut()` - Sign out user
@@ -137,8 +145,8 @@ For production deployments, consider using environment variables:
 
 ```javascript
 // In a .env file or your hosting platform's environment settings
-VITE_SUPABASE_URL=your-project-url
-VITE_SUPABASE_ANON_KEY=your-anon-key
+VITE_SUPABASE_URL = your - project - url;
+VITE_SUPABASE_ANON_KEY = your - anon - key;
 ```
 
 Then update `supabase-config.js`:
@@ -151,16 +159,19 @@ const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 ## Troubleshooting
 
 ### "Failed to fetch" errors
+
 - Check that your Supabase URL is correct
 - Verify your anon key is valid
 - Check CORS settings in Supabase dashboard
 
 ### RLS Policy Errors
+
 - Make sure RLS is enabled on all tables
 - Verify the policies are correctly set up
 - Check that you're authenticated for protected operations
 
 ### Products Not Loading
+
 - Verify the products table has data (run the seed SQL)
 - Check RLS policies allow public read access
 
@@ -173,6 +184,7 @@ const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 ## Support
 
 For issues specific to this implementation, please check:
+
 1. Browser console for error messages
 2. Supabase dashboard logs
 3. Network tab for failed API requests

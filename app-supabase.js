@@ -13,15 +13,17 @@ const COLOR_HEX = {
   Navy: "#182746",
   Olive: "#4f5941",
   Brown: "#6e4a33",
-  Silver: "#9aa0aa"
+  Silver: "#9aa0aa",
 };
 
-const STAR_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.1 6.4 20.2l1.1-6.2L3 9.6l6.2-.9z"></path></svg>';
-const HEART_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3 4.9 13.8a4.9 4.9 0 1 1 6.9-7l.2.2.2-.2a4.9 4.9 0 0 1 6.9 7z"></path></svg>';
+const STAR_ICON =
+  '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.1 6.4 20.2l1.1-6.2L3 9.6l6.2-.9z"></path></svg>';
+const HEART_ICON =
+  '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3 4.9 13.8a4.9 4.9 0 1 1 6.9-7l.2.2.2-.2a4.9 4.9 0 0 1 6.9 7z"></path></svg>';
 
 const BDT_NUMBER_FORMATTER = new Intl.NumberFormat("en-BD", {
   minimumFractionDigits: 2,
-  maximumFractionDigits: 2
+  maximumFractionDigits: 2,
 });
 
 // ============================================
@@ -33,7 +35,9 @@ function formatPrice(price) {
 }
 
 function normalize(value) {
-  return String(value || "").trim().toLowerCase();
+  return String(value || "")
+    .trim()
+    .toLowerCase();
 }
 
 function resolveColor(name) {
@@ -41,10 +45,10 @@ function resolveColor(name) {
 }
 
 function getSessionId() {
-  let sessionId = localStorage.getItem('hodo_session_id');
+  let sessionId = localStorage.getItem("hodo_session_id");
   if (!sessionId) {
-    sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-    localStorage.setItem('hodo_session_id', sessionId);
+    sessionId = "session_" + Date.now() + "_" + Math.random().toString(36).substr(2, 9);
+    localStorage.setItem("hodo_session_id", sessionId);
   }
   return sessionId;
 }
@@ -55,7 +59,7 @@ function showError(message, elementId = null) {
     const element = document.getElementById(elementId);
     if (element) {
       element.textContent = message;
-      element.classList.add('error');
+      element.classList.add("error");
     }
   }
 }
@@ -65,7 +69,7 @@ function showSuccess(message, elementId = null) {
     const element = document.getElementById(elementId);
     if (element) {
       element.textContent = message;
-      element.classList.remove('error');
+      element.classList.remove("error");
     }
   }
 }
@@ -83,8 +87,9 @@ const DEMO_PRODUCTS = [
     rating: 4.8,
     sizes: ["S", "M", "L", "XL"],
     colors: ["Black", "White", "Red"],
-    image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=900&q=80",
-    description: "Engineered cotton shirt with a tailored silhouette and low-profile seam lines."
+    image:
+      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=900&q=80",
+    description: "Engineered cotton shirt with a tailored silhouette and low-profile seam lines.",
   },
   {
     id: 2,
@@ -94,8 +99,10 @@ const DEMO_PRODUCTS = [
     rating: 4.9,
     sizes: ["M", "L", "XL"],
     colors: ["Black", "Gray", "Navy"],
-    image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=900&q=80",
-    description: "Water-resistant shell jacket with minimalist hardware and modern structured collar."
+    image:
+      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=900&q=80",
+    description:
+      "Water-resistant shell jacket with minimalist hardware and modern structured collar.",
   },
   {
     id: 3,
@@ -105,8 +112,9 @@ const DEMO_PRODUCTS = [
     rating: 4.7,
     sizes: ["S", "M", "L", "XL"],
     colors: ["Black", "Gray", "Olive"],
-    image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=900&q=80",
-    description: "Tapered technical trousers with subtle pleat detail and soft stretch movement."
+    image:
+      "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=900&q=80",
+    description: "Tapered technical trousers with subtle pleat detail and soft stretch movement.",
   },
   {
     id: 4,
@@ -116,8 +124,9 @@ const DEMO_PRODUCTS = [
     rating: 4.6,
     sizes: ["M", "L", "XL"],
     colors: ["Black", "Brown", "Red"],
-    image: "https://images.unsplash.com/photo-1560343776-97e7d202ff0e?auto=format&fit=crop&w=900&q=80",
-    description: "Premium leather belt with matte black buckle and understated angular profile."
+    image:
+      "https://images.unsplash.com/photo-1560343776-97e7d202ff0e?auto=format&fit=crop&w=900&q=80",
+    description: "Premium leather belt with matte black buckle and understated angular profile.",
   },
   {
     id: 5,
@@ -127,8 +136,9 @@ const DEMO_PRODUCTS = [
     rating: 4.5,
     sizes: ["S", "M", "L", "XL"],
     colors: ["Black", "White", "Gray"],
-    image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=900&q=80",
-    description: "Soft compression knit tee designed for layering and sharp monochrome styling."
+    image:
+      "https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=900&q=80",
+    description: "Soft compression knit tee designed for layering and sharp monochrome styling.",
   },
   {
     id: 6,
@@ -138,8 +148,10 @@ const DEMO_PRODUCTS = [
     rating: 4.9,
     sizes: ["M", "L", "XL"],
     colors: ["Black", "Navy", "Red"],
-    image: "https://images.unsplash.com/photo-1614251055880-ee96e4803393?auto=format&fit=crop&w=900&q=80",
-    description: "Insulated bomber with tonal ribbing, clean paneling, and a precision cropped fit."
+    image:
+      "https://images.unsplash.com/photo-1614251055880-ee96e4803393?auto=format&fit=crop&w=900&q=80",
+    description:
+      "Insulated bomber with tonal ribbing, clean paneling, and a precision cropped fit.",
   },
   {
     id: 7,
@@ -149,8 +161,10 @@ const DEMO_PRODUCTS = [
     rating: 4.7,
     sizes: ["S", "M", "L", "XL"],
     colors: ["Gray", "Navy", "Black"],
-    image: "https://images.unsplash.com/photo-1593032465171-8bd65299489c?auto=format&fit=crop&w=900&q=80",
-    description: "Pleated trouser with architectural drape and refined ankle taper for modern outfits."
+    image:
+      "https://images.unsplash.com/photo-1593032465171-8bd65299489c?auto=format&fit=crop&w=900&q=80",
+    description:
+      "Pleated trouser with architectural drape and refined ankle taper for modern outfits.",
   },
   {
     id: 8,
@@ -160,8 +174,9 @@ const DEMO_PRODUCTS = [
     rating: 4.8,
     sizes: ["M", "L"],
     colors: ["Black", "Silver", "Red"],
-    image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=80",
-    description: "Clean-faced analog watch with metal casing, matte strap, and subtle red accents."
+    image:
+      "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=80",
+    description: "Clean-faced analog watch with metal casing, matte strap, and subtle red accents.",
   },
   {
     id: 9,
@@ -171,8 +186,10 @@ const DEMO_PRODUCTS = [
     rating: 4.6,
     sizes: ["S", "M", "L", "XL"],
     colors: ["Navy", "White", "Black"],
-    image: "https://images.unsplash.com/photo-1625910513413-5fc45e60e5e2?auto=format&fit=crop&w=900&q=80",
-    description: "Classic polo with modern fit, breathable cotton pique fabric for everyday comfort."
+    image:
+      "https://images.unsplash.com/photo-1625910513413-5fc45e60e5e2?auto=format&fit=crop&w=900&q=80",
+    description:
+      "Classic polo with modern fit, breathable cotton pique fabric for everyday comfort.",
   },
   {
     id: 10,
@@ -182,8 +199,9 @@ const DEMO_PRODUCTS = [
     rating: 4.8,
     sizes: ["S", "M", "L", "XL"],
     colors: ["Navy", "Black", "Gray"],
-    image: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=900&q=80",
-    description: "Authentic denim jacket with vintage wash, perfect for layering in any season."
+    image:
+      "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=900&q=80",
+    description: "Authentic denim jacket with vintage wash, perfect for layering in any season.",
   },
   {
     id: 11,
@@ -193,8 +211,10 @@ const DEMO_PRODUCTS = [
     rating: 4.5,
     sizes: ["S", "M", "L", "XL"],
     colors: ["Olive", "Navy", "Brown"],
-    image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=900&q=80",
-    description: "Versatile slim-fit chinos with stretch comfort, ideal for casual and smart-casual looks."
+    image:
+      "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=900&q=80",
+    description:
+      "Versatile slim-fit chinos with stretch comfort, ideal for casual and smart-casual looks.",
   },
   {
     id: 12,
@@ -204,8 +224,9 @@ const DEMO_PRODUCTS = [
     rating: 4.7,
     sizes: ["M", "L", "XL"],
     colors: ["White", "Black", "Navy"],
-    image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=900&q=80",
-    description: "Lightweight canvas sneakers with cushioned insole for all-day comfort."
+    image:
+      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=900&q=80",
+    description: "Lightweight canvas sneakers with cushioned insole for all-day comfort.",
   },
   {
     id: 13,
@@ -215,8 +236,10 @@ const DEMO_PRODUCTS = [
     rating: 4.4,
     sizes: ["S", "M", "L", "XL"],
     colors: ["White", "Olive", "Navy"],
-    image: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=900&q=80",
-    description: "Breathable linen shirt perfect for warm weather, relaxed fit for casual elegance."
+    image:
+      "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=900&q=80",
+    description:
+      "Breathable linen shirt perfect for warm weather, relaxed fit for casual elegance.",
   },
   {
     id: 14,
@@ -226,8 +249,10 @@ const DEMO_PRODUCTS = [
     rating: 4.9,
     sizes: ["M", "L", "XL"],
     colors: ["Brown", "Black"],
-    image: "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?auto=format&fit=crop&w=900&q=80",
-    description: "Classic Chelsea boots in premium leather, timeless style for the modern gentleman."
+    image:
+      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?auto=format&fit=crop&w=900&q=80",
+    description:
+      "Classic Chelsea boots in premium leather, timeless style for the modern gentleman.",
   },
   {
     id: 15,
@@ -237,8 +262,10 @@ const DEMO_PRODUCTS = [
     rating: 4.6,
     sizes: ["S", "M", "L", "XL"],
     colors: ["Gray", "Navy", "Olive"],
-    image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=900&q=80",
-    description: "Soft wool blend sweater with ribbed cuffs, perfect for layering in cooler weather."
+    image:
+      "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=900&q=80",
+    description:
+      "Soft wool blend sweater with ribbed cuffs, perfect for layering in cooler weather.",
   },
   {
     id: 16,
@@ -248,8 +275,9 @@ const DEMO_PRODUCTS = [
     rating: 4.5,
     sizes: ["S", "M", "L", "XL"],
     colors: ["Black", "Olive", "Gray"],
-    image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=900&q=80",
-    description: "Modern cargo joggers with utility pockets and elastic cuffs for casual comfort."
+    image:
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=900&q=80",
+    description: "Modern cargo joggers with utility pockets and elastic cuffs for casual comfort.",
   },
   {
     id: 17,
@@ -259,8 +287,9 @@ const DEMO_PRODUCTS = [
     rating: 4.8,
     sizes: ["M", "L"],
     colors: ["Brown", "Black"],
-    image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=80",
-    description: "Handcrafted leather messenger bag with multiple compartments for everyday carry."
+    image:
+      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=80",
+    description: "Handcrafted leather messenger bag with multiple compartments for everyday carry.",
   },
   {
     id: 18,
@@ -270,8 +299,9 @@ const DEMO_PRODUCTS = [
     rating: 4.4,
     sizes: ["S", "M", "L", "XL"],
     colors: ["Black", "Gray", "Navy"],
-    image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=80",
-    description: "Premium cotton hoodie with unique graphic print, cozy fit for casual days."
+    image:
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=80",
+    description: "Premium cotton hoodie with unique graphic print, cozy fit for casual days.",
   },
   {
     id: 19,
@@ -281,8 +311,10 @@ const DEMO_PRODUCTS = [
     rating: 4.7,
     sizes: ["M", "L", "XL"],
     colors: ["Brown", "Navy", "Gray"],
-    image: "https://images.unsplash.com/photo-1614252369475-531eba835eb1?auto=format&fit=crop&w=900&q=80",
-    description: "Elegant suede loafers with cushioned footbed, perfect for smart-casual occasions."
+    image:
+      "https://images.unsplash.com/photo-1614252369475-531eba835eb1?auto=format&fit=crop&w=900&q=80",
+    description:
+      "Elegant suede loafers with cushioned footbed, perfect for smart-casual occasions.",
   },
   {
     id: 20,
@@ -292,8 +324,9 @@ const DEMO_PRODUCTS = [
     rating: 4.5,
     sizes: ["S", "M", "L", "XL"],
     colors: ["Navy", "Black", "Olive"],
-    image: "https://images.unsplash.com/photo-1544923246-77307dd628b0?auto=format&fit=crop&w=900&q=80",
-    description: "Lightweight quilted vest for layering, provides warmth without bulk."
+    image:
+      "https://images.unsplash.com/photo-1544923246-77307dd628b0?auto=format&fit=crop&w=900&q=80",
+    description: "Lightweight quilted vest for layering, provides warmth without bulk.",
   },
   {
     id: 21,
@@ -303,8 +336,9 @@ const DEMO_PRODUCTS = [
     rating: 4.7,
     sizes: ["S", "M", "L", "XL"],
     colors: ["White", "Navy", "Gray"],
-    image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=900&q=80",
-    description: "Classic Oxford button-down in premium cotton, versatile for any occasion."
+    image:
+      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=900&q=80",
+    description: "Classic Oxford button-down in premium cotton, versatile for any occasion.",
   },
   {
     id: 22,
@@ -314,8 +348,9 @@ const DEMO_PRODUCTS = [
     rating: 4.6,
     sizes: ["M", "L"],
     colors: ["Black", "Silver", "Brown"],
-    image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=900&q=80",
-    description: "Timeless aviator sunglasses with UV protection, a must-have accessory."
+    image:
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=900&q=80",
+    description: "Timeless aviator sunglasses with UV protection, a must-have accessory.",
   },
   {
     id: 23,
@@ -325,8 +360,9 @@ const DEMO_PRODUCTS = [
     rating: 4.5,
     sizes: ["S", "M", "L", "XL"],
     colors: ["Navy", "Black", "Gray"],
-    image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=900&q=80",
-    description: "Comfortable relaxed-fit jeans with classic five-pocket styling."
+    image:
+      "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=900&q=80",
+    description: "Comfortable relaxed-fit jeans with classic five-pocket styling.",
   },
   {
     id: 24,
@@ -336,9 +372,10 @@ const DEMO_PRODUCTS = [
     rating: 4.8,
     sizes: ["M", "L"],
     colors: ["Gray", "Navy", "Black"],
-    image: "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?auto=format&fit=crop&w=900&q=80",
-    description: "Luxuriously soft cashmere beanie for cold weather comfort and style."
-  }
+    image:
+      "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?auto=format&fit=crop&w=900&q=80",
+    description: "Luxuriously soft cashmere beanie for cold weather comfort and style.",
+  },
 ];
 
 // ============================================
@@ -350,107 +387,196 @@ const DEMO_HERO_SLIDES = [
     id: 1,
     eyebrow: "New Collection 2026",
     title: "Elevate Your <span>Style</span>",
-    description: "Premium menswear crafted for the modern gentleman. Discover timeless pieces designed for distinction.",
+    description:
+      "Premium menswear crafted for the modern gentleman. Discover timeless pieces designed for distinction.",
     button_text: "Shop Now",
     button_link: "#shopGrid",
     secondary_button_text: "Contact Us",
     secondary_button_link: "#contact-panel",
-    image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=600&q=80",
     order: 1,
-    is_active: true
+    is_active: true,
   },
   {
     id: 2,
     eyebrow: "Summer Essentials",
     title: "Sharp Looks for <span>Hot Days</span>",
-    description: "Lightweight fabrics meet bold designs. Stay cool while looking your absolute best this season.",
+    description:
+      "Lightweight fabrics meet bold designs. Stay cool while looking your absolute best this season.",
     button_text: "Explore Summer",
     button_link: "shop.html?category=Shirts",
     secondary_button_text: "View Lookbook",
     secondary_button_link: "#",
-    image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=600&q=80",
     order: 2,
-    is_active: true
+    is_active: true,
   },
   {
     id: 3,
     eyebrow: "Limited Edition",
     title: "Exclusive <span>Jackets</span> Are Here",
-    description: "Handcrafted jackets with premium materials. Limited stock available - don't miss out on these statement pieces.",
+    description:
+      "Handcrafted jackets with premium materials. Limited stock available - don't miss out on these statement pieces.",
     button_text: "Shop Jackets",
     button_link: "shop.html?category=Jackets",
     secondary_button_text: "Learn More",
     secondary_button_link: "#",
-    image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80",
     order: 3,
-    is_active: true
-  }
+    is_active: true,
+  },
 ];
 
 // ============================================
 // PRODUCTS API
 // ============================================
 
+let productsCache = null;
+let productSubscribers = [];
+let productsRealtimeInitialized = false;
+
 async function fetchProducts() {
   // If Supabase is not available, return demo products immediately
   if (!window.supabaseClient || !window.TABLES) {
-    console.log('Supabase not available, using demo products');
+    console.log("Supabase not available, using demo products");
+    productsCache = DEMO_PRODUCTS;
     return DEMO_PRODUCTS;
   }
-  
+
   try {
-    console.log('Fetching products from Supabase...');
+    console.log("Fetching products from Supabase...");
     const { data, error } = await supabaseClient
       .from(TABLES.products)
-      .select('*')
-      .order('id', { ascending: true });
-    
+      .select("*")
+      .order("id", { ascending: true });
+
     if (error) {
-      console.error('Supabase query error:', error);
+      console.error("Supabase query error:", error);
       throw error;
     }
-    
+
     // If no products in database, return demo products
     if (!data || data.length === 0) {
-      console.log('No products in database, using demo products');
+      console.log("No products in database, using demo products");
+      productsCache = DEMO_PRODUCTS;
       return DEMO_PRODUCTS;
     }
-    
+
     console.log(`Found ${data.length} products in database`);
+    // Update cache and notify subscribers with the latest products
+    productsCache = data;
+    if (Array.isArray(productSubscribers) && productSubscribers.length > 0) {
+      productSubscribers.forEach((callback) => {
+        try {
+          callback(data);
+        } catch (error) {
+          console.error("Error in products subscriber:", error);
+        }
+      });
+    }
     return data;
   } catch (error) {
-    console.error('Error fetching products, using demo products:', error);
+    console.error("Error fetching products, using demo products:", error);
     // Return demo products on error
+    productsCache = DEMO_PRODUCTS;
     return DEMO_PRODUCTS;
   }
+}
+
+async function getLiveProducts() {
+  if (!productsCache) {
+    const products = await fetchProducts();
+    productsCache = products;
+  }
+  return productsCache;
+}
+
+function subscribeToProducts(callback) {
+  if (typeof callback !== "function") {
+    return () => { };
+  }
+
+  productSubscribers.push(callback);
+
+  // Immediately emit current cache if available
+  if (productsCache) {
+    try {
+      callback(productsCache);
+    } catch (error) {
+      console.error("Error in initial products subscriber call:", error);
+    }
+  }
+
+  // Unsubscribe function
+  return () => {
+    productSubscribers = productSubscribers.filter((cb) => cb !== callback);
+  };
+}
+
+function initProductsRealtime() {
+  if (!window.supabaseClient || !window.TABLES || productsRealtimeInitialized) {
+    return;
+  }
+
+  productsRealtimeInitialized = true;
+
+  const channel = supabaseClient
+    .channel("products-realtime")
+    .on(
+      "postgres_changes",
+      { event: "*", schema: "public", table: TABLES.products },
+      async () => {
+        try {
+          const latest = await fetchProducts();
+          productsCache = latest;
+          if (Array.isArray(productSubscribers) && productSubscribers.length > 0) {
+            productSubscribers.forEach((callback) => {
+              try {
+                callback(latest);
+              } catch (error) {
+                console.error("Error in products subscriber:", error);
+              }
+            });
+          }
+        } catch (error) {
+          console.error("Error refreshing products after change:", error);
+        }
+      }
+    )
+    .subscribe();
+
+  window.__productsChannel = channel;
 }
 
 async function fetchProductById(productId) {
   // If Supabase is not available, return from demo products immediately
   if (!window.supabaseClient || !window.TABLES) {
-    console.log('Supabase not available, using demo product');
-    return DEMO_PRODUCTS.find(p => p.id === productId) || null;
+    console.log("Supabase not available, using demo product");
+    return DEMO_PRODUCTS.find((p) => p.id === productId) || null;
   }
-  
+
   try {
     const { data, error } = await supabaseClient
       .from(TABLES.products)
-      .select('*')
-      .eq('id', productId)
+      .select("*")
+      .eq("id", productId)
       .single();
-    
+
     if (error) throw error;
-    
+
     // If not found in database, check demo products
     if (!data) {
-      return DEMO_PRODUCTS.find(p => p.id === productId) || null;
+      return DEMO_PRODUCTS.find((p) => p.id === productId) || null;
     }
-    
+
     return data;
   } catch (error) {
-    console.error('Error fetching product, using demo product:', error);
+    console.error("Error fetching product, using demo product:", error);
     // Return from demo products on error
-    return DEMO_PRODUCTS.find(p => p.id === productId) || null;
+    return DEMO_PRODUCTS.find((p) => p.id === productId) || null;
   }
 }
 
@@ -462,7 +588,7 @@ async function getCart() {
   try {
     const user = supabaseClient.auth.user();
     const sessionId = getSessionId();
-    
+
     let query = supabaseClient.from(TABLES.cart).select(`
       id,
       product_id,
@@ -477,19 +603,19 @@ async function getCart() {
         image
       )
     `);
-    
+
     if (user) {
-      query = query.eq('user_id', user.id);
+      query = query.eq("user_id", user.id);
     } else {
-      query = query.eq('session_id', sessionId).is('user_id', null);
+      query = query.eq("session_id", sessionId).is("user_id", null);
     }
-    
+
     const { data, error } = await query;
-    
+
     if (error) throw error;
     return data || [];
   } catch (error) {
-    console.error('Error fetching cart:', error);
+    console.error("Error fetching cart:", error);
     return [];
   }
 }
@@ -498,46 +624,44 @@ async function addToCart(productId, size, color, quantity = 1) {
   try {
     const user = supabaseClient.auth.user();
     const sessionId = getSessionId();
-    
+
     const cartItem = {
       product_id: productId,
       size,
       color,
-      quantity: Math.max(1, quantity)
+      quantity: Math.max(1, quantity),
     };
-    
+
     if (user) {
       cartItem.user_id = user.id;
     } else {
       cartItem.session_id = sessionId;
     }
-    
+
     // Check if item already exists
     const existingItems = await getCart();
     const existing = existingItems.find(
-      item => item.product_id === productId && item.size === size && item.color === color
+      (item) => item.product_id === productId && item.size === size && item.color === color
     );
-    
+
     if (existing) {
       // Update quantity
       const { error } = await supabaseClient
         .from(TABLES.cart)
         .update({ quantity: existing.quantity + quantity })
-        .eq('id', existing.id);
-      
+        .eq("id", existing.id);
+
       if (error) throw error;
     } else {
       // Insert new item
-      const { error } = await supabaseClient
-        .from(TABLES.cart)
-        .insert(cartItem);
-      
+      const { error } = await supabaseClient.from(TABLES.cart).insert(cartItem);
+
       if (error) throw error;
     }
-    
+
     return await getCart();
   } catch (error) {
-    console.error('Error adding to cart:', error);
+    console.error("Error adding to cart:", error);
     return [];
   }
 }
@@ -545,39 +669,33 @@ async function addToCart(productId, size, color, quantity = 1) {
 async function updateCartItemQuantity(cartId, nextQuantity) {
   try {
     if (nextQuantity <= 0) {
-      const { error } = await supabaseClient
-        .from(TABLES.cart)
-        .delete()
-        .eq('id', cartId);
-      
+      const { error } = await supabaseClient.from(TABLES.cart).delete().eq("id", cartId);
+
       if (error) throw error;
     } else {
       const { error } = await supabaseClient
         .from(TABLES.cart)
         .update({ quantity: nextQuantity })
-        .eq('id', cartId);
-      
+        .eq("id", cartId);
+
       if (error) throw error;
     }
-    
+
     return await getCart();
   } catch (error) {
-    console.error('Error updating cart:', error);
+    console.error("Error updating cart:", error);
     return [];
   }
 }
 
 async function removeCartItem(cartId) {
   try {
-    const { error } = await supabaseClient
-      .from(TABLES.cart)
-      .delete()
-      .eq('id', cartId);
-    
+    const { error } = await supabaseClient.from(TABLES.cart).delete().eq("id", cartId);
+
     if (error) throw error;
     return await getCart();
   } catch (error) {
-    console.error('Error removing from cart:', error);
+    console.error("Error removing from cart:", error);
     return [];
   }
 }
@@ -596,6 +714,175 @@ async function getCartTotals(cartItems) {
 }
 
 // ============================================
+// COUPON VALIDATION & APPLICATION
+// ============================================
+
+let appliedCoupon = null;
+
+async function validateCouponForCheckout(code, cartItems) {
+  try {
+    // Get coupon by code
+    const { data: coupon, error: couponError } = await supabaseClient
+      .from(TABLES.coupons || 'coupons')
+      .select('*')
+      .eq('code', code.toUpperCase())
+      .single();
+
+    if (couponError && couponError.code !== 'PGRST116') {
+      throw couponError;
+    }
+
+    if (!coupon) {
+      return { valid: false, error: 'Invalid coupon code' };
+    }
+
+    // Check if coupon is active
+    if (!coupon.is_active) {
+      return { valid: false, error: 'This coupon is currently inactive' };
+    }
+
+    // Check if coupon has expired
+    const now = new Date();
+    const expiryDate = new Date(coupon.expiry_date);
+    const startDate = new Date(coupon.start_date);
+
+    if (now < startDate) {
+      return { valid: false, error: 'This coupon is not yet active' };
+    }
+
+    if (now > expiryDate) {
+      return { valid: false, error: 'This coupon has expired' };
+    }
+
+    // Calculate cart subtotal
+    const subtotal = cartItems.reduce((sum, item) => {
+      const product = item.products;
+      if (!product) return sum;
+      return sum + (product.price * item.quantity);
+    }, 0);
+
+    // Check minimum order amount
+    if (coupon.minimum_order_amount && subtotal < coupon.minimum_order_amount) {
+      return {
+        valid: false,
+        error: `Minimum order amount of ${formatPrice(coupon.minimum_order_amount)} not met`
+      };
+    }
+
+    // Check usage limit
+    if (coupon.usage_limit && coupon.usage_count >= coupon.usage_limit) {
+      return { valid: false, error: 'Coupon usage limit exceeded' };
+    }
+
+    // Check product/category eligibility
+    if (coupon.applicable_type === 'products' && coupon.applicable_products?.length > 0) {
+      const cartProductIds = cartItems.map(item => item.product_id);
+      const eligibleProductIds = coupon.applicable_products;
+      const hasEligibleProduct = cartProductIds.some(id => eligibleProductIds.includes(id));
+
+      if (!hasEligibleProduct) {
+        return { valid: false, error: 'This coupon is not applicable to your cart items' };
+      }
+    }
+
+    if (coupon.applicable_type === 'categories' && coupon.applicable_categories?.length > 0) {
+      const cartCategories = cartItems.map(item => item.products?.category).filter(Boolean);
+      const eligibleCategories = coupon.applicable_categories;
+      const hasEligibleCategory = cartCategories.some(cat => eligibleCategories.includes(cat));
+
+      if (!hasEligibleCategory) {
+        return { valid: false, error: 'This coupon is not applicable to your cart items' };
+      }
+    }
+
+    // Calculate discount
+    let discountAmount = 0;
+    if (coupon.discount_type === 'percentage') {
+      discountAmount = (subtotal * coupon.discount_value) / 100;
+      // Apply max discount cap if set
+      if (coupon.maximum_discount_cap && discountAmount > coupon.maximum_discount_cap) {
+        discountAmount = coupon.maximum_discount_cap;
+      }
+    } else {
+      // Fixed amount
+      discountAmount = coupon.discount_value;
+    }
+
+    // Don't allow discount to exceed subtotal
+    if (discountAmount > subtotal) {
+      discountAmount = subtotal;
+    }
+
+    return {
+      valid: true,
+      coupon,
+      discountAmount,
+      message: 'Coupon applied successfully! You saved ' + formatPrice(discountAmount)
+    };
+
+  } catch (error) {
+    console.error('Error validating coupon:', error);
+    return { valid: false, error: 'Error validating coupon' };
+  }
+}
+
+function applyCouponToTotals(subtotal, discountAmount) {
+  const shippingCost = subtotal >= 2000 ? 0 : 60;
+  const discountedSubtotal = subtotal - discountAmount;
+  const totalAmount = discountedSubtotal + shippingCost;
+
+  return {
+    subtotal,
+    discountAmount,
+    shippingCost,
+    totalAmount
+  };
+}
+
+function showCouponMessage(message, isError = false) {
+  const promoInput = document.getElementById('promoCode');
+  const statusEl = document.createElement('div');
+  statusEl.className = `coupon-message ${isError ? 'error' : 'success'}`;
+  statusEl.textContent = message;
+
+  // Remove any existing message
+  const existingMsg = promoInput?.parentElement?.querySelector('.coupon-message');
+  if (existingMsg) existingMsg.remove();
+
+  if (promoInput?.parentElement) {
+    promoInput.parentElement.appendChild(statusEl);
+    setTimeout(() => statusEl.remove(), 5000);
+  }
+}
+
+async function recordCouponUsage(couponId, userId, sessionId, orderId) {
+  try {
+    // Update coupon usage count
+    await supabaseClient
+      .from(TABLES.coupons || 'coupons')
+      .update({ usage_count: supabaseClient.raw('usage_count + 1') })
+      .eq('id', couponId);
+
+    // Record usage if user is logged in or has session
+    if (userId || sessionId) {
+      await supabaseClient
+        .from(TABLES.coupon_usage || 'coupon_usage')
+        .insert([{
+          coupon_id: couponId,
+          user_id: userId,
+          session_id: sessionId,
+          order_id: orderId
+        }]);
+    }
+
+    return { success: true };
+  } catch (error) {
+    console.error('Error recording coupon usage:', error);
+    return { success: false };
+  }
+}
+
+// ============================================
 // PROFILE API
 // ============================================
 
@@ -603,21 +890,21 @@ async function getProfile() {
   try {
     const user = supabaseClient.auth.user();
     if (!user) {
-      return { name: '', email: '', phone: '', address: '' };
+      return { name: "", email: "", phone: "", address: "" };
     }
-    
+
     const { data, error } = await supabaseClient
       .from(TABLES.profiles)
-      .select('*')
-      .eq('id', user.id)
+      .select("*")
+      .eq("id", user.id)
       .single();
-    
-    if (error && error.code !== 'PGRST116') throw error;
-    
-    return data || { name: '', email: user.email || '', phone: '', address: '' };
+
+    if (error && error.code !== "PGRST116") throw error;
+
+    return data || { name: "", email: user.email || "", phone: "", address: "" };
   } catch (error) {
-    console.error('Error fetching profile:', error);
-    return { name: '', email: '', phone: '', address: '' };
+    console.error("Error fetching profile:", error);
+    return { name: "", email: "", phone: "", address: "" };
   }
 }
 
@@ -625,25 +912,23 @@ async function saveProfile(profile) {
   try {
     const user = supabaseClient.auth.user();
     if (!user) {
-      throw new Error('User not authenticated');
+      throw new Error("User not authenticated");
     }
-    
+
     const profileData = {
       id: user.id,
       name: profile.name,
       email: profile.email,
       phone: profile.phone,
-      address: profile.address
+      address: profile.address,
     };
-    
-    const { error } = await supabaseClient
-      .from(TABLES.profiles)
-      .upsert(profileData);
-    
+
+    const { error } = await supabaseClient.from(TABLES.profiles).upsert(profileData);
+
     if (error) throw error;
     return true;
   } catch (error) {
-    console.error('Error saving profile:', error);
+    console.error("Error saving profile:", error);
     return false;
   }
 }
@@ -656,10 +941,11 @@ async function getWishlist() {
   try {
     const user = supabaseClient.auth.user();
     if (!user) return [];
-    
+
     const { data, error } = await supabaseClient
       .from(TABLES.wishlist)
-      .select(`
+      .select(
+        `
         id,
         product_id,
         products (
@@ -670,13 +956,14 @@ async function getWishlist() {
           image,
           rating
         )
-      `)
-      .eq('user_id', user.id);
-    
+      `
+      )
+      .eq("user_id", user.id);
+
     if (error) throw error;
     return data || [];
   } catch (error) {
-    console.error('Error fetching wishlist:', error);
+    console.error("Error fetching wishlist:", error);
     return [];
   }
 }
@@ -685,32 +972,29 @@ async function toggleWishlist(productId) {
   try {
     const user = supabaseClient.auth.user();
     if (!user) return false;
-    
+
     const { data: existing } = await supabaseClient
       .from(TABLES.wishlist)
-      .select('id')
-      .eq('user_id', user.id)
-      .eq('product_id', productId)
+      .select("id")
+      .eq("user_id", user.id)
+      .eq("product_id", productId)
       .single();
-    
+
     if (existing) {
-      const { error } = await supabaseClient
-        .from(TABLES.wishlist)
-        .delete()
-        .eq('id', existing.id);
-      
+      const { error } = await supabaseClient.from(TABLES.wishlist).delete().eq("id", existing.id);
+
       if (error) throw error;
       return false; // Removed from wishlist
     } else {
       const { error } = await supabaseClient
         .from(TABLES.wishlist)
         .insert({ user_id: user.id, product_id: productId });
-      
+
       if (error) throw error;
       return true; // Added to wishlist
     }
   } catch (error) {
-    console.error('Error toggling wishlist:', error);
+    console.error("Error toggling wishlist:", error);
     return false;
   }
 }
@@ -723,53 +1007,55 @@ async function createOrder(orderData) {
   try {
     const user = supabaseClient.auth.user();
     const sessionId = getSessionId();
-    
+
     const order = {
       customer_name: orderData.name,
       customer_email: orderData.email,
       customer_phone: orderData.phone,
       customer_address: orderData.address,
+      subtotal: orderData.subtotal || orderData.total,
+      discount_amount: orderData.discount || 0,
+      coupon_code: orderData.coupon_code || null,
+      shipping_cost: orderData.shipping || 0,
       total_amount: orderData.total,
-      status: 'pending'
+      status: "pending",
     };
-    
+
     if (user) {
       order.user_id = user.id;
     } else {
       order.session_id = sessionId;
     }
-    
+
     const { data: orderResult, error: orderError } = await supabaseClient
       .from(TABLES.orders)
       .insert(order)
-      .select('id')
+      .select("id")
       .single();
-    
+
     if (orderError) throw orderError;
-    
+
     // Insert order items
-    const orderItems = orderData.items.map(item => ({
+    const orderItems = orderData.items.map((item) => ({
       order_id: orderResult.id,
       product_id: item.product_id,
       product_name: item.name,
       size: item.size,
       color: item.color,
       quantity: item.quantity,
-      price: item.price
+      price: item.price,
     }));
-    
-    const { error: itemsError } = await supabaseClient
-      .from(TABLES.order_items)
-      .insert(orderItems);
-    
+
+    const { error: itemsError } = await supabaseClient.from(TABLES.order_items).insert(orderItems);
+
     if (itemsError) throw itemsError;
-    
+
     // Clear cart after successful order
     await clearCart();
-    
+
     return orderResult.id;
   } catch (error) {
-    console.error('Error creating order:', error);
+    console.error("Error creating order:", error);
     return null;
   }
 }
@@ -778,19 +1064,19 @@ async function clearCart() {
   try {
     const user = supabaseClient.auth.user();
     const sessionId = getSessionId();
-    
+
     let query = supabaseClient.from(TABLES.cart).delete();
-    
+
     if (user) {
-      query = query.eq('user_id', user.id);
+      query = query.eq("user_id", user.id);
     } else {
-      query = query.eq('session_id', sessionId);
+      query = query.eq("session_id", sessionId);
     }
-    
+
     const { error } = await query;
     if (error) throw error;
   } catch (error) {
-    console.error('Error clearing cart:', error);
+    console.error("Error clearing cart:", error);
   }
 }
 
@@ -804,7 +1090,7 @@ async function signIn(email, password) {
     if (error) throw error;
     return true;
   } catch (error) {
-    console.error('Error signing in:', error);
+    console.error("Error signing in:", error);
     return false;
   }
 }
@@ -815,7 +1101,7 @@ async function signUp(email, password) {
     if (error) throw error;
     return true;
   } catch (error) {
-    console.error('Error signing up:', error);
+    console.error("Error signing up:", error);
     return false;
   }
 }
@@ -826,7 +1112,7 @@ async function signOut() {
     if (error) throw error;
     return true;
   } catch (error) {
-    console.error('Error signing out:', error);
+    console.error("Error signing out:", error);
     return false;
   }
 }
@@ -853,7 +1139,7 @@ function productCardMarkup(product) {
         </div>
         <div class="card-actions">
           <a class="card-link" href="product.html?id=${product.id}">View Product</a>
-          <button class="btn btn-primary add-to-cart-btn" type="button" data-product-id="${product.id}" data-product-name="${product.name}" data-sizes="${product.sizes.join(',')}" data-colors="${product.colors.join(',')}">
+          <button class="btn btn-primary add-to-cart-btn" type="button" data-product-id="${product.id}" data-product-name="${product.name}" data-sizes="${product.sizes.join(",")}" data-colors="${product.colors.join(",")}">
             Add to Cart
           </button>
         </div>
@@ -864,8 +1150,8 @@ function productCardMarkup(product) {
 
 function cartItemMarkup(item, index) {
   const product = item.products;
-  if (!product) return '';
-  
+  if (!product) return "";
+
   const lineTotal = product.price * item.quantity;
   return `
     <article class="cart-item surface" data-cart-id="${item.id}" data-cart-index="${index}">
@@ -896,20 +1182,20 @@ function cartItemMarkup(item, index) {
 
 async function bindWishlistButtons(scope = document) {
   const wishlist = await getWishlist();
-  const wishlistProductIds = wishlist.map(item => item.product_id);
-  
+  const wishlistProductIds = wishlist.map((item) => item.product_id);
+
   scope.querySelectorAll(".wishlist-btn").forEach((button) => {
     const productId = parseInt(button.dataset.productId);
-    
+
     // Set initial state
     if (wishlistProductIds.includes(productId)) {
-      button.classList.add('active');
+      button.classList.add("active");
     }
-    
+
     button.addEventListener("click", async (event) => {
       event.preventDefault();
       event.stopPropagation();
-      
+
       const isAdded = await toggleWishlist(productId);
       button.classList.toggle("active", isAdded);
     });
@@ -921,10 +1207,10 @@ let quickAddModal = null;
 
 function createQuickAddModal() {
   if (quickAddModal) return quickAddModal;
-  
-  const modal = document.createElement('div');
-  modal.id = 'quickAddModal';
-  modal.className = 'quick-add-modal';
+
+  const modal = document.createElement("div");
+  modal.id = "quickAddModal";
+  modal.className = "quick-add-modal";
   modal.innerHTML = `
     <div class="quick-add-overlay"></div>
     <div class="quick-add-content surface">
@@ -950,101 +1236,111 @@ function createQuickAddModal() {
   `;
   document.body.appendChild(modal);
   quickAddModal = modal;
-  
+
   // Close handlers
-  modal.querySelector('.quick-add-overlay').addEventListener('click', closeQuickAddModal);
-  modal.querySelector('.quick-add-close').addEventListener('click', closeQuickAddModal);
-  
+  modal.querySelector(".quick-add-overlay").addEventListener("click", closeQuickAddModal);
+  modal.querySelector(".quick-add-close").addEventListener("click", closeQuickAddModal);
+
   return modal;
 }
 
 function openQuickAddModal(product) {
   const modal = createQuickAddModal();
-  
-  document.getElementById('quickAddTitle').textContent = product.name;
-  document.getElementById('quickAddImage').src = product.image;
-  document.getElementById('quickAddPrice').textContent = formatPrice(product.price);
-  document.getElementById('quickAddStatus').textContent = '';
-  
+
+  document.getElementById("quickAddTitle").textContent = product.name;
+  document.getElementById("quickAddImage").src = product.image;
+  document.getElementById("quickAddPrice").textContent = formatPrice(product.price);
+  document.getElementById("quickAddStatus").textContent = "";
+
   let selectedSize = product.sizes[0];
   let selectedColor = product.colors[0];
-  
+
   // Render sizes
-  const sizesContainer = document.getElementById('quickAddSizes');
-  sizesContainer.innerHTML = product.sizes.map(size => `
-    <button class="option-btn soft-button ${size === selectedSize ? 'active' : ''}" type="button" data-size="${size}">${size}</button>
-  `).join('');
-  
-  sizesContainer.querySelectorAll('.option-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
+  const sizesContainer = document.getElementById("quickAddSizes");
+  sizesContainer.innerHTML = product.sizes
+    .map(
+      (size) => `
+    <button class="option-btn soft-button ${size === selectedSize ? "active" : ""}" type="button" data-size="${size}">${size}</button>
+  `
+    )
+    .join("");
+
+  sizesContainer.querySelectorAll(".option-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
       selectedSize = btn.dataset.size;
-      sizesContainer.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      sizesContainer.querySelectorAll(".option-btn").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
     });
   });
-  
+
   // Render colors
-  const colorsContainer = document.getElementById('quickAddColors');
-  colorsContainer.innerHTML = product.colors.map(color => `
-    <button class="color-swatch soft-button ${color === selectedColor ? 'active' : ''}" 
+  const colorsContainer = document.getElementById("quickAddColors");
+  colorsContainer.innerHTML = product.colors
+    .map(
+      (color) => `
+    <button class="color-swatch soft-button ${color === selectedColor ? "active" : ""}" 
             type="button" data-color="${color}" 
             style="background: ${resolveColor(color)};" 
             aria-label="${color}"></button>
-  `).join('');
-  
-  colorsContainer.querySelectorAll('.color-swatch').forEach(btn => {
-    btn.addEventListener('click', () => {
+  `
+    )
+    .join("");
+
+  colorsContainer.querySelectorAll(".color-swatch").forEach((btn) => {
+    btn.addEventListener("click", () => {
       selectedColor = btn.dataset.color;
-      colorsContainer.querySelectorAll('.color-swatch').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      colorsContainer
+        .querySelectorAll(".color-swatch")
+        .forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
     });
   });
-  
+
   // Confirm button
-  const confirmBtn = document.getElementById('quickAddConfirm');
-  const statusLine = document.getElementById('quickAddStatus');
-  
+  const confirmBtn = document.getElementById("quickAddConfirm");
+  const statusLine = document.getElementById("quickAddStatus");
+
   const handleConfirm = async () => {
-    statusLine.textContent = 'Adding...';
+    statusLine.textContent = "Adding...";
     const result = await addToCart(product.id, selectedSize, selectedColor, 1);
-    
+
     if (result) {
       statusLine.textContent = `Added ${product.name} (${selectedSize}, ${selectedColor}) to cart!`;
       setTimeout(() => {
         closeQuickAddModal();
       }, 1500);
     } else {
-      statusLine.textContent = 'Failed to add. Please try again.';
+      statusLine.textContent = "Failed to add. Please try again.";
     }
   };
-  
+
   // Remove old listener and add new
   confirmBtn.replaceWith(confirmBtn.cloneNode(true));
-  document.getElementById('quickAddConfirm').addEventListener('click', handleConfirm);
-  
+  document.getElementById("quickAddConfirm").addEventListener("click", handleConfirm);
+
   // Show modal
-  modal.classList.add('active');
-  document.body.style.overflow = 'hidden';
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
 }
 
 function closeQuickAddModal() {
   if (quickAddModal) {
-    quickAddModal.classList.remove('active');
-    document.body.style.overflow = '';
+    quickAddModal.classList.remove("active");
+    document.body.style.overflow = "";
   }
 }
 
 async function bindAddToCartButtons(scope = document) {
   const products = await fetchProducts();
-  
+
   scope.querySelectorAll(".add-to-cart-btn").forEach((button) => {
     button.addEventListener("click", async (event) => {
       event.preventDefault();
       event.stopPropagation();
-      
+
       const productId = parseInt(button.dataset.productId);
-      const product = products.find(p => p.id === productId);
-      
+      const product = products.find((p) => p.id === productId);
+
       if (product) {
         openQuickAddModal(product);
       }
@@ -1088,53 +1384,98 @@ function setActiveNavLinks() {
 
 async function initHomePage() {
   const featuredGrid = document.getElementById("featuredGrid");
-  if (!featuredGrid) {
-    return;
+  if (featuredGrid) {
+    const renderFeatured = (products) => {
+      featuredGrid.innerHTML = products.slice(0, 4).map(productCardMarkup).join("");
+      bindWishlistButtons(featuredGrid);
+      bindAddToCartButtons(featuredGrid);
+    };
+
+    const initialProducts = await getLiveProducts();
+    renderFeatured(initialProducts);
+
+    // Keep home hero in sync with product changes
+    subscribeToProducts(renderFeatured);
   }
 
-  const products = await fetchProducts();
-  featuredGrid.innerHTML = products.slice(0, 4).map(productCardMarkup).join("");
-  bindWishlistButtons(featuredGrid);
-  bindAddToCartButtons(featuredGrid);
+  // Load wishlist section if exists
+  const wishlistGrid = document.getElementById("wishlistGrid");
+  const emptyWishlist = document.getElementById("emptyWishlist");
+  if (wishlistGrid) {
+    try {
+      const wishlist = await getWishlist();
+      if (wishlist.length === 0) {
+        if (emptyWishlist) emptyWishlist.style.display = "flex";
+      } else {
+        if (emptyWishlist) emptyWishlist.style.display = "none";
+        const products = await Promise.all(
+          wishlist.map((item) => fetchProductById(item.product_id))
+        );
+        const validProducts = products.filter((p) => p !== null);
+        wishlistGrid.innerHTML = validProducts.map(productCardMarkup).join("");
+        bindWishlistButtons(wishlistGrid);
+        bindAddToCartButtons(wishlistGrid);
+      }
+    } catch (error) {
+      console.error("Error loading wishlist:", error);
+      if (emptyWishlist) emptyWishlist.style.display = "flex";
+    }
+  }
 
-  document.querySelectorAll(".category-card").forEach((button) => {
-    button.addEventListener("click", () => {
-      const category = button.dataset.category;
-      if (!category) {
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+      if (href === "#") return;
+
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    });
+  });
+
+  // Category card navigation
+  document.querySelectorAll(".category-chip").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const href = link.getAttribute("href");
+      if (href && href.startsWith("shop.html")) {
+        // Let transitions.js handle navigation
         return;
       }
-      const params = new URLSearchParams();
-      params.set("category", category);
-      window.location.href = `shop.html?${params.toString()}`;
     });
   });
 }
 
 async function initShopPage() {
   // Initialize hero slider
-  const heroSlidesContainer = document.getElementById('heroSlidesContainer');
+  const heroSlidesContainer = document.getElementById("heroSlidesContainer");
   if (heroSlidesContainer) {
     const slides = await fetchHeroSlides();
     initHeroSlider(slides);
   }
-  
+
   const shopGrid = document.getElementById("shopGrid");
   const resultCount = document.getElementById("shopResultCount");
   const shopSearch = document.getElementById("shopSearch");
   if (!shopGrid || !resultCount || !shopSearch) {
-    console.error('Shop page elements not found');
+    console.error("Shop page elements not found");
     return;
   }
 
-  console.log('Initializing shop page...');
-  const products = await fetchProducts();
-  console.log('Products loaded:', products.length);
-  
+  console.log("Initializing shop page...");
+  let products = await getLiveProducts();
+  console.log("Products loaded:", products.length);
+
   const state = {
     search: "",
     category: "All",
     size: "All",
-    color: "All"
+    color: "All",
   };
 
   const params = new URLSearchParams(window.location.search);
@@ -1185,9 +1526,9 @@ async function initShopPage() {
   }
 
   function renderProducts() {
-    console.log('Rendering products, total:', products.length);
+    console.log("Rendering products, total:", products.length);
     const filtered = products.filter(passesFilters);
-    console.log('Filtered products:', filtered.length);
+    console.log("Filtered products:", filtered.length);
     resultCount.textContent = `${filtered.length} products available`;
 
     if (filtered.length === 0) {
@@ -1220,6 +1561,12 @@ async function initShopPage() {
 
   syncActivePills();
   renderProducts();
+
+  // Keep shop listing in sync with live product changes
+  subscribeToProducts((latestProducts) => {
+    products = latestProducts;
+    renderProducts();
+  });
 }
 
 async function initProductPage() {
@@ -1255,15 +1602,15 @@ async function initProductPage() {
 
   const params = new URLSearchParams(window.location.search);
   const targetId = Number(params.get("id")) || 1;
-  
-  const product = await fetchProductById(targetId);
+
+  let product = await fetchProductById(targetId);
   if (!product) {
     detailTitle.textContent = "Product not found";
     return;
   }
-  
-  const allProducts = await fetchProducts();
-  
+
+  const allProducts = await getLiveProducts();
+
   let selectedSize = product.sizes[0];
   let selectedColor = product.colors[0];
 
@@ -1283,7 +1630,7 @@ async function initProductPage() {
     sizeOptions.innerHTML = product.sizes
       .map(
         (size) => `
-        <button class="option-btn soft-button ${size === selectedSize ? 'active' : ''}" type="button" data-size="${size}">
+        <button class="option-btn soft-button ${size === selectedSize ? "active" : ""}" type="button" data-size="${size}">
           ${size}
         </button>
       `
@@ -1302,7 +1649,7 @@ async function initProductPage() {
     colorOptions.innerHTML = product.colors
       .map(
         (color) => `
-        <button class="color-swatch soft-button ${color === selectedColor ? 'active' : ''}" 
+        <button class="color-swatch soft-button ${color === selectedColor ? "active" : ""}" 
                 type="button" 
                 data-color="${color}" 
                 style="background: ${resolveColor(color)};"
@@ -1323,9 +1670,9 @@ async function initProductPage() {
 
   async function handleAddToCart() {
     statusLine.textContent = "Adding to cart...";
-    
+
     const result = await addToCart(product.id, selectedSize, selectedColor, 1);
-    
+
     if (result) {
       statusLine.textContent = `Added ${product.name} (${selectedSize}, ${selectedColor}) to cart!`;
     } else {
@@ -1437,6 +1784,25 @@ async function initCartPage() {
     window.location.href = "checkout.html";
   });
 
+  // Keep product detail in sync with live product changes
+  subscribeToProducts((latestProducts) => {
+    const updated = latestProducts.find((p) => p.id === product.id);
+
+    // If product was deleted, disable actions and show message
+    if (!updated) {
+      statusLine.textContent = "This product is no longer available.";
+      addToCartBtn.disabled = true;
+      buyNowBtn.disabled = true;
+      return;
+    }
+
+    // Update local reference and key fields (price, name, rating)
+    product = updated;
+    detailTitle.textContent = product.name;
+    detailPrice.textContent = formatPrice(product.price);
+    detailRating.innerHTML = `${STAR_ICON}<span>${Number(product.rating).toFixed(1)} / 5.0</span>`;
+  });
+
   await renderCart();
 }
 
@@ -1454,6 +1820,26 @@ async function initCheckoutPage() {
   const summaryToggle = document.getElementById("summaryToggle");
   const summaryContent = document.getElementById("summaryContent");
 
+  // Coupon elements
+  const promoCodeInput = document.getElementById("promoCode");
+  const applyPromoBtn = document.getElementById("applyPromoBtn");
+  const discountRow = document.getElementById("discountRow");
+  const checkoutDiscount = document.getElementById("checkoutDiscount");
+
+  // Coupon state
+  let currentCoupon = null;
+  let currentDiscount = 0;
+
+  // Load saved coupon from sessionStorage
+  const savedCoupon = sessionStorage.getItem('appliedCoupon');
+  if (savedCoupon) {
+    try {
+      currentCoupon = JSON.parse(savedCoupon);
+    } catch (e) {
+      sessionStorage.removeItem('appliedCoupon');
+    }
+  }
+
   // Form fields
   const emailInput = document.getElementById("checkoutEmail");
   const nameInput = document.getElementById("checkoutName");
@@ -1468,23 +1854,27 @@ async function initCheckoutPage() {
   }
 
   // Check if user is logged in and pre-fill info
-  const { data: { session } } = await supabaseClient.auth.getSession();
+  const {
+    data: { session },
+  } = await supabaseClient.auth.getSession();
   if (session) {
     const profile = await getProfile();
-    if (emailInput) emailInput.value = profile.email || session.user.email || '';
-    if (nameInput) nameInput.value = profile.name || '';
-    if (phoneInput) phoneInput.value = profile.phone || '';
-    if (addressInput) addressInput.value = profile.address || '';
+    if (emailInput) emailInput.value = profile.email || session.user.email || "";
+    if (nameInput) nameInput.value = profile.name || "";
+    if (phoneInput) phoneInput.value = profile.phone || "";
+    if (addressInput) addressInput.value = profile.address || "";
   }
 
   // Mobile summary toggle
   if (summaryToggle && summaryContent) {
-    summaryToggle.addEventListener('click', () => {
-      summaryToggle.classList.toggle('active');
-      summaryContent.classList.toggle('active');
-      const span = summaryToggle.querySelector('span');
+    summaryToggle.addEventListener("click", () => {
+      summaryToggle.classList.toggle("active");
+      summaryContent.classList.toggle("active");
+      const span = summaryToggle.querySelector("span");
       if (span) {
-        span.textContent = summaryContent.classList.contains('active') ? 'Hide Order Summary' : 'Show Order Summary';
+        span.textContent = summaryContent.classList.contains("active")
+          ? "Hide Order Summary"
+          : "Show Order Summary";
       }
     });
   }
@@ -1492,21 +1882,40 @@ async function initCheckoutPage() {
   // Render cart items
   async function renderCheckoutItems() {
     const cartItems = await getCart();
-    
+
     if (cartItems.length === 0) {
-      window.location.href = 'cart.html';
+      window.location.href = "cart.html";
       return;
     }
 
     const totals = getCartTotals(cartItems);
+
+    // Calculate discount if coupon is applied
+    if (currentCoupon) {
+      // Recalculate discount based on current cart
+      let discountAmount = 0;
+      if (currentCoupon.coupon.discount_type === 'percentage') {
+        discountAmount = (totals.subtotal * currentCoupon.coupon.discount_value) / 100;
+        if (currentCoupon.coupon.maximum_discount_cap && discountAmount > currentCoupon.coupon.maximum_discount_cap) {
+          discountAmount = currentCoupon.coupon.maximum_discount_cap;
+        }
+      } else {
+        discountAmount = currentCoupon.coupon.discount_value;
+      }
+      if (discountAmount > totals.subtotal) discountAmount = totals.subtotal;
+      currentDiscount = discountAmount;
+    }
+
     const shippingCost = totals.subtotal >= 2000 ? 0 : 60; // Free shipping over BDT 2000
-    const totalAmount = totals.subtotal + shippingCost;
+    const discountedSubtotal = totals.subtotal - currentDiscount;
+    const totalAmount = discountedSubtotal + shippingCost;
 
     // Render items
-    const itemsHtml = cartItems.map(item => {
-      const product = item.products;
-      if (!product) return '';
-      return `
+    const itemsHtml = cartItems
+      .map((item) => {
+        const product = item.products;
+        if (!product) return "";
+        return `
         <div class="checkout-item">
           <div class="checkout-item-image">
             <img src="${product.image}" alt="${product.name}">
@@ -1521,27 +1930,92 @@ async function initCheckoutPage() {
           </div>
         </div>
       `;
-    }).join('');
+      })
+      .join("");
 
     checkoutItems.innerHTML = itemsHtml;
     if (checkoutItemsMobile) checkoutItemsMobile.innerHTML = itemsHtml;
 
     // Update totals
     const subtotalText = formatPrice(totals.subtotal);
-    const shippingText = shippingCost === 0 ? 'Free' : formatPrice(shippingCost);
+    const shippingText = shippingCost === 0 ? "Free" : formatPrice(shippingCost);
     const totalText = formatPrice(totalAmount);
 
     checkoutSubtotal.textContent = subtotalText;
     checkoutShipping.textContent = shippingText;
     checkoutTotal.textContent = totalText;
 
+    // Show/hide discount row
+    if (discountRow && checkoutDiscount) {
+      if (currentDiscount > 0) {
+        discountRow.style.display = 'flex';
+        checkoutDiscount.textContent = '-' + formatPrice(currentDiscount);
+      } else {
+        discountRow.style.display = 'none';
+      }
+    }
+
     if (checkoutSubtotalMobile) checkoutSubtotalMobile.textContent = subtotalText;
     if (checkoutShippingMobile) checkoutShippingMobile.textContent = shippingText;
     if (checkoutTotalMobile) checkoutTotalMobile.textContent = totalText;
+
+    // Update promo code input with applied coupon code
+    if (promoCodeInput && currentCoupon) {
+      promoCodeInput.value = currentCoupon.coupon.code;
+    }
+  }
+
+  // Apply coupon button handler
+  if (applyPromoBtn && promoCodeInput) {
+    applyPromoBtn.addEventListener('click', async () => {
+      const code = promoCodeInput.value.trim();
+      if (!code) {
+        showCouponMessage('Please enter a coupon code', true);
+        return;
+      }
+
+      applyPromoBtn.disabled = true;
+      applyPromoBtn.textContent = 'Applying...';
+
+      try {
+        const cartItems = await getCart();
+        const result = await validateCouponForCheckout(code, cartItems);
+
+        if (result.valid) {
+          currentCoupon = result;
+          currentDiscount = result.discountAmount;
+
+          // Save to sessionStorage
+          sessionStorage.setItem('appliedCoupon', JSON.stringify(result));
+
+          showCouponMessage(result.message, false);
+          await renderCheckoutItems();
+        } else {
+          showCouponMessage(result.error, true);
+          currentCoupon = null;
+          currentDiscount = 0;
+          sessionStorage.removeItem('appliedCoupon');
+        }
+      } catch (error) {
+        console.error('Coupon error:', error);
+        showCouponMessage('Error applying coupon', true);
+      } finally {
+        applyPromoBtn.disabled = false;
+        applyPromoBtn.textContent = 'Apply';
+      }
+    });
+
+    // Also allow pressing Enter in the promo code input
+    promoCodeInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        applyPromoBtn.click();
+      }
+    });
   }
 
   // Place order handler
-  placeOrderBtn.addEventListener('click', async () => {
+  placeOrderBtn.addEventListener("click", async () => {
     // Validate form
     const email = emailInput?.value.trim();
     const name = nameInput?.value.trim();
@@ -1550,33 +2024,49 @@ async function initCheckoutPage() {
     const city = cityInput?.value.trim();
 
     if (!email || !name || !phone || !address || !city) {
-      checkoutStatus.textContent = 'Please fill in all required fields.';
+      checkoutStatus.textContent = "Please fill in all required fields.";
       return;
     }
 
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      checkoutStatus.textContent = 'Please enter a valid email address.';
+      checkoutStatus.textContent = "Please enter a valid email address.";
       return;
     }
 
     // Phone validation (Bangladesh format)
     if (phone.length < 11) {
-      checkoutStatus.textContent = 'Please enter a valid phone number.';
+      checkoutStatus.textContent = "Please enter a valid phone number.";
       return;
     }
 
-    checkoutStatus.textContent = 'Processing your order...';
+    checkoutStatus.textContent = "Processing your order...";
     placeOrderBtn.disabled = true;
 
     try {
       const cartItems = await getCart();
       const totals = getCartTotals(cartItems);
       const shippingCost = totals.subtotal >= 2000 ? 0 : 60;
-      const totalAmount = totals.subtotal + shippingCost;
 
-      const fullAddress = `${address}, ${city}${postalInput?.value ? ', ' + postalInput.value : ''}`;
+      // Recalculate discount in case cart changed
+      let discountAmount = 0;
+      if (currentCoupon) {
+        if (currentCoupon.coupon.discount_type === 'percentage') {
+          discountAmount = (totals.subtotal * currentCoupon.coupon.discount_value) / 100;
+          if (currentCoupon.coupon.maximum_discount_cap && discountAmount > currentCoupon.coupon.maximum_discount_cap) {
+            discountAmount = currentCoupon.coupon.maximum_discount_cap;
+          }
+        } else {
+          discountAmount = currentCoupon.coupon.discount_value;
+        }
+        if (discountAmount > totals.subtotal) discountAmount = totals.subtotal;
+      }
+
+      const discountedSubtotal = totals.subtotal - discountAmount;
+      const totalAmount = discountedSubtotal + shippingCost;
+
+      const fullAddress = `${address}, ${city}${postalInput?.value ? ", " + postalInput.value : ""}`;
 
       const orderData = {
         name,
@@ -1584,33 +2074,49 @@ async function initCheckoutPage() {
         phone,
         address: fullAddress,
         total: totalAmount,
-        items: cartItems.map(item => ({
+        subtotal: totals.subtotal,
+        discount: discountAmount,
+        coupon_code: currentCoupon ? currentCoupon.coupon.code : null,
+        shipping: shippingCost,
+        items: cartItems.map((item) => ({
           product_id: item.product_id,
           name: item.products.name,
           size: item.size,
           color: item.color,
           quantity: item.quantity,
-          price: item.products.price
-        }))
+          price: item.products.price,
+        })),
       };
 
       const orderId = await createOrder(orderData);
 
       if (orderId) {
+        // Record coupon usage if coupon was applied
+        if (currentCoupon) {
+          const { data: { session } } = await supabaseClient.auth.getSession();
+          const userId = session?.user?.id || null;
+          const sessionId = getSessionId();
+
+          await recordCouponUsage(currentCoupon.coupon.id, userId, sessionId, orderId);
+
+          // Clear saved coupon
+          sessionStorage.removeItem('appliedCoupon');
+        }
+
         checkoutStatus.textContent = `Order #${orderId} placed successfully! We'll contact you shortly.`;
-        checkoutStatus.style.color = '#22c55e';
-        
+        checkoutStatus.style.color = "#22c55e";
+
         // Redirect to success page or show confirmation
         setTimeout(() => {
           window.location.href = `profile.html?order=${orderId}`;
         }, 2000);
       } else {
-        checkoutStatus.textContent = 'Failed to place order. Please try again.';
+        checkoutStatus.textContent = "Failed to place order. Please try again.";
         placeOrderBtn.disabled = false;
       }
     } catch (error) {
-      console.error('Order error:', error);
-      checkoutStatus.textContent = 'An error occurred. Please try again.';
+      console.error("Order error:", error);
+      checkoutStatus.textContent = "An error occurred. Please try again.";
       placeOrderBtn.disabled = false;
     }
   });
@@ -1640,9 +2146,9 @@ async function initWishlistPage() {
     }
 
     // Transform wishlist items to product format
-    const products = wishlist.map(item => ({
+    const products = wishlist.map((item) => ({
       ...item.products,
-      wishlist_id: item.id
+      wishlist_id: item.id,
     }));
 
     wishlistGrid.innerHTML = products.map(productCardMarkup).join("");
@@ -1662,9 +2168,11 @@ async function initProfilePage() {
   }
 
   // Check if user is logged in
-  const { data: { session } } = await supabaseClient.auth.getSession();
+  const {
+    data: { session },
+  } = await supabaseClient.auth.getSession();
   if (!session) {
-    window.location.href = 'login.html';
+    window.location.href = "login.html";
     return;
   }
 
@@ -1675,24 +2183,24 @@ async function initProfilePage() {
   const phoneInput = profileForm.querySelector("#profilePhone");
   const addressInput = profileForm.querySelector("#profileAddress");
 
-  if (nameInput) nameInput.value = profile.name || '';
-  if (emailInput) emailInput.value = profile.email || '';
-  if (phoneInput) phoneInput.value = profile.phone || '';
-  if (addressInput) addressInput.value = profile.address || '';
+  if (nameInput) nameInput.value = profile.name || "";
+  if (emailInput) emailInput.value = profile.email || "";
+  if (phoneInput) phoneInput.value = profile.phone || "";
+  if (addressInput) addressInput.value = profile.address || "";
 
   profileForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     profileStatus.textContent = "Saving...";
 
     const updatedProfile = {
-      name: nameInput ? nameInput.value : '',
-      email: emailInput ? emailInput.value : '',
-      phone: phoneInput ? phoneInput.value : '',
-      address: addressInput ? addressInput.value : ''
+      name: nameInput ? nameInput.value : "",
+      email: emailInput ? emailInput.value : "",
+      phone: phoneInput ? phoneInput.value : "",
+      address: addressInput ? addressInput.value : "",
     };
 
     const success = await saveProfile(updatedProfile);
-    
+
     if (success) {
       profileStatus.textContent = "Profile saved successfully!";
     } else {
@@ -1707,6 +2215,40 @@ async function initProfilePage() {
       await window.HodoAuth.handleLogout();
     });
   }
+
+  // Show admin panel shortcut only for admin users
+  if (window.HodoAuth && window.HodoAuth.getCurrentUser) {
+    try {
+      const { role } = await window.HodoAuth.getCurrentUser();
+      if (role === "admin") {
+        const profileSide = document.querySelector(".profile-side");
+        if (profileSide && !document.getElementById("adminPanelBtn")) {
+          const adminSection = document.createElement("section");
+          adminSection.className = "profile-stat surface";
+
+          const heading = document.createElement("h3");
+          heading.textContent = "Admin Panel";
+
+          const description = document.createElement("p");
+          description.textContent = "Quick access to manage products, orders, and more.";
+
+          const button = document.createElement("a");
+          button.id = "adminPanelBtn";
+          button.href = "../admin/index.html";
+          button.className = "btn btn-primary";
+          button.textContent = "Go To Admin Panel";
+
+          adminSection.appendChild(heading);
+          adminSection.appendChild(description);
+          adminSection.appendChild(button);
+
+          profileSide.appendChild(adminSection);
+        }
+      }
+    } catch (error) {
+      console.error("Failed to determine user role for admin shortcut:", error);
+    }
+  }
 }
 
 // ============================================
@@ -1720,26 +2262,26 @@ let heroSlides = [];
 async function fetchHeroSlides() {
   // If Supabase is not available, return demo slides
   if (!window.supabaseClient || !window.TABLES) {
-    console.log('Using demo hero slides');
+    console.log("Using demo hero slides");
     return DEMO_HERO_SLIDES;
   }
-  
+
   try {
     const { data, error } = await supabaseClient
-      .from('hero_slides')
-      .select('*')
-      .eq('is_active', true)
-      .order('order', { ascending: true });
-    
+      .from("hero_slides")
+      .select("*")
+      .eq("is_active", true)
+      .order("order", { ascending: true });
+
     if (error) throw error;
-    
+
     if (!data || data.length === 0) {
       return DEMO_HERO_SLIDES;
     }
-    
+
     return data;
   } catch (error) {
-    console.error('Error fetching hero slides:', error);
+    console.error("Error fetching hero slides:", error);
     return DEMO_HERO_SLIDES;
   }
 }
@@ -1748,81 +2290,84 @@ function renderHeroSlide(slide) {
   return `
     <div class="hero-slide">
       <div class="hero-content">
-        <p class="eyebrow">${slide.eyebrow || 'New Collection'}</p>
-        <h1>${slide.title || 'Welcome to Hodo'}</h1>
-        <p>${slide.description || ''}</p>
+        <p class="eyebrow">${slide.eyebrow || "New Collection"}</p>
+        <h1>${slide.title || "Welcome to Hodo"}</h1>
+        <p>${slide.description || ""}</p>
         <div class="hero-actions">
-          ${slide.button_text ? `<a href="${slide.button_link || '#'}" class="btn btn-primary">${slide.button_text}</a>` : ''}
-          ${slide.secondary_button_text ? `<a href="${slide.secondary_button_link || '#'}" class="btn btn-soft">${slide.secondary_button_text}</a>` : ''}
+          ${slide.button_text ? `<a href="${slide.button_link || "#"}" class="btn btn-primary">${slide.button_text}</a>` : ""}
+          ${slide.secondary_button_text ? `<a href="${slide.secondary_button_link || "#"}" class="btn btn-soft">${slide.secondary_button_text}</a>` : ""}
         </div>
       </div>
       <div class="hero-model">
-        <img src="${slide.image}" alt="${slide.eyebrow || 'Hodo Collection'}">
+        <img src="${slide.image}" alt="${slide.eyebrow || "Hodo Collection"}">
       </div>
     </div>
   `;
 }
 
 function initHeroSlider(slides) {
-  const container = document.getElementById('heroSlidesContainer');
-  const dotsContainer = document.getElementById('heroSliderDots');
-  const prevBtn = document.getElementById('heroPrevBtn');
-  const nextBtn = document.getElementById('heroNextBtn');
-  
+  const container = document.getElementById("heroSlidesContainer");
+  const dotsContainer = document.getElementById("heroSliderDots");
+  const prevBtn = document.getElementById("heroPrevBtn");
+  const nextBtn = document.getElementById("heroNextBtn");
+
   if (!container || !slides.length) return;
-  
+
   heroSlides = slides;
   currentHeroSlide = 0;
-  
+
   // Render slides
-  container.innerHTML = slides.map(renderHeroSlide).join('');
-  
+  container.innerHTML = slides.map(renderHeroSlide).join("");
+
   // Render dots
-  dotsContainer.innerHTML = slides.map((_, i) => 
-    `<button class="hero-slider-dot ${i === 0 ? 'active' : ''}" data-index="${i}" aria-label="Go to slide ${i + 1}"></button>`
-  ).join('');
-  
+  dotsContainer.innerHTML = slides
+    .map(
+      (_, i) =>
+        `<button class="hero-slider-dot ${i === 0 ? "active" : ""}" data-index="${i}" aria-label="Go to slide ${i + 1}"></button>`
+    )
+    .join("");
+
   // Show first slide
   showHeroSlide(0);
-  
+
   // Start auto-slide
   startHeroSliderAutoplay();
-  
+
   // Event listeners
-  prevBtn?.addEventListener('click', () => {
+  prevBtn?.addEventListener("click", () => {
     goToPrevSlide();
     resetHeroSliderAutoplay();
   });
-  
-  nextBtn?.addEventListener('click', () => {
+
+  nextBtn?.addEventListener("click", () => {
     goToNextSlide();
     resetHeroSliderAutoplay();
   });
-  
-  dotsContainer.querySelectorAll('.hero-slider-dot').forEach(dot => {
-    dot.addEventListener('click', () => {
+
+  dotsContainer.querySelectorAll(".hero-slider-dot").forEach((dot) => {
+    dot.addEventListener("click", () => {
       showHeroSlide(parseInt(dot.dataset.index));
       resetHeroSliderAutoplay();
     });
   });
-  
+
   // Pause on hover
-  container.addEventListener('mouseenter', stopHeroSliderAutoplay);
-  container.addEventListener('mouseleave', startHeroSliderAutoplay);
+  container.addEventListener("mouseenter", stopHeroSliderAutoplay);
+  container.addEventListener("mouseleave", startHeroSliderAutoplay);
 }
 
 function showHeroSlide(index) {
-  const slides = document.querySelectorAll('.hero-slide');
-  const dots = document.querySelectorAll('.hero-slider-dot');
-  
+  const slides = document.querySelectorAll(".hero-slide");
+  const dots = document.querySelectorAll(".hero-slider-dot");
+
   slides.forEach((slide, i) => {
-    slide.classList.toggle('active', i === index);
+    slide.classList.toggle("active", i === index);
   });
-  
+
   dots.forEach((dot, i) => {
-    dot.classList.toggle('active', i === index);
+    dot.classList.toggle("active", i === index);
   });
-  
+
   currentHeroSlide = index;
 }
 
@@ -1860,15 +2405,30 @@ function resetHeroSliderAutoplay() {
 async function initApp() {
   // Check if Supabase is ready (but don't require it)
   const supabaseReady = window.supabaseClient && window.TABLES;
-  
+
   if (!supabaseReady) {
-    console.warn('Supabase not initialized. Using demo data mode.');
+    console.warn("Supabase not initialized. Using demo data mode.");
+  }
+
+  // Initialize real-time product synchronization so admin changes
+  // instantly propagate to all storefront pages without manual refresh.
+  if (supabaseReady) {
+    initProductsRealtime();
   }
 
   setActiveNavLinks();
   bindGlobalSearch();
 
   const page = document.body.dataset.page;
+
+  // Protect authenticated routes
+  const protectedPages = ["cart", "checkout", "profile", "wishlist"];
+  if (protectedPages.includes(page) && window.HodoAuth) {
+    const isAuthorized = await window.HodoAuth.protectCustomerRoute();
+    if (!isAuthorized) {
+      return; // protectCustomerRoute handles redirect
+    }
+  }
 
   switch (page) {
     case "home":
@@ -1901,9 +2461,9 @@ document.addEventListener("DOMContentLoaded", initApp);
 // Listen for auth state changes
 if (window.supabaseClient) {
   supabaseClient.auth.onAuthStateChange((event, session) => {
-    console.log('Auth state changed:', event);
+    console.log("Auth state changed:", event);
     // Re-initialize app on auth change
-    if (event === 'SIGNED_IN' || event === 'SIGNED_OUT') {
+    if (event === "SIGNED_IN" || event === "SIGNED_OUT") {
       initApp();
     }
   });

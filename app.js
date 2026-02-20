@@ -7,8 +7,9 @@ const PRODUCTS = [
     rating: 4.8,
     sizes: ["S", "M", "L", "XL"],
     colors: ["Black", "White", "Red"],
-    image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=900&q=80",
-    description: "Engineered cotton shirt with a tailored silhouette and low-profile seam lines."
+    image:
+      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=900&q=80",
+    description: "Engineered cotton shirt with a tailored silhouette and low-profile seam lines.",
   },
   {
     id: 2,
@@ -18,8 +19,10 @@ const PRODUCTS = [
     rating: 4.9,
     sizes: ["M", "L", "XL"],
     colors: ["Black", "Gray", "Navy"],
-    image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=900&q=80",
-    description: "Water-resistant shell jacket with minimalist hardware and modern structured collar."
+    image:
+      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=900&q=80",
+    description:
+      "Water-resistant shell jacket with minimalist hardware and modern structured collar.",
   },
   {
     id: 3,
@@ -29,8 +32,9 @@ const PRODUCTS = [
     rating: 4.7,
     sizes: ["S", "M", "L", "XL"],
     colors: ["Black", "Gray", "Olive"],
-    image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=900&q=80",
-    description: "Tapered technical trousers with subtle pleat detail and soft stretch movement."
+    image:
+      "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=900&q=80",
+    description: "Tapered technical trousers with subtle pleat detail and soft stretch movement.",
   },
   {
     id: 4,
@@ -40,8 +44,9 @@ const PRODUCTS = [
     rating: 4.6,
     sizes: ["M", "L", "XL"],
     colors: ["Black", "Brown", "Red"],
-    image: "https://images.unsplash.com/photo-1560343776-97e7d202ff0e?auto=format&fit=crop&w=900&q=80",
-    description: "Premium leather belt with matte black buckle and understated angular profile."
+    image:
+      "https://images.unsplash.com/photo-1560343776-97e7d202ff0e?auto=format&fit=crop&w=900&q=80",
+    description: "Premium leather belt with matte black buckle and understated angular profile.",
   },
   {
     id: 5,
@@ -51,8 +56,9 @@ const PRODUCTS = [
     rating: 4.5,
     sizes: ["S", "M", "L", "XL"],
     colors: ["Black", "White", "Gray"],
-    image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=900&q=80",
-    description: "Soft compression knit tee designed for layering and sharp monochrome styling."
+    image:
+      "https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=900&q=80",
+    description: "Soft compression knit tee designed for layering and sharp monochrome styling.",
   },
   {
     id: 6,
@@ -62,8 +68,10 @@ const PRODUCTS = [
     rating: 4.9,
     sizes: ["M", "L", "XL"],
     colors: ["Black", "Navy", "Red"],
-    image: "https://images.unsplash.com/photo-1614251055880-ee96e4803393?auto=format&fit=crop&w=900&q=80",
-    description: "Insulated bomber with tonal ribbing, clean paneling, and a precision cropped fit."
+    image:
+      "https://images.unsplash.com/photo-1614251055880-ee96e4803393?auto=format&fit=crop&w=900&q=80",
+    description:
+      "Insulated bomber with tonal ribbing, clean paneling, and a precision cropped fit.",
   },
   {
     id: 7,
@@ -73,8 +81,10 @@ const PRODUCTS = [
     rating: 4.7,
     sizes: ["S", "M", "L", "XL"],
     colors: ["Gray", "Navy", "Black"],
-    image: "https://images.unsplash.com/photo-1593032465171-8bd65299489c?auto=format&fit=crop&w=900&q=80",
-    description: "Pleated trouser with architectural drape and refined ankle taper for modern outfits."
+    image:
+      "https://images.unsplash.com/photo-1593032465171-8bd65299489c?auto=format&fit=crop&w=900&q=80",
+    description:
+      "Pleated trouser with architectural drape and refined ankle taper for modern outfits.",
   },
   {
     id: 8,
@@ -84,9 +94,10 @@ const PRODUCTS = [
     rating: 4.8,
     sizes: ["M", "L"],
     colors: ["Black", "Silver", "Red"],
-    image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=80",
-    description: "Clean-faced analog watch with metal casing, matte strap, and subtle red accents."
-  }
+    image:
+      "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=80",
+    description: "Clean-faced analog watch with metal casing, matte strap, and subtle red accents.",
+  },
 ];
 
 const COLOR_HEX = {
@@ -97,19 +108,21 @@ const COLOR_HEX = {
   Navy: "#182746",
   Olive: "#4f5941",
   Brown: "#6e4a33",
-  Silver: "#9aa0aa"
+  Silver: "#9aa0aa",
 };
 
 const STORAGE_KEYS = {
   cart: "hodo_cart_v1",
-  profile: "hodo_profile_v1"
+  profile: "hodo_profile_v1",
 };
 
-const STAR_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.1 6.4 20.2l1.1-6.2L3 9.6l6.2-.9z"></path></svg>';
-const HEART_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3 4.9 13.8a4.9 4.9 0 1 1 6.9-7l.2.2.2-.2a4.9 4.9 0 0 1 6.9 7z"></path></svg>';
+const STAR_ICON =
+  '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.1 6.4 20.2l1.1-6.2L3 9.6l6.2-.9z"></path></svg>';
+const HEART_ICON =
+  '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3 4.9 13.8a4.9 4.9 0 1 1 6.9-7l.2.2.2-.2a4.9 4.9 0 0 1 6.9 7z"></path></svg>';
 const BDT_NUMBER_FORMATTER = new Intl.NumberFormat("en-BD", {
   minimumFractionDigits: 2,
-  maximumFractionDigits: 2
+  maximumFractionDigits: 2,
 });
 
 function formatPrice(price) {
@@ -117,7 +130,9 @@ function formatPrice(price) {
 }
 
 function normalize(value) {
-  return String(value || "").trim().toLowerCase();
+  return String(value || "")
+    .trim()
+    .toLowerCase();
 }
 
 function resolveColor(name) {
@@ -145,7 +160,7 @@ function getCart() {
       productId: Number(item.productId),
       size: String(item.size || ""),
       color: String(item.color || ""),
-      quantity: Math.max(1, Number(item.quantity) || 1)
+      quantity: Math.max(1, Number(item.quantity) || 1),
     }))
     .filter((item) => Number.isFinite(item.productId) && item.size && item.color);
 }
@@ -161,7 +176,7 @@ function getProfile() {
     name: String(parsed.name || ""),
     email: String(parsed.email || ""),
     phone: String(parsed.phone || ""),
-    address: String(parsed.address || "")
+    address: String(parsed.address || ""),
   };
 }
 
@@ -186,7 +201,7 @@ function addToCart(productId, size, color, quantity = 1) {
       productId,
       size,
       color,
-      quantity: Math.max(1, quantity)
+      quantity: Math.max(1, quantity),
     });
   }
 
@@ -361,7 +376,7 @@ function initShopPage() {
     search: "",
     category: "All",
     size: "All",
-    color: "All"
+    color: "All",
   };
 
   const params = new URLSearchParams(window.location.search);
@@ -559,8 +574,9 @@ function initProductPage() {
     window.location.href = "cart.html";
   });
 
-  const relatedProducts = PRODUCTS
-    .filter((item) => item.id !== product.id && item.category === product.category)
+  const relatedProducts = PRODUCTS.filter(
+    (item) => item.id !== product.id && item.category === product.category
+  )
     .concat(PRODUCTS.filter((item) => item.id !== product.id && item.category !== product.category))
     .slice(0, 3);
 
@@ -684,7 +700,7 @@ function initProfilePage() {
       name: profileName.value.trim(),
       email: profileEmail.value.trim(),
       phone: profilePhone.value.trim(),
-      address: profileAddress.value.trim()
+      address: profileAddress.value.trim(),
     };
     saveProfile(nextProfile);
     profileStatus.textContent = "Profile saved successfully.";

@@ -7,6 +7,7 @@ A modern, full-featured e-commerce platform for premium menswear built with vani
 ## 🌟 Features
 
 ### Customer Features
+
 - **Product Catalog** - Browse 24 premium men's casual products across 6 categories
 - **Product Search** - Real-time search across product names, categories, and descriptions
 - **Category Filters** - Filter products by category, size, and color
@@ -19,6 +20,7 @@ A modern, full-featured e-commerce platform for premium menswear built with vani
 - **Responsive Design** - Works seamlessly on desktop and mobile devices
 
 ### Admin Dashboard
+
 - **Dashboard Overview** - Sales analytics and key metrics
 - **Orders Management** - View and manage customer orders
 - **Products Management** - Add, edit, and delete products
@@ -45,24 +47,24 @@ A modern, full-featured e-commerce platform for premium menswear built with vani
 
 ```
 hodo-ecommerce/
-├── index.html              # Home page
-├── shop.html               # Product listing page
-├── product.html            # Product detail page
-├── cart.html               # Shopping cart page
-├── checkout.html           # Checkout page
-├── wishlist.html           # Wishlist page
-├── profile.html            # User profile page
-├── login.html              # Login page
-├── signup.html             # Registration page
+├── index.html              # Root redirect to pages/index.html
+├── pages/                  # Customer-facing pages
+│   ├── index.html          # Home page
+│   ├── shop.html           # Product listing page
+│   ├── product.html        # Product detail page
+│   ├── cart.html           # Shopping cart page
+│   ├── checkout.html       # Checkout page
+│   ├── wishlist.html       # Wishlist page
+│   ├── profile.html        # User profile page
+│   ├── login.html          # Login page
+│   └── signup.html         # Registration page
 ├── styles.css              # Main stylesheet
-├── app-supabase.js         # Main application logic
-├── app.js                  # Fallback app (localStorage)
+├── app-supabase.js         # Main application logic (products, cart, orders)
 ├── auth.js                 # Authentication handling
 ├── transitions.js          # Page transitions
 ├── supabase-config.js      # Supabase configuration
-├── supabase-schema.sql     # Database schema
-├── vercel.json             # Vercel deployment config
-├── admin/
+├── vercel.json             # Vercel deployment config (clean URLs)
+├── admin/                  # Admin dashboard
 │   ├── index.html          # Admin dashboard
 │   ├── orders.html         # Orders management
 │   ├── products.html       # Products management
@@ -72,15 +74,27 @@ hodo-ecommerce/
 │   ├── banners.html        # Banners management
 │   ├── reviews.html        # Reviews management
 │   ├── payments.html       # Payments management
-│   ├── analytics.html      # Analytics dashboard
 │   ├── shipping.html       # Shipping management
 │   ├── staff.html          # Staff management
 │   ├── settings.html       # Settings page
-│   ├── style.css           # Admin styles
+│   ├── styles.css          # Admin styles
 │   └── dashboard.js        # Admin logic
 └── assets/
     └── hodo-logo.png       # Logo asset
 ```
+
+### JavaScript Architecture
+
+- **`supabase-config.js`** - Supabase client initialization
+- **`transitions.js`** - Smooth page transitions between routes
+- **`auth.js`** - User authentication (login, signup, logout, route protection)
+- **`app-supabase.js`** - Main store logic:
+  - Product fetching and display
+  - Shopping cart management
+  - Wishlist management
+  - Profile management
+  - Checkout flow
+  - Page initialization based on `data-page` attribute
 
 ## 🚀 Getting Started
 
@@ -93,6 +107,7 @@ hodo-ecommerce/
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/AGUNTUK/hodo-ecommerce.git
    cd hodo-ecommerce
@@ -106,15 +121,16 @@ hodo-ecommerce/
 3. **Configure Supabase**
    - Open `supabase-config.js`
    - Replace the placeholder values:
+
    ```javascript
-   const SUPABASE_URL = 'your-project-url';
-   const SUPABASE_ANON_KEY = 'your-anon-key';
+   const SUPABASE_URL = "your-project-url";
+   const SUPABASE_ANON_KEY = "your-anon-key";
    ```
 
 4. **Run locally**
-   - Open with Live Server (VS Code extension), or
-   - Use Python: `python -m http.server 8000`, or
-   - Use Node.js: `npx serve`
+   - Use `npm run serve` (serves on port 5173), or
+   - Open `pages/index.html` directly in browser, or
+   - Use Python: `python -m http.server 8000` then visit `http://localhost:8000/pages/index.html`
 
 5. **Deploy to Vercel**
    - Push to GitHub
@@ -124,6 +140,7 @@ hodo-ecommerce/
 ## 💳 Payment Methods
 
 The checkout supports multiple payment options:
+
 - **Cash on Delivery (COD)** - Pay when you receive
 - **bKash** - Mobile wallet payment
 - **Nagad** - Mobile wallet payment
@@ -131,13 +148,13 @@ The checkout supports multiple payment options:
 
 ## 📦 Product Categories
 
-| Category | Description |
-|----------|-------------|
-| Shirts | Casual and formal shirts, polos, tees |
-| Jackets | Bomber, denim, utility jackets |
-| Pants | Chinos, trousers, joggers, jeans |
-| Footwear | Sneakers, boots, loafers |
-| Sweaters | Hoodies, pullovers, knitwear |
+| Category    | Description                               |
+| ----------- | ----------------------------------------- |
+| Shirts      | Casual and formal shirts, polos, tees     |
+| Jackets     | Bomber, denim, utility jackets            |
+| Pants       | Chinos, trousers, joggers, jeans          |
+| Footwear    | Sneakers, boots, loafers                  |
+| Sweaters    | Hoodies, pullovers, knitwear              |
 | Accessories | Belts, watches, bags, sunglasses, beanies |
 
 ## 🔒 Security Features
@@ -159,6 +176,7 @@ The checkout supports multiple payment options:
 ## 📊 Database Schema
 
 ### Tables
+
 - `products` - Product catalog
 - `profiles` - User profiles
 - `cart` - Shopping cart items
@@ -182,6 +200,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 👨‍💻 Author
 
 **Sohel Rana**
+
 - Location: Mohammadpur, Dhaka, Bangladesh
 - Phone: +8801956927088
 - Facebook: [Hodo](https://www.facebook.com/p/Hodo-100063910240902/)

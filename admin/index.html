@@ -1,371 +1,834 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - HODO</title>
-    <link rel="stylesheet" href="/admin/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-    <div class="admin-container">
-        <!-- Left Sidebar Navigation -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <img src="../assets/hodo-logo.png" alt="HODO Logo" class="sidebar-logo">
-                <span class="sidebar-title">HODO Admin</span>
-            </div>
-            
-            <nav class="sidebar-nav">
-                <a href="index.html" class="nav-item active">
-                    <i class="fas fa-th-large"></i>
-                    <span>Dashboard Overview</span>
-                </a>
-                <a href="orders.html" class="nav-item">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span>Orders</span>
-                </a>
-                <a href="products.html" class="nav-item">
-                    <i class="fas fa-tshirt"></i>
-                    <span>Products</span>
-                </a>
-                <a href="inventory.html" class="nav-item">
-                    <i class="fas fa-warehouse"></i>
-                    <span>Inventory</span>
-                </a>
-                <a href="customers.html" class="nav-item">
-                    <i class="fas fa-users"></i>
-                    <span>Customers</span>
-                </a>
-                <a href="discounts.html" class="nav-item">
-                    <i class="fas fa-percent"></i>
-                    <span>Discounts / Coupons</span>
-                </a>
-                <a href="banners.html" class="nav-item">
-                    <i class="fas fa-images"></i>
-                    <span>Banners / Homepage</span>
-                </a>
-                <a href="reviews.html" class="nav-item">
-                    <i class="fas fa-star"></i>
-                    <span>Reviews / Ratings</span>
-                </a>
-                <a href="payments.html" class="nav-item">
-                    <i class="fas fa-credit-card"></i>
-                    <span>Payments / Transactions</span>
-                </a>
-                <a href="analytics.html" class="nav-item">
-                    <i class="fas fa-chart-line"></i>
-                    <span>Analytics / Reports</span>
-                </a>
-                <a href="shipping.html" class="nav-item">
-                    <i class="fas fa-truck"></i>
-                    <span>Shipping / Delivery</span>
-                </a>
-                <a href="staff.html" class="nav-item">
-                    <i class="fas fa-user-shield"></i>
-                    <span>Staff / Admin Roles</span>
-                </a>
-                <a href="settings.html" class="nav-item">
-                    <i class="fas fa-cog"></i>
-                    <span>Settings</span>
-                </a>
-            </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hodo Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/admin/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase-config.js"></script>
+  </head>
+  <body>
+    <div class="admin-wrapper">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <img src="../assets/hodo-logo.png" alt="Hodo" class="sidebar-logo" />
+          <span class="sidebar-title">Admin Panel</span>
+          <button class="sidebar-close" id="sidebarClose">&times;</button>
+        </div>
 
-            <div class="sidebar-footer">
-                <a href="../index.html" class="nav-item">
-                    <i class="fas fa-external-link-alt"></i>
-                    <span>View Store</span>
-                </a>
-                <button class="logout-btn">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span>
+        <nav class="sidebar-nav">
+          <a href="/admin/index.html" class="nav-item active" data-section="dashboard">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="3" y="3" width="7" height="7" rx="1" />
+              <rect x="14" y="3" width="7" height="7" rx="1" />
+              <rect x="3" y="14" width="7" height="7" rx="1" />
+              <rect x="14" y="14" width="7" height="7" rx="1" />
+            </svg>
+            <span>Dashboard</span>
+          </a>
+          <a href="/admin/orders.html" class="nav-item" data-section="orders">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" />
+              <rect x="9" y="3" width="6" height="4" rx="1" />
+              <path d="M9 12h6M9 16h6" />
+            </svg>
+            <span>Orders</span>
+          </a>
+          <a href="/admin/products.html" class="nav-item" data-section="products">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"
+              />
+              <line x1="7" y1="7" x2="7.01" y2="7" />
+            </svg>
+            <span>Products</span>
+          </a>
+          <a href="/admin/inventory.html" class="nav-item" data-section="inventory">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"
+              />
+              <polyline points="3.27,6.96 12,12.01 20.73,6.96" />
+              <line x1="12" y1="22.08" x2="12" y2="12" />
+            </svg>
+            <span>Inventory</span>
+          </a>
+          <a href="/admin/customers.html" class="nav-item" data-section="customers">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 00-3-3.87" />
+              <path d="M16 3.13a4 4 0 010 7.75" />
+            </svg>
+            <span>Customers</span>
+          </a>
+          <a href="/admin/discounts.html" class="nav-item" data-section="discounts">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"
+              />
+              <line x1="7" y1="7" x2="7.01" y2="7" />
+            </svg>
+            <span>Discounts</span>
+          </a>
+          <a href="/admin/banners.html" class="nav-item" data-section="banners">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <polyline points="21,15 16,10 5,21" />
+            </svg>
+            <span>Banners</span>
+          </a>
+          <a href="/admin/reviews.html" class="nav-item" data-section="reviews">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+              />
+            </svg>
+            <span>Reviews</span>
+          </a>
+          <a href="/admin/payments.html" class="nav-item" data-section="payments">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+              <line x1="1" y1="10" x2="23" y2="10" />
+            </svg>
+            <span>Payments</span>
+          </a>
+          <a href="/admin/shipping.html" class="nav-item" data-section="shipping">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="1" y="3" width="15" height="13" />
+              <polygon points="16,8 20,8 23,11 23,16 16,16 16,8" />
+              <circle cx="5.5" cy="18.5" r="2.5" />
+              <circle cx="18.5" cy="18.5" r="2.5" />
+            </svg>
+            <span>Shipping</span>
+          </a>
+          <a href="/admin/staff.html" class="nav-item" data-section="staff">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+              <circle cx="8.5" cy="7" r="4" />
+              <line x1="20" y1="8" x2="20" y2="14" />
+              <line x1="23" y1="11" x2="17" y2="11" />
+            </svg>
+            <span>Staff</span>
+          </a>
+          <a href="/admin/settings.html" class="nav-item" data-section="settings">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"
+              />
+            </svg>
+            <span>Settings</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <a href="../pages/index.html" class="back-to-store">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            <span>Back to Store</span>
+          </a>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+          <button class="menu-toggle" id="menuToggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+          <div class="header-title">
+            <h1 id="pageTitle">Dashboard</h1>
+          </div>
+          <div class="header-actions">
+            <div class="header-search">
+              <input type="text" placeholder="Search..." id="globalSearch" />
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8" />
+                <path d="M21 21l-4.35-4.35" />
+              </svg>
+            </div>
+            <div class="header-notifications">
+              <button class="notification-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                  <path d="M13.73 21a2 2 0 01-3.46 0" />
+                </svg>
+                <span class="notification-badge">3</span>
+              </button>
+            </div>
+            <div class="header-user">
+              <div class="user-avatar" id="userAvatar">A</div>
+              <span class="user-name" id="userName">Admin</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- Content Area -->
+        <div class="content-area" id="contentArea">
+          <!-- Dashboard Section -->
+          <section class="content-section active" id="section-dashboard">
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-icon sales">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="1" x2="12" y2="23" />
+                    <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+                  </svg>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-label">Total Sales</span>
+                  <span class="stat-value" id="totalSales">৳0</span>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon orders">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" />
+                    <rect x="9" y="3" width="6" height="4" rx="1" />
+                  </svg>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-label">Total Orders</span>
+                  <span class="stat-value" id="totalOrders">0</span>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon revenue">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+                  </svg>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-label">Revenue</span>
+                  <span class="stat-value" id="totalRevenue">৳0</span>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon customers">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                  </svg>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-label">Customers</span>
+                  <span class="stat-value" id="totalCustomers">0</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="dashboard-grid">
+              <div class="dashboard-card">
+                <div class="card-header">
+                  <h3>Recent Orders</h3>
+                  <a href="#" class="view-all" data-section="orders">View All</a>
+                </div>
+                <div class="card-content">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody id="recentOrdersTable">
+                      <tr>
+                        <td colspan="4" class="no-data">No orders yet</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="dashboard-card">
+                <div class="card-header">
+                  <h3>Best Selling Products</h3>
+                  <a href="#" class="view-all" data-section="products">View All</a>
+                </div>
+                <div class="card-content">
+                  <div class="product-list" id="bestSellingProducts">
+                    <div class="no-data">No products data</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Orders Section -->
+          <section class="content-section" id="section-orders">
+            <div class="section-header">
+              <h2>Orders Management</h2>
+              <div class="section-actions">
+                <select id="orderStatusFilter" class="filter-select">
+                  <option value="">All Status</option>
+                  <option value="pending">Pending</option>
+                  <option value="processing">Processing</option>
+                  <option value="shipped">Shipped</option>
+                  <option value="delivered">Delivered</option>
+                  <option value="cancelled">Cancelled</option>
+                </select>
+              </div>
+            </div>
+            <div class="data-table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Items</th>
+                    <th>Total</th>
+                    <th>Payment</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="ordersTable">
+                  <tr>
+                    <td colspan="8" class="no-data">No orders found</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Products Section -->
+          <section class="content-section" id="section-products">
+            <div class="section-header">
+              <h2>Products Management</h2>
+              <div class="section-actions">
+                <select id="productCategoryFilter" class="filter-select">
+                  <option value="">All Categories</option>
+                  <option value="shirts">Shirts</option>
+                  <option value="jackets">Jackets</option>
+                  <option value="pants">Pants</option>
+                  <option value="footwear">Footwear</option>
+                  <option value="sweaters">Sweaters</option>
+                  <option value="accessories">Accessories</option>
+                </select>
+                <button class="btn btn-primary" id="addProductBtn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                  Add Product
                 </button>
+              </div>
             </div>
-        </aside>
-
-        <!-- Main Content Area -->
-        <main class="main-content">
-            <!-- Top Header Bar -->
-            <header class="top-header">
-                <div class="header-left">
-                    <h1 class="page-title">Dashboard Overview</h1>
-                </div>
-                <div class="header-right">
-                    <div class="search-bar">
-                        <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Search...">
-                    </div>
-                    <div class="header-actions">
-                        <button class="notification-btn">
-                            <i class="fas fa-bell"></i>
-                            <span class="notification-badge">5</span>
-                        </button>
-                        <div class="admin-profile">
-                            <img src="https://ui-avatars.com/api/?name=Admin&background=e74c3c&color=fff" alt="Admin">
-                            <div class="profile-dropdown">
-                                <span class="profile-name">Admin User</span>
-                                <span class="profile-role">Super Admin</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
-            <!-- Dashboard Content -->
-            <div class="dashboard-content">
-                <!-- Statistics Cards -->
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon sales">
-                            <i class="fas fa-dollar-sign"></i>
-                        </div>
-                        <div class="stat-info">
-                            <span class="stat-label">Total Sales</span>
-                            <span class="stat-value">৳124,563.00</span>
-                            <span class="stat-change positive">
-                                <i class="fas fa-arrow-up"></i> 12.5% from last month
-                            </span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon orders">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <div class="stat-info">
-                            <span class="stat-label">Total Orders</span>
-                            <span class="stat-value">1,284</span>
-                            <span class="stat-change positive">
-                                <i class="fas fa-arrow-up"></i> 8.2% from last month
-                            </span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon revenue">
-                            <i class="fas fa-chart-pie"></i>
-                        </div>
-                        <div class="stat-info">
-                            <span class="stat-label">Revenue</span>
-                            <span class="stat-value">৳89,432.00</span>
-                            <span class="stat-change positive">
-                                <i class="fas fa-arrow-up"></i> 15.3% from last month
-                            </span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon pending">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="stat-info">
-                            <span class="stat-label">Pending Orders</span>
-                            <span class="stat-value">43</span>
-                            <span class="stat-change negative">
-                                <i class="fas fa-arrow-down"></i> 3.1% from last week
-                            </span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon low-stock">
-                            <i class="fas fa-exclamation-triangle"></i>
-                        </div>
-                        <div class="stat-info">
-                            <span class="stat-label">Low Stock Items</span>
-                            <span class="stat-value">12</span>
-                            <span class="stat-change neutral">
-                                <i class="fas fa-minus"></i> Same as last week
-                            </span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon customers">
-                            <i class="fas fa-user-plus"></i>
-                        </div>
-                        <div class="stat-info">
-                            <span class="stat-label">Customers</span>
-                            <span class="stat-value">3,842</span>
-                            <span class="stat-change positive">
-                                <i class="fas fa-arrow-up"></i> 24.5% from last month
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Charts Section -->
-                <div class="charts-section">
-                    <div class="chart-card large fixed-chart">
-                        <div class="chart-header">
-                            <h3>Sales Overview</h3>
-                            <div class="chart-filters">
-                                <button class="filter-btn active">Week</button>
-                                <button class="filter-btn">Month</button>
-                                <button class="filter-btn">Year</button>
-                            </div>
-                        </div>
-                        <canvas id="salesChart"></canvas>
-                    </div>
-                    <div class="chart-card fixed-chart">
-                        <div class="chart-header">
-                            <h3>Revenue by Category</h3>
-                        </div>
-                        <canvas id="categoryChart"></canvas>
-                    </div>
-                </div>
-
-                <!-- Tables Section -->
-                <div class="tables-section">
-                    <!-- Recent Orders -->
-                    <div class="table-card">
-                        <div class="table-header">
-                            <h3>Recent Orders</h3>
-                            <a href="orders.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                        <div class="table-container">
-                            <table class="data-table">
-                                <thead>
-                                    <tr>
-                                        <th>Order ID</th>
-                                        <th>Customer</th>
-                                        <th>Amount</th>
-                                        <th>Status</th>
-                                        <th>Date</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>#ORD-2847</td>
-                                        <td>
-                                            <div class="customer-cell">
-                                                <img src="https://ui-avatars.com/api/?name=John+Doe&background=3498db&color=fff" alt="">
-                                                <span>John Doe</span>
-                                            </div>
-                                        </td>
-                                        <td>৳234.50</td>
-                                        <td><span class="status-badge delivered">Delivered</span></td>
-                                        <td>Feb 18, 2026</td>
-                                    </tr>
-                                    <tr>
-                                        <td>#ORD-2846</td>
-                                        <td>
-                                            <div class="customer-cell">
-                                                <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=9b59b6&color=fff" alt="">
-                                                <span>Jane Smith</span>
-                                            </div>
-                                        </td>
-                                        <td>৳189.00</td>
-                                        <td><span class="status-badge processing">Processing</span></td>
-                                        <td>Feb 18, 2026</td>
-                                    </tr>
-                                    <tr>
-                                        <td>#ORD-2845</td>
-                                        <td>
-                                            <div class="customer-cell">
-                                                <img src="https://ui-avatars.com/api/?name=Mike+Johnson&background=e67e22&color=fff" alt="">
-                                                <span>Mike Johnson</span>
-                                            </div>
-                                        </td>
-                                        <td>৳567.80</td>
-                                        <td><span class="status-badge shipped">Shipped</span></td>
-                                        <td>Feb 17, 2026</td>
-                                    </tr>
-                                    <tr>
-                                        <td>#ORD-2844</td>
-                                        <td>
-                                            <div class="customer-cell">
-                                                <img src="https://ui-avatars.com/api/?name=Sarah+Wilson&background=1abc9c&color=fff" alt="">
-                                                <span>Sarah Wilson</span>
-                                            </div>
-                                        </td>
-                                        <td>৳98.00</td>
-                                        <td><span class="status-badge pending">Pending</span></td>
-                                        <td>Feb 17, 2026</td>
-                                    </tr>
-                                    <tr>
-                                        <td>#ORD-2843</td>
-                                        <td>
-                                            <div class="customer-cell">
-                                                <img src="https://ui-avatars.com/api/?name=Tom+Brown&background=e74c3c&color=fff" alt="">
-                                                <span>Tom Brown</span>
-                                            </div>
-                                        </td>
-                                        <td>৳345.00</td>
-                                        <td><span class="status-badge confirmed">Confirmed</span></td>
-                                        <td>Feb 16, 2026</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Best Selling Products -->
-                    <div class="table-card">
-                        <div class="table-header">
-                            <h3>Best Selling Products</h3>
-                            <a href="products.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                        <div class="bestsellers-list">
-                            <div class="bestseller-item">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=100" alt="Product">
-                                <div class="product-info">
-                                    <span class="product-name">Classic White T-Shirt</span>
-                                    <span class="product-category">Men's Clothing</span>
-                                </div>
-                                <div class="product-stats">
-                                    <span class="sales-count">482 sold</span>
-                                    <span class="revenue">৳14,460</span>
-                                </div>
-                            </div>
-                            <div class="bestseller-item">
-                                <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=100" alt="Product">
-                                <div class="product-info">
-                                    <span class="product-name">Casual Blue Jeans</span>
-                                    <span class="product-category">Men's Clothing</span>
-                                </div>
-                                <div class="product-stats">
-                                    <span class="sales-count">356 sold</span>
-                                    <span class="revenue">৳17,800</span>
-                                </div>
-                            </div>
-                            <div class="bestseller-item">
-                                <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=100" alt="Product">
-                                <div class="product-info">
-                                    <span class="product-name">Summer Floral Dress</span>
-                                    <span class="product-category">Women's Clothing</span>
-                                </div>
-                                <div class="product-stats">
-                                    <span class="sales-count">298 sold</span>
-                                    <span class="revenue">৳22,350</span>
-                                </div>
-                            </div>
-                            <div class="bestseller-item">
-                                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=100" alt="Product">
-                                <div class="product-info">
-                                    <span class="product-name">Leather Jacket</span>
-                                    <span class="product-category">Men's Clothing</span>
-                                </div>
-                                <div class="product-stats">
-                                    <span class="sales-count">187 sold</span>
-                                    <span class="revenue">৳28,050</span>
-                                </div>
-                            </div>
-                            <div class="bestseller-item">
-                                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=100" alt="Product">
-                                <div class="product-info">
-                                    <span class="product-name">Silk Blouse</span>
-                                    <span class="product-category">Women's Clothing</span>
-                                </div>
-                                <div class="product-stats">
-                                    <span class="sales-count">165 sold</span>
-                                    <span class="revenue">৳13,200</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="data-table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="productsTable">
+                  <tr>
+                    <td colspan="7" class="no-data">No products found</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-        </main>
+          </section>
+
+          <!-- Inventory Section -->
+          <section class="content-section" id="section-inventory">
+            <div class="section-header">
+              <h2>Inventory Management</h2>
+              <div class="section-actions">
+                <select id="inventoryFilter" class="filter-select">
+                  <option value="">All Items</option>
+                  <option value="low">Low Stock</option>
+                  <option value="out">Out of Stock</option>
+                  <option value="normal">In Stock</option>
+                </select>
+              </div>
+            </div>
+            <div class="data-table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>SKU</th>
+                    <th>Variant</th>
+                    <th>Stock</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="inventoryTable">
+                  <tr>
+                    <td colspan="6" class="no-data">No inventory data</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Customers Section -->
+          <section class="content-section" id="section-customers">
+            <div class="section-header">
+              <h2>Customers</h2>
+              <div class="section-actions">
+                <input
+                  type="text"
+                  placeholder="Search customers..."
+                  id="customerSearch"
+                  class="search-input"
+                />
+              </div>
+            </div>
+            <div class="data-table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Orders</th>
+                    <th>Total Spent</th>
+                    <th>Joined</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="customersTable">
+                  <tr>
+                    <td colspan="7" class="no-data">No customers found</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Discounts Section -->
+          <section class="content-section" id="section-discounts">
+            <div class="section-header">
+              <h2>Discounts & Coupons</h2>
+              <div class="section-actions">
+                <button class="btn btn-primary" id="addDiscountBtn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                  Add Coupon
+                </button>
+              </div>
+            </div>
+            <div class="data-table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Code</th>
+                    <th>Type</th>
+                    <th>Value</th>
+                    <th>Min Order</th>
+                    <th>Usage</th>
+                    <th>Expiry</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="discountsTable">
+                  <tr>
+                    <td colspan="8" class="no-data">No coupons found</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Banners Section -->
+          <section class="content-section" id="section-banners">
+            <div class="section-header">
+              <h2>Banners & Homepage</h2>
+              <div class="section-actions">
+                <button class="btn btn-primary" id="addBannerBtn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                  Add Banner
+                </button>
+              </div>
+            </div>
+            <div class="banners-grid" id="bannersGrid">
+              <div class="no-data">No banners found</div>
+            </div>
+          </section>
+
+          <!-- Reviews Section -->
+          <section class="content-section" id="section-reviews">
+            <div class="section-header">
+              <h2>Reviews & Ratings</h2>
+              <div class="section-actions">
+                <select id="reviewStatusFilter" class="filter-select">
+                  <option value="">All Reviews</option>
+                  <option value="pending">Pending</option>
+                  <option value="approved">Approved</option>
+                  <option value="rejected">Rejected</option>
+                </select>
+              </div>
+            </div>
+            <div class="data-table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Customer</th>
+                    <th>Rating</th>
+                    <th>Review</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="reviewsTable">
+                  <tr>
+                    <td colspan="7" class="no-data">No reviews found</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Payments Section -->
+          <section class="content-section" id="section-payments">
+            <div class="section-header">
+              <h2>Payments & Transactions</h2>
+              <div class="section-actions">
+                <select id="paymentMethodFilter" class="filter-select">
+                  <option value="">All Methods</option>
+                  <option value="cod">Cash on Delivery</option>
+                  <option value="bkash">bKash</option>
+                  <option value="nagad">Nagad</option>
+                  <option value="card">Card</option>
+                </select>
+              </div>
+            </div>
+            <div class="data-table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Transaction ID</th>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Method</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody id="paymentsTable">
+                  <tr>
+                    <td colspan="7" class="no-data">No transactions found</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Shipping Section -->
+          <section class="content-section" id="section-shipping">
+            <div class="section-header">
+              <h2>Shipping & Delivery</h2>
+              <div class="section-actions">
+                <select id="shippingStatusFilter" class="filter-select">
+                  <option value="">All Status</option>
+                  <option value="pending">Pending</option>
+                  <option value="shipped">Shipped</option>
+                  <option value="in_transit">In Transit</option>
+                  <option value="delivered">Delivered</option>
+                </select>
+              </div>
+            </div>
+            <div class="data-table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Address</th>
+                    <th>Courier</th>
+                    <th>Tracking</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="shippingTable">
+                  <tr>
+                    <td colspan="7" class="no-data">No shipments found</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Staff Section -->
+          <section class="content-section" id="section-staff">
+            <div class="section-header">
+              <h2>Staff & Roles</h2>
+              <div class="section-actions">
+                <button class="btn btn-primary" id="addStaffBtn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                  Add Staff
+                </button>
+              </div>
+            </div>
+            <div class="data-table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Last Active</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="staffTable">
+                  <tr>
+                    <td colspan="6" class="no-data">No staff members found</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Settings Section -->
+          <section class="content-section" id="section-settings">
+            <div class="section-header">
+              <h2>Settings</h2>
+            </div>
+            <div class="settings-grid">
+              <div class="settings-card">
+                <h3>Store Information</h3>
+                <form id="storeSettingsForm">
+                  <div class="form-group">
+                    <label>Store Name</label>
+                    <input type="text" id="storeName" value="Hodo" />
+                  </div>
+                  <div class="form-group">
+                    <label>Store Email</label>
+                    <input type="email" id="storeEmail" value="info@hodo.com" />
+                  </div>
+                  <div class="form-group">
+                    <label>Store Phone</label>
+                    <input type="tel" id="storePhone" value="+8801956927088" />
+                  </div>
+                  <div class="form-group">
+                    <label>Store Address</label>
+                    <textarea id="storeAddress" rows="2">Mohammadpur, Dhaka, Bangladesh</textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+              </div>
+
+              <div class="settings-card">
+                <h3>Payment Methods</h3>
+                <div class="toggle-list">
+                  <div class="toggle-item">
+                    <span>Cash on Delivery</span>
+                    <label class="toggle-switch">
+                      <input type="checkbox" id="paymentCOD" checked />
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+                  <div class="toggle-item">
+                    <span>bKash</span>
+                    <label class="toggle-switch">
+                      <input type="checkbox" id="paymentBkash" checked />
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+                  <div class="toggle-item">
+                    <span>Nagad</span>
+                    <label class="toggle-switch">
+                      <input type="checkbox" id="paymentNagad" checked />
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+                  <div class="toggle-item">
+                    <span>Credit/Debit Card</span>
+                    <label class="toggle-switch">
+                      <input type="checkbox" id="paymentCard" />
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="settings-card">
+                <h3>Delivery Settings</h3>
+                <form id="deliverySettingsForm">
+                  <div class="form-group">
+                    <label>Inside Dhaka (৳)</label>
+                    <input type="number" id="deliveryInside" value="60" />
+                  </div>
+                  <div class="form-group">
+                    <label>Outside Dhaka (৳)</label>
+                    <input type="number" id="deliveryOutside" value="120" />
+                  </div>
+                  <div class="form-group">
+                    <label>Free Delivery Above (৳)</label>
+                    <input type="number" id="freeDeliveryAbove" value="2000" />
+                  </div>
+                  <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+              </div>
+
+              <div class="settings-card">
+                <h3>Notification Settings</h3>
+                <div class="toggle-list">
+                  <div class="toggle-item">
+                    <span>Email Notifications</span>
+                    <label class="toggle-switch">
+                      <input type="checkbox" id="notifyEmail" checked />
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+                  <div class="toggle-item">
+                    <span>Order Alerts</span>
+                    <label class="toggle-switch">
+                      <input type="checkbox" id="notifyOrder" checked />
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+                  <div class="toggle-item">
+                    <span>Low Stock Alerts</span>
+                    <label class="toggle-switch">
+                      <input type="checkbox" id="notifyStock" checked />
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
     </div>
 
-    <script src="/admin/dashboard.js"></script>
-</body>
+    <!-- Modal Container -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal" id="modal">
+        <div class="modal-header">
+          <h3 id="modalTitle">Modal Title</h3>
+          <button class="modal-close" id="modalClose">&times;</button>
+        </div>
+        <div class="modal-body" id="modalBody">
+          <!-- Dynamic content -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-container" id="toastContainer"></div>
+    <script src="dashboard.js"></script>
+  </body>
 </html>

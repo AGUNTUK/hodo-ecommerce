@@ -1,0 +1,27 @@
+{
+  "name": "hodo-ecommerce",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Premium menswear e-commerce platform (static frontend + Supabase).",
+  "scripts": {
+    "serve": "npx --yes serve -l 5173",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "node -e \"console.log('No build step: static site build is a no-op')\"",
+    "lint": "eslint \"**/*.{js,ts}\"",
+    "lint:fix": "eslint \"**/*.{js,ts}\" --fix",
+    "format": "prettier \"**/*.{js,ts,css,html,json,yml,yaml,md}\" --write",
+    "format:check": "prettier \"**/*.{js,ts,css,html,json,yml,yaml,md}\" --check"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.2",
+    "vitest": "^1.4.0"
+  }
+}

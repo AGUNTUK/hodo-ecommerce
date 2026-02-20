@@ -1,21 +1,25 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hodo - Premium Menswear</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
   <!-- Supabase JS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="supabase-config.js"></script>
+  <script src="../supabase-config.js"></script>
 </head>
+
 <body data-page="home">
   <header class="top-nav surface">
     <a class="logo-brand" href="index.html" aria-label="Hodo Home">
-      <img class="logo-img" src="assets/hodo-logo.png" alt="Hodo logo">
+      <img class="logo-img" src="../assets/hodo-logo.png" alt="Hodo logo" />
     </a>
 
     <form class="search-wrap surface-inset global-search-form" role="search">
@@ -23,7 +27,7 @@
         <circle cx="11" cy="11" r="7"></circle>
         <path d="m20 20-3.5-3.5"></path>
       </svg>
-      <input type="search" name="q" placeholder="Search premium menswear">
+      <input type="search" name="q" placeholder="Search premium menswear" />
     </form>
 
     <div class="nav-actions">
@@ -42,7 +46,9 @@
       </a>
       <a class="icon-btn soft-button" data-page-link="wishlist" href="wishlist.html" aria-label="Wishlist">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+          <path
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z">
+          </path>
         </svg>
       </a>
       <a class="icon-btn soft-button" data-page-link="cart" href="cart.html" aria-label="Cart">
@@ -63,16 +69,21 @@
 
   <main class="container">
     <!-- Hero Section -->
-    <section class="home-hero surface">
-      <div class="hero-content">
-        <p class="eyebrow">Premium Menswear</p>
-        <h1>Elevate Your Style with Hodo</h1>
-        <p class="hero-subtitle">Discover curated collections of sharp, modern essentials designed for the contemporary man.</p>
-        <div class="hero-actions">
-          <a href="shop.html" class="btn primary-btn">Shop Collection</a>
-          <a href="#featured" class="btn secondary-btn">Explore Featured</a>
+    <section class="hero-container" id="heroContainer">
+      <section class="home-hero surface">
+        <div class="hero-content">
+          <p class="eyebrow">Premium Menswear</p>
+          <h1>Elevate Your Style with Hodo</h1>
+          <p class="hero-subtitle">
+            Discover curated collections of sharp, modern essentials designed for the contemporary
+            man.
+          </p>
+          <div class="hero-actions">
+            <a href="shop.html" class="btn primary-btn">Shop Collection</a>
+            <a href="#featured" class="btn secondary-btn">Explore Featured</a>
+          </div>
         </div>
-      </div>
+      </section>
     </section>
 
     <!-- Categories Section -->
@@ -164,7 +175,9 @@
         <div class="feature-card">
           <div class="feature-icon">
             <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              <path
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+              </path>
             </svg>
           </div>
           <h3>24/7 Support</h3>
@@ -192,7 +205,9 @@
         <!-- Wishlist items will be loaded dynamically -->
         <div class="empty-state" id="emptyWishlist">
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z">
+            </path>
           </svg>
           <p>Your wishlist is empty</p>
           <a href="shop.html" class="btn secondary-btn">Start Shopping</a>
@@ -206,10 +221,19 @@
       <p><strong>Shop Address:</strong> 2/13, Noorjahan Road, Mohammadpur, Dhaka</p>
       <div class="contact-actions">
         <a class="contact-icon" href="tel:+8801956927088" aria-label="Call Hodo" title="Call Hodo">
-          <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.2-1.2a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.6.7A2 2 0 0 1 22 16.9z"></path></svg>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.2-1.2a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.6.7A2 2 0 0 1 22 16.9z">
+            </path>
+          </svg>
         </a>
-        <a class="contact-icon" href="https://www.facebook.com/p/Hodo-100063910240902/" target="_blank" rel="noopener noreferrer" aria-label="Open Hodo Facebook" title="Hodo Facebook">
-          <svg class="icon-fill" viewBox="0 0 24 24"><path d="M13.3 22v-8h2.7l.5-3h-3.2V9c0-.9.3-1.5 1.6-1.5h1.7V5c-.3 0-1.4-.1-2.6-.1-2.6 0-4.3 1.6-4.3 4.5v1.6H7.5v3h2.2v8h3.6Z"></path></svg>
+        <a class="contact-icon" href="https://www.facebook.com/p/Hodo-100063910240902/" target="_blank"
+          rel="noopener noreferrer" aria-label="Open Hodo Facebook" title="Hodo Facebook">
+          <svg class="icon-fill" viewBox="0 0 24 24">
+            <path
+              d="M13.3 22v-8h2.7l.5-3h-3.2V9c0-.9.3-1.5 1.6-1.5h1.7V5c-.3 0-1.4-.1-2.6-.1-2.6 0-4.3 1.6-4.3 4.5v1.6H7.5v3h2.2v8h3.6Z">
+            </path>
+          </svg>
         </a>
       </div>
     </section>
@@ -219,10 +243,22 @@
     <div class="footer-content">
       <div class="footer-contact">
         <a class="footer-icon" href="tel:+8801940681989" aria-label="Call Hodo" title="Call Hodo">
-          <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.2-1.2a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.6.7A2 2 0 0 1 22 16.9z"></path></svg>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.2-1.2a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.6.7A2 2 0 0 1 22 16.9z">
+            </path>
+          </svg>
         </a>
-        <a class="footer-icon whatsapp" href="https://wa.me/8801940681989" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Hodo" title="WhatsApp Hodo">
-          <svg viewBox="0 0 24 24"><path d="M17.5 14.5c-.3.1-1.7.8-2 .9s-.5.1-.7-.1c-.2-.3-1-1.3-1.2-1.5s-.3-.2-.6-.1c-.3.1-1.2.5-1.5.6s-.5.1-.7-.1c-.2-.3-.8-1.1-1.4-1.8-.5-.6-.9-1.1-1-1.3-.1-.2 0-.4.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.4-1.1-.6-1.5c-.2-.4-.3-.4-.5-.4h-.5c-.2 0-.4 0-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.7 2.6 4.1 3.6.6.2 1 .4 1.4.5.6.2 1.1.1 1.5.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.1-.5-.2z"></path><path d="M12 2a10 10 0 0 0-8.2 15.7L2 22l4.5-1.7A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.3-1.3l-.3-.2-2.8.9.9-2.7-.2-.3A8 8 0 1 1 12 20z"></path></svg>
+        <a class="footer-icon whatsapp" href="https://wa.me/8801940681989" target="_blank" rel="noopener noreferrer"
+          aria-label="WhatsApp Hodo" title="WhatsApp Hodo">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M17.5 14.5c-.3.1-1.7.8-2 .9s-.5.1-.7-.1c-.2-.3-1-1.3-1.2-1.5s-.3-.2-.6-.1c-.3.1-1.2.5-1.5.6s-.5.1-.7-.1c-.2-.3-.8-1.1-1.4-1.8-.5-.6-.9-1.1-1-1.3-.1-.2 0-.4.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.4-1.1-.6-1.5c-.2-.4-.3-.4-.5-.4h-.5c-.2 0-.4 0-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.7 2.6 4.1 3.6.6.2 1 .4 1.4.5.6.2 1.1.1 1.5.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.1-.5-.2z">
+            </path>
+            <path
+              d="M12 2a10 10 0 0 0-8.2 15.7L2 22l4.5-1.7A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.3-1.3l-.3-.2-2.8.9.9-2.7-.2-.3A8 8 0 1 1 12 20z">
+            </path>
+          </svg>
         </a>
       </div>
       <p class="footer-copyright">© 2026 Hodo. All rights reserved.</p>
@@ -230,93 +266,9 @@
     </div>
   </footer>
 
-  <script src="transitions.js"></script>
-  <script src="app-supabase.js"></script>
-  <script>
-    // Initialize homepage
-    document.addEventListener('DOMContentLoaded', async () => {
-      // Load featured products (first 4)
-      await loadFeaturedProducts();
-      // Load wishlist
-      await loadWishlist();
-      // Smooth scroll for anchor links
-      initSmoothScroll();
-    });
-
-    async function loadFeaturedProducts() {
-      const grid = document.getElementById('featuredGrid');
-      if (!grid || !window.getProducts) return;
-
-      try {
-        const products = await window.getProducts();
-        const featured = products.slice(0, 4);
-        
-        if (featured.length === 0) {
-          grid.innerHTML = '<p class="no-products">No featured products available.</p>';
-          return;
-        }
-
-        grid.innerHTML = featured.map(product => window.renderProductCard(product)).join('');
-        
-        // Bind wishlist buttons
-        if (window.bindWishlistButtons) {
-          await window.bindWishlistButtons(grid);
-        }
-      } catch (error) {
-        console.error('Error loading featured products:', error);
-        grid.innerHTML = '<p class="error-message">Unable to load products. Please try again later.</p>';
-      }
-    }
-
-    async function loadWishlist() {
-      const grid = document.getElementById('wishlistGrid');
-      const emptyState = document.getElementById('emptyWishlist');
-      if (!grid || !window.getWishlist || !window.getProductById) return;
-
-      try {
-        const wishlist = await window.getWishlist();
-        
-        if (wishlist.length === 0) {
-          emptyState.style.display = 'flex';
-          return;
-        }
-
-        emptyState.style.display = 'none';
-        
-        const products = [];
-        for (const item of wishlist) {
-          const product = await window.getProductById(item.product_id);
-          if (product) products.push(product);
-        }
-
-        grid.innerHTML = products.map(product => window.renderProductCard(product)).join('');
-        
-        // Bind wishlist buttons
-        if (window.bindWishlistButtons) {
-          await window.bindWishlistButtons(grid);
-        }
-      } catch (error) {
-        console.error('Error loading wishlist:', error);
-      }
-    }
-
-    function initSmoothScroll() {
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          const href = this.getAttribute('href');
-          if (href === '#') return;
-          
-          e.preventDefault();
-          const target = document.querySelector(href);
-          if (target) {
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        });
-      });
-    }
-  </script>
+  <script src="../transitions.js"></script>
+  <script src="../app-supabase.js"></script>
+  <script src="../banner-display.js"></script>
 </body>
+
 </html>
