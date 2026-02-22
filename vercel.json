@@ -1,19 +1,7 @@
 {
-  "name": "hodo-ecommerce",
   "version": 2,
   "public": true,
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
-    { "source": "/", "destination": "/pages/index.html" },
-    { "source": "/shop", "destination": "/pages/shop.html" },
-    { "source": "/cart", "destination": "/pages/cart.html" },
-    { "source": "/checkout", "destination": "/pages/checkout.html" },
-    { "source": "/product", "destination": "/pages/product.html" },
-    { "source": "/profile", "destination": "/pages/profile.html" },
-    { "source": "/login", "destination": "/pages/login.html" },
-    { "source": "/signup", "destination": "/pages/signup.html" },
-    { "source": "/wishlist", "destination": "/pages/wishlist.html" },
-    { "source": "/admin", "destination": "/admin/index.html" }
-  ]
+  "outputDirectory": "."
 }
